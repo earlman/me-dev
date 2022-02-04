@@ -2,7 +2,14 @@
    "name": "dev.earlman.me",
    "version": "0.0.0",
    "description": "Earl Man's professional portfolio",
-   "scripts": {},
+   "scripts": {
+      "develop": "eleventy --serve",
+      "build": "eleventy"
+   },
    "author": "Earl Mangulabnan",
-   "license": "MIT"
+   "license": "MIT",
+   "dependencies": {},
+   "devDependencies": {
+      "@11ty/eleventy": "^1.0.0"
+   }
 }

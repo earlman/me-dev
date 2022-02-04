@@ -7,7 +7,7 @@ module.exports = (config) => {
       // dataTemplateEngine: "njk",
       dir: {
          input: "src",
-         output: "dist",
+         output: "_dist",
       },
    };
 };

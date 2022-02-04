@@ -17,6 +17,8 @@ To access the site, use `PASSWORD` for the initial Netlify password, and
 
 ==for the authentication.==
 
+If you'd like me to temporarily add you to the repo so that you can see the source code, let me know.
+
 ## Projects
 
 ### [[cyber-admitted|Cyber Admitted]]
@@ -26,3 +28,5 @@ To access the site, use `PASSWORD` for the initial Netlify password, and
 ### [[newsletter-page|Newsletter Page]]
 
 ### [[metal-law-group|Metal Law Group]]
+
+<button>subscribe</button>

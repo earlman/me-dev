@@ -63,6 +63,16 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@fontsource/merriweather@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-4.5.4.tgz#d3768028349d040e1e31d29b245d9dbc211824b0"
+  integrity sha512-nHGjhafMqDS9cO7EdPU46+T7TcwuJeAYlTZYlmHP1oId+sKcoWF+5JQDer2xA2n1Z5LWRdqz5lAs1OAzDe2qxQ==
+
+"@fontsource/open-sans@^4.5.3":
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.3.tgz#168670a01d195fcff29a169b0c70a676a8e63fdf"
+  integrity sha512-zabYpvz2XkZ4Vp1EN2/k0r5X9kQgwjdj1+kJ6B0T/oN4h9yqJqr9VKxa+JspRxClxDEo23K5GqfuIEH1+WyFOw==
+
 "@iarna/toml@^2.2.5":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"

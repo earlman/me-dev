@@ -4,9 +4,12 @@ module.exports = (eleventyConfig) => {
    //copy /images to dist/images
    // eleventyConfig.addPassthroughCopy("./src/images");
 
+   eleventyConfig.addPassthroughCopy({
+      "node_modules/@fontsource/open-sans/files": "css/fonts",
+      "node_modules/@fontsource/merriweather/files": "css/fonts",
+   });
+
    return {
-      // markdownTemplateEngine: "njk",
-      // dataTemplateEngine: "njk",
       dir: {
          input: "src",
          output: "_dist",

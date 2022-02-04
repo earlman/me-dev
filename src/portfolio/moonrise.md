@@ -1,3 +1,7 @@
+---
+layout: layouts/base.njk
+---
+
 ## Featured Project
 
 ### [[Cyber Admitted]]

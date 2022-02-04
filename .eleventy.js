@@ -1,6 +1,8 @@
-module.exports = (config) => {
+module.exports = (eleventyConfig) => {
+   eleventyConfig.addWatchTarget("./styles/");
+
    //copy /images to dist/images
-   // config.addPassthroughCopy("./src/images");
+   // eleventyConfig.addPassthroughCopy("./src/images");
 
    return {
       // markdownTemplateEngine: "njk",

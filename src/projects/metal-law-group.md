@@ -2,27 +2,22 @@
 github-url: https://github.com/earlman/Metal-Law-Group-Redesign
 url: mlg.foundations.design
 ---
+
 # Metal Law Group
 Website Frontend Redesign 
 
 ## Summary
 
-The partners of the law firm disbanded in early 2021, so the site is no longer live.
+The partners of the law firm disbanded in early 2021, so I'm self-hosting this site for my portfolio.
 
-- 2-3 sentences
-- Motivation
-	- I couldn't find...
-	- I didn't like...
-	- I wanted...
-- Process Summary
-	- Time spent
-	- Feedback
+
 
 ## Tech & Dependencies
 ### Major
+- [Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
+
 ### Minor
+-  [Shipwright CSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
+
 
 ## Features
-1. Feature 1
-2. Feature 2
-3. Feature 3

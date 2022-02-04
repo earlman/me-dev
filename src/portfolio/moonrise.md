@@ -29,4 +29,3 @@ If you'd like me to temporarily add you to the repo so that you can see the sour
 
 ### [[metal-law-group|Metal Law Group]]
 
-<button>subscribe</button>

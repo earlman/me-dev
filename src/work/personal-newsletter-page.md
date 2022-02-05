@@ -1,7 +1,7 @@
 ---
 title: Personal Newsletter Page
 url-github: https://github.com/earlman/me/blob/master/site/src/pages/Newsletter.vue
-url: earlman.me/newsletter
+url: https://earlman.me/newsletter
 date-completed: 2020-05-05
 sort: 4
 ---

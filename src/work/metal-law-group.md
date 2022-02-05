@@ -2,6 +2,7 @@
 title: Metal Law Group
 url: https://mlg.foundations.design
 urlGithub: https://github.com/earlman/Metal-Law-Group-Redesign
+sort: 3
 ---
 
 # Metal Law Group

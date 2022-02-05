@@ -1,6 +1,8 @@
 ---
 title: Shipwright CSS
 url: https://shipwright.foundations.design
+urlGithub: https://github.com/foundations-design/Shipwright
+sort: 1
 ---
 
 # Shipwright CSS

@@ -1,7 +1,46 @@
 ---
 layout: layouts/base.njk
 ---
+<div class="hero">
+   <p class="company">
+      {{company}}
+   </p>
+   <p class="greeting">
+      Hi {{ correspondent }},
+   </p>
+</div>
 
 <div class="markdown-content">
    {{ content | safe }}
 </div>
+
+<h2>
+   Work
+</h2>
+
+<!-- Show Featured Work (based on frontmatter tag) -->
+{%- for project in collections.project -%}
+   {%- if project.data.tags.includes('featured') -%}
+      <div class="featured project">
+         <div class="caption">
+            featured
+         </div>
+         <div>
+            {{ project.templateContent | safe }}
+         </div>
+      </div>
+   {%- endif -%}
+{%- endfor -%}
+
+<!-- Show Other Work -->
+{%- for project in collections.project -%}
+   {%- if not project.data.tags.includes('featured') -%}
+      <div class="project">
+         <div>
+            {{ project.templateContent | safe }}
+         </div>
+      </div>
+   {%- endif -%}
+{%- endfor -%}
+
+<hr>

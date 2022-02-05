@@ -20,17 +20,21 @@ Big Data Insure (BDI) was looking for a tool to help support the complicated pro
 ## Features
 
 - Allows brokers to calculate cyber insurance quotes
-- Authentication system - Custom Vue components, fully integrated with Vuex & Vue-Router, adhering to my understanding of best-practices - [Vuex Route Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html) - Uses firebase rules to limit user queries
-- Analytics - Uses [amcharts](https://www.amcharts.com/) and Vuex getters to process quotes data
+- Authentication system - Custom Vue components, fully integrated with Vuex & Vue-Router, adhering to my understanding of best-practices
+- [Vuex Route Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html) - Uses firebase rules to limit user queries
+- Analytics - Uses [amCharts](https://www.amcharts.com/) and Vuex getters to process quotes data
 - Airtable Integration - This is the tool BDI uses to calculate & log their quotes. We leverage Airtable's API to calculate rates using data from our app. It's a temporary solution while we test the tool internally, since we're eventually going to run into Airtable's Rate Limits. An intermediate solution we have available is to use use [Netlify Functions](https://docs.netlify.com/functions/overview/) as a (serverless) rate-limiter to avoid hitting the limits from Airtable.
 
-## Tech & Dependencies
+## Tech
 
 - Vue, Vue Router, Vuex
 - [Buefy](https://buefy.org/) - Vue components based on Bulma
 - Firebase - Database & Authentication
-- [Shipwright CSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
 - Netlify
+- [amCharts](https://www.amcharts.com/)
+- [ShipwrightCSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
+
+---
 
 ## Additional Info - Major Refactoring Sprint
 
@@ -45,8 +49,6 @@ The process basically involved going through each component and taking a look at
 1. How it's communicating with the store
 2. What it's Parent & Child components are
 3. What logic it's implementing
-
-==Insert Pictures of Audit Process==
 
 It took about a week to do this. This provided insight not only on where refactors should be made, but how to best move forward with new features. Here's a short list of the refactoring work that was done:
 

@@ -1,6 +1,6 @@
 ---
 title: Cyber Admitted
-url: https://quotes.specialtycyber.com/
+url: https://deploy-preview-39--bdi-quote-tool.netlify.app/
 url-github: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
 url-github-private: true
 password: NETHER-rustle-flea

@@ -18,7 +18,7 @@ layout: layouts/base.njk
    <h2>Work</h2>
 
    <!-- Show Other Work -->
-   {%- for project in collections.project -%} {%- if not project.data.tags.includes('featured') -%}
+   {%- for project in collections.sortedWork -%}
    <a class="project-link" href="{{ project.filePathStem }}">
       <div class="project not-featured">
          <div class="left">
@@ -34,5 +34,5 @@ layout: layouts/base.njk
          </p>
       </div>
    </a>
-   {%- endif -%} {%- endfor -%}
+   {%- endfor -%}
 </div>

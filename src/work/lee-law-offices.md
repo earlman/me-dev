@@ -18,7 +18,7 @@ Lee Law Offices is a boutique law firm based in California that was looking to b
 
 - Markdown-based content management solution, stored on Github. Designed to streamline the addition of an admin interface, if necessary
 - Implemented internationalization to support Spanish speakers
-- 89+ Lightouse scores (98 Performance, 100 Best Practices)
+- 85+ Google Lighthouse scores (97 Accessibility)
 - Clean, unique & personable design
 
 ## Tech

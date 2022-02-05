@@ -17,7 +17,7 @@ I was looking to start a newsletter for my friends, but I didn't want to rely on
 ## Features
 
 - A design that's clean, but still unique and personable.
-- 89+ Lighthouse scores (98 Performance, 100 Best Practices
+- 89+ Google Lighthouse scores (98 Performance, 100 Best Practices)
 
 ## Tech
 

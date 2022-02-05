@@ -3,58 +3,36 @@ layout: layouts/base.njk
 ---
 
 <div class="portfolio">
-
    <div class="hero">
-      <p class="company">
-         {{company}}
-      </p>
-      <p class="greeting">
-         Hi {{ correspondent }},
-      </p>
+      <p class="company">Earl Mangulabnan | Portfolio for {{ company }}</p>
+      <p class="greeting">Hi {{ correspondent }},</p>
+      <div class="markdown-content">
+         <p>
+            {{ content | safe }}
+         </p>
+      </div>
    </div>
 
-   <div class="markdown-content">
-      {{ content | safe }}
-   </div>
-   <div>
-      {{ content | getSummary }}
-   </div>
+   {%- include 'components/featured.njk' -%}
 
-   <h2>
-      Work
-   </h2>
-
-   <!-- Show Featured Work (based on frontmatter tag) -->
-   {%- for project in collections.project -%}
-      {%- if project.data.tags.includes('featured') -%}
-         <div class="featured project">
-            <div class="caption">
-               featured
-            </div>
-            <div>
-               {{ project.templateContent | safe }}
-            </div>
-         </div>
-      {%- endif -%}
-   {%- endfor -%}
+   <h2>Work</h2>
 
    <!-- Show Other Work -->
-   {%- for project in collections.project -%}
-      {%- if not project.data.tags.includes('featured') -%}
-         <div class="project">
-            <h3>
-               {{project.data.title}}
+   {%- for project in collections.project -%} {%- if not project.data.tags.includes('featured') -%}
+   <a class="project-link" href="{{ project.filePathStem }}">
+      <div class="project not-featured">
+         <div class="left">
+            <h3 class="title">
+               {{ project.data.title }}
             </h3>
-            <h4>
+            <h4 class="headline">
                {{ project.templateContent | getHeadline }}
             </h4>
-            <div>
-               {{ project.templateContent | getSummary }}
-            </div>
          </div>
-      {%- endif -%}
-   {%- endfor -%}
-
-   <hr>
-
+         <p class="summary">
+            {{ project.templateContent | getSummary }}
+         </p>
+      </div>
+   </a>
+   {%- endif -%} {%- endfor -%}
 </div>

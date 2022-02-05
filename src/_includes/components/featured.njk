@@ -1,0 +1,35 @@
+<div class="featured">
+   {%- for featured in collections.featured_intro -%}
+   <div class="featured-intro">
+      <div class="markdown-content">
+         {{ featured.templateContent | safe }}
+      </div>
+   </div>
+   {%- endfor -%}
+
+
+   <!-- Show Featured Work (based on frontmatter tag) -->
+   {%- for project in collections.project -%}
+      {%- if project.data.tags.includes('featured') -%}
+         <a class="project-link" href="{{ project.filePathStem }}">
+         <div>
+            <div class="caption">
+               featured
+            </div>
+            <div class="project">
+               <h3 class="title">
+                  {{ project.data.title }}
+               </h3>
+               <h4 class="headline">
+                  {{ project.templateContent | getHeadline }}
+               </h4>
+               <p class="summary">
+                  {{ project.templateContent | getSummary }}
+               </p>
+            </div>
+         </div>
+         </a>
+      {%- endif -%}
+   {%- endfor -%}
+
+</div>

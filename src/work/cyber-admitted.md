@@ -1,12 +1,12 @@
 ---
 title: Cyber Admitted
 url: https://deploy-preview-39--bdi-quote-tool.netlify.app/
-url-github: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
-url-github-private: true
+urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
+urlGithubPrivate: true
 password: NETHER-rustle-flea
 date-completed: ongoing
 tags:
-   - featured
+  - featured
 ---
 
 # Cyber Admitted

@@ -1,8 +1,8 @@
 <div class="sitemap">
-   <h2>Sitemap</h2>
-   <ul>
-      {%- for link in collections.all -%}
-         <li><a href="{{link.url}}">{{link.url}}</a></li>
-      {%- endfor -%}
-   </ul>
+   <h2>Sitemap:</h2>
+   {%- for link in collections.sortByPath -%}
+   <p>
+      <a href="{{ link.url }}">{{ link.url }}</a>
+   </p>
+   {%- endfor -%}
 </div>

@@ -2,6 +2,15 @@
 layout: layouts/base.njk
 ---
 
-<div class="markdown-content">
-   {{ content | safe }}
+<div class="work">
+   <div class="links">
+      <a href="/portfolio/moonrise">⬅ Back to portfolio</a>
+      <a href="{{ url | url }}" target="_blank">Website</a>
+      {%- if urlGithub -%}
+      <a href="{{ urlGithub | url }}" target="_blank">Github{{ urlGithub | log }}</a>
+      {%- endif -%}
+   </div>
+   <div class="markdown-content">
+      {{ content | safe }}
+   </div>
 </div>

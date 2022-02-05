@@ -1,1 +1,6 @@
 - [Fontsource](https://fontsource.org/)
+- VSCode
+- Figma
+- Obsidian 
+- Firefox
+- Windows

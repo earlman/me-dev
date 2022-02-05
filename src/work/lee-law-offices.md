@@ -10,6 +10,7 @@ Website Build
 
 ## Summary
 
+Lee Law Offices is a boutique law firm based in California, that was looking to build a website from scratch. I worked with them over the span of a year, designing the site and helping them plan content.
 
 ## Tech & Dependencies
 ### Major

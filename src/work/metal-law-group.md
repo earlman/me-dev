@@ -10,7 +10,7 @@ Website Frontend Redesign
 
 ## Summary
 
-The partners of the law firm disbanded in early 2021, so I'm self-hosting this site for my portfolio.
+Metal Law Group was looking to redesign their website. It was slow, and out-of-style. I redesigned their site and used their using their existing content to build it out. The partners of the law firm disbanded in early 2021, so I'm self-hosting this site for my portfolio.
 
 ## Tech & Dependencies
 

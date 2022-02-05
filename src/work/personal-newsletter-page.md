@@ -11,7 +11,7 @@ Frontend Design
 
 ## Summary
 
-I was looking to start a newsletter for my friends, but I didn't want to rely on any 3rd-party service.
+I was looking to start a newsletter for my friends, but I didn't want to rely on any 3rd-party services. This project sticks out in my memory as my favorite work, aesthetically, which is why I decided to model my portfolio after it. 
 
 ## Tech & Dependencies
 

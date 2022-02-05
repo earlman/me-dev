@@ -1,3 +1,5 @@
+const cheerio = require('cheerio')
+
 module.exports = (eleventyConfig) => {
    eleventyConfig.addWatchTarget("./styles/");
 
@@ -14,6 +16,21 @@ module.exports = (eleventyConfig) => {
       "node_modules/@fontsource/merriweather/files/merriweather-latin-ext-400-normal.woff2": "css/fonts/merriweather-latin-ext-400-normal.woff2",
       "node_modules/@fontsource/merriweather/files/merriweather-latin-400-normal.woff2": "css/fonts/merriweather-latin-400-normal.woff2",
    });
+
+
+   eleventyConfig.addFilter("getSummary", function(value) { 
+      const $ = cheerio.load(value)
+      const summary = $('h2').filter(function(){
+         return $(this).text().trim() === "Summary"
+      }).next().text()
+      return summary
+   });
+   eleventyConfig.addFilter("getHeadline", function(value) { 
+      const $ = cheerio.load(value)
+      const headline = $('h1').next().text()
+      return headline
+   });
+
 
    return {
       dir: {

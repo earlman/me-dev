@@ -14,7 +14,8 @@
    "license": "MIT",
    "dependencies": {
       "@fontsource/merriweather": "^4.5.4",
-      "@fontsource/open-sans": "^4.5.3"
+      "@fontsource/open-sans": "^4.5.3",
+      "cheerio": "^1.0.0-rc.10"
    },
    "devDependencies": {
       "@11ty/eleventy": "^1.0.0",

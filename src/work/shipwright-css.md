@@ -7,7 +7,7 @@ sort: 1
 
 # Shipwright CSS
 
-CSS Methodology
+CSS/SASS Methodology
 
 ## Summary
 

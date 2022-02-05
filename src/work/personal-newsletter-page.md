@@ -22,5 +22,5 @@ I was looking to start a newsletter for my friends, but I didn't want to rely on
 ## Tech
 
 - Netlify - Forms & Hosting
-- [Shipwright CSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
+- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology
 - [Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome

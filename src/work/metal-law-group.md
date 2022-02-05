@@ -13,14 +13,13 @@ Website Frontend Redesign
 
 Metal Law Group was looking to redesign their website. It was slow, and out-of-style. I redesigned their site and used their using their existing content to build it out. The partners of the law firm disbanded in early 2021, so I'm self-hosting this site for my portfolio.
 
+## Features
+
+- Uses their existing Wordpress site as a REST API backend (headless CMS, if you like, to rebuild website as a static site
+  - Allowed for the updating of Employees list via Wordpress Admin interface
+- Modern & unique design
+
 ## Tech & Dependencies
 
-### Major
-
 - [Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
-
-### Minor
-
-- [Shipwright CSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
-
-## Features
+- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology

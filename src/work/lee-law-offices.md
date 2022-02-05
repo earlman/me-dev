@@ -16,6 +16,14 @@ Lee Law Offices is a boutique law firm based in California that was looking to b
 
 ## Features
 
+- Markdown-based content management solution, stored on Github. Designed to streamline the addition of an admin interface, if necessary
+- Implemented internationalization to support Spanish speakers
+- 89+ Lightouse scores (98 Performance, 100 Best Practices)
+- Clean, unique & personable design
+
 ## Tech
 
 - [Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
+- Markdown
+- [Netlify Forms](https://www.netlify.com/products/forms/)
+- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology

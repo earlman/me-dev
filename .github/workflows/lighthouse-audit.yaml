@@ -1,4 +1,6 @@
-name: Lighthouse
+# Docs: https://github.com/marketplace/actions/lighthouse-ci-action
+
+name: Lighthouse Audit on Netlify Preview
 on:
   push:
     branches:

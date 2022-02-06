@@ -17,3 +17,4 @@
 
       # you can specify output_path per audit, relative to the path
       output_path = "reports/route1.html"
+

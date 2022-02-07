@@ -1,19 +1,21 @@
 # Docs: https://github.com/marketplace/actions/lighthouse-audit
 
 name: Lighthouse Audit on Netlify Preview
-on: [push, pull_request]
-
+on: [pull_request]
 
 jobs:
-  audit:
+  lighthouse:
     runs-on: ubuntu-latest
     steps:
-    - name: Audit Netlify deploy preview
-      uses: jakejarvis/lighthouse-action@master
+    - uses: actions/checkout@master
+    - run: mkdir ${{ github.workspace }}/tmp/artifacts
+    - name: Lighthouse
+      uses: foo-software/lighthouse-check-action@master
       with:
-        netlify_site: 'dev-earlman-me.netlify.app/'
-        url: 'https://dev.earlman.me/portfolio/moonrise/'
-    - uses: actions/upload-artifact@master
+        outputDirectory: ${{ github.workspace }}/tmp/artifacts
+        urls: 'https://dev.earlman.me/portfolio/moonrise/'
+    - name: Upload artifacts
+      uses: actions/upload-artifact@master
       with:
-        name: report
-        path: './report'
+        name: Lighthouse reports
+        path: ${{ github.workspace }}/tmp/artifacts

@@ -15,6 +15,7 @@ jobs:
         outputDirectory: ${{ github.workspace }}/tmp/artifacts
         urls: 'https://dev.earlman.me/portfolio/moonrise/'
         gitHubAccessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
+        id: lighthouseCheck # Required for "Verify Lighthouse Check Results"
         prCommentEnabled: true
         prCommentSaveOld: true
     - name: Upload artifacts

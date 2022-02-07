@@ -31,3 +31,4 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
           configPath: './.github/workflows/lighthouse-assertions.json'
+          runs: 1 # https://github.com/marketplace/actions/lighthouse-ci-action#runs-default-1

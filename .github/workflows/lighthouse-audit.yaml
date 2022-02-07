@@ -11,8 +11,8 @@ jobs:
     - name: Audit Netlify deploy preview
       uses: jakejarvis/lighthouse-action@master
       with:
-        netlify_site: 'dev-earlman-me.netlify.com'
-        url: 'https://dev.earlman.me/portfolio/'
+        netlify_site: 'dev-earlman-me.netlify.app/'
+        url: 'https://dev.earlman.me/portfolio/moonrise/'
     - uses: actions/upload-artifact@master
       with:
         name: report

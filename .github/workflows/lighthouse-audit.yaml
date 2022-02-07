@@ -16,7 +16,7 @@ jobs:
         urls: 'https://dev.earlman.me/portfolio/moonrise/'
         gitHubAccessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
         prCommentEnabled: true
-
+        prCommentSaveOld: true
     - name: Upload artifacts
       uses: actions/upload-artifact@master
       with:

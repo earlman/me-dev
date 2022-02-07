@@ -1,0 +1,38 @@
+# Docs: https://github.com/marketplace/actions/lighthouse-ci-action
+
+name: Lighthouse Audit on Netlify Preview
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install & Build
+        run: |
+          yarn install
+          yarn build
+
+      - name: Wait for 200 from Netlify Deployment
+        uses: probablyup/wait-for-netlify-action@3.2.0
+        id: waitForNetlifyDeploy
+        with:
+          site_id: 1c5f9193-493a-40d7-b8f5-fcd76975852a
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          urls: |
+            ${{ steps.netlify.outputs.url }}
+            ${{ steps.netlify.outputs.url }}/portfolio/moonrise
+          budgetPath: ./budget.json
+          uploadArtifacts: true

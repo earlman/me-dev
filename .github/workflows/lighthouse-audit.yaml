@@ -30,4 +30,4 @@ jobs:
           budgetPath: ./budget.json
           uploadArtifacts: true
           temporaryPublicStorage: true
-          configPath: './lighthouse-assertions.json'
+          configPath: './.github/workflows/lighthouse-assertions.json'

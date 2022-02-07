@@ -11,11 +11,11 @@ jobs:
     - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
     - name: Lighthouse
       uses: foo-software/lighthouse-check-action@master
+      id: lighthouseCheck # Required for "Verify Lighthouse Check Results"
       with:
         outputDirectory: ${{ github.workspace }}/tmp/artifacts
         urls: 'https://dev.earlman.me/portfolio/moonrise/'
         gitHubAccessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
-        id: lighthouseCheck # Required for "Verify Lighthouse Check Results"
         prCommentEnabled: true
         prCommentSaveOld: true
     - name: Upload artifacts

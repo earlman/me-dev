@@ -18,6 +18,7 @@ jobs:
         gitHubAccessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
         prCommentEnabled: true
         prCommentSaveOld: true
+        device: all
     - name: Upload artifacts
       uses: actions/upload-artifact@master
       with:

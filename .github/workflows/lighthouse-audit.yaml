@@ -32,4 +32,4 @@ jobs:
         minBestPracticesScore: "80"
         minPerformanceScore: "80"
         minProgressiveWebAppScore: "0"
-        minSeoScore: "0"
+        minSeoScore: "50"

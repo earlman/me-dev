@@ -1,31 +1,35 @@
-# Docs: https://github.com/marketplace/actions/lighthouse-ci-action
+# Docs: https://www.foo.software/docs/lighthouse-check-github-action/configuration
 
 name: Lighthouse Audit on Netlify Preview
-on: pull_request
+on: [pull_request]
 
 jobs:
-  build:
+  lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: Install & Build
-        run: |
-          yarn install
-          yarn build
-      - name: Wait for the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: netlify
-        with:
-          site_name: 'dev-earlman-me'
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v8
-        with:
-          urls: |
-            ${{ steps.netlify.outputs.url }}
-            ${{ steps.netlify.outputs.url }}/portfolio/moonrise
-          budgetPath: ./budget.json
-          uploadArtifacts: true
+    - uses: actions/checkout@master
+    - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
+    - name: Lighthouse
+      uses: foo-software/lighthouse-check-action@master
+      id: lighthouseCheck # Required for "Verify Lighthouse Check Results"
+      with:
+        outputDirectory: ${{ github.workspace }}/tmp/artifacts
+        urls: 'https://dev.earlman.me/portfolio/moonrise/'
+        gitHubAccessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
+        prCommentEnabled: true
+        prCommentSaveOld: true
+        device: all
+    - name: Upload artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: Lighthouse reports
+        path: ${{ github.workspace }}/tmp/artifacts
+    - name: Verify Lighthouse Check results
+      uses: foo-software/lighthouse-check-status-action@master
+      with:
+        lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+        minAccessibilityScore: "80"
+        minBestPracticesScore: "80"
+        minPerformanceScore: "80"
+        minProgressiveWebAppScore: "0"
+        minSeoScore: "50"

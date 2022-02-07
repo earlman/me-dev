@@ -27,7 +27,7 @@ jobs:
           urls: |
             ${{ steps.netlify.outputs.url }}
             ${{ steps.netlify.outputs.url }}/portfolio/moonrise
-          budgetPath: ./budget.json
+          budgetPath: './.github/workflows/budget.json'
           uploadArtifacts: true
           temporaryPublicStorage: true
           configPath: './.github/workflows/lighthouse-assertions.json'

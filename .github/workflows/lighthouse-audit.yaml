@@ -29,3 +29,4 @@ jobs:
             ${{ steps.netlify.outputs.url }}/portfolio/moonrise
           budgetPath: ./budget.json
           uploadArtifacts: true
+          temporaryPublicStorage: true

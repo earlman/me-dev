@@ -1,4 +1,4 @@
-# Docs: https://github.com/marketplace/actions/lighthouse-audit
+# Docs: https://www.foo.software/docs/lighthouse-check-github-action/configuration
 
 name: Lighthouse Audit on Netlify Preview
 on: [pull_request]
@@ -8,14 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - run: mkdir ${{ github.workspace }}/tmp/artifacts
     - name: Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
-        outputDirectory: ${{ github.workspace }}/tmp/artifacts
         urls: 'https://dev.earlman.me/portfolio/moonrise/'
-    - name: Upload artifacts
-      uses: actions/upload-artifact@master
-      with:
-        name: Lighthouse reports
-        path: ${{ github.workspace }}/tmp/artifacts

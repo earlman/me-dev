@@ -3,6 +3,9 @@ title: Cyber Admitted
 url: https://deploy-preview-39--bdi-quote-tool.netlify.app/
 urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
 urlGithubPrivate: true
+repo:
+  owner: foundations-design
+  repo: bdi-global-llc
 password: NETHER-rustle-flea
 date-completed: ongoing
 tags:

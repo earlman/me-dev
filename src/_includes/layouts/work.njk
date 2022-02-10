@@ -13,4 +13,15 @@ layout: layouts/base.njk
    <div class="markdown-content">
       {{ content | safe }}
    </div>
+   <hr />
+   <div class="github">
+      <h2>Unformatted Data:</h2>
+      <div>
+         <h3>Repository Languages</h3>
+         <p>
+            <!-- see work/work.11tydata.js -->
+            {{ githubData }}
+         </p>
+      </div>
+   </div>
 </div>

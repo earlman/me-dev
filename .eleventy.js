@@ -1,5 +1,6 @@
 const cheerio = require("cheerio");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const eleventyImage = require("@11ty/eleventy-img");
 var md = require("markdown-it")();
 
 module.exports = (eleventyConfig) => {
@@ -68,6 +69,41 @@ module.exports = (eleventyConfig) => {
          // return b.date - a.date; // sort by date - descending
          return a.inputPath.localeCompare(b.inputPath); // sort by path - ascending
          //return b.inputPath.localeCompare(a.inputPath); // sort by path - descending
+      });
+   });
+
+   // Dependent on two repos:
+   // https://www.11ty.dev/docs/plugins/image/
+   // https://github.com/earlman/me-dev-11ty-screenshot-plugin
+   //
+   // Valid style values: small, medium, large, opengraph
+   // https://github.com/earlman/me-dev-11ty-screenshot-plugin
+
+   eleventyConfig.addShortcode("getScreenshotHtml", function (siteUrl) {
+      // Feed url into screenshot-generator-api (hosted separately)
+      let screenshotUrl = `https://screenshot-generator-api.foundations.design/${encodeURIComponent(siteUrl)}/opengraph/`;
+
+      let viewport = {
+         width: 1200,
+         height: 630,
+      };
+
+      let options = {
+         formats: ["jpeg"],
+         widths: [1100],
+         urlFormat: function () {
+            return screenshotUrl;
+         },
+      };
+
+      let stats = eleventyImage.statsByDimensionsSync(screenshotUrl, viewport.width, viewport.height, options);
+
+      return eleventyImage.generateHTML(stats, {
+         alt: `Screenshot of ${siteUrl}`,
+         loading: "lazy",
+         decoding: "async",
+         // sizes: "(min-width: 22em) 30vw, 100vw",
+         class: "sites-screenshot",
       });
    });
 

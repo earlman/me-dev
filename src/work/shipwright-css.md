@@ -2,6 +2,9 @@
 title: Shipwright CSS
 url: https://shipwright.foundations.design
 urlGithub: https://github.com/foundations-design/Shipwright
+repo:
+  owner: foundations-design
+  repo: shipwright
 sort: 1
 ---
 

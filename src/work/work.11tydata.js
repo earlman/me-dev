@@ -1,5 +1,6 @@
 const { Octokit } = require("@octokit/core");
 
+// Gets Github language data from api
 // Requires frontmatter to be set:
 // - repo.repo
 // - repo.owner

@@ -1,5 +1,9 @@
 ---
-layout: layouts/home.njk
+layout: layouts/_base.njk
 ---
 
-# Hello World
+<div>
+{%- for work in collections.sortedWork %}
+{% include "components/work-card.njk" %}
+{%- endfor %}
+</div>

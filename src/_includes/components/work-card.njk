@@ -1,0 +1,18 @@
+<div class="work-card">
+   <a class="project-link" href="{{ work.filePathStem }}">
+      <div class="project not-featured">
+         <div class="left">
+            <div>{% getScreenshotHtml work.data.url %}</div>
+            <h3 class="title">
+               {{ work.data.title }}
+            </h3>
+            <h4 class="headline">
+               {{ work.templateContent | getHeadline }}
+            </h4>
+         </div>
+         <p class="summary">
+            {{ work.templateContent | getSummary }}
+         </p>
+      </div>
+   </a>
+</div>

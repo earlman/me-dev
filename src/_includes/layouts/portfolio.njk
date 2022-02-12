@@ -18,21 +18,7 @@ layout: layouts/_base.njk
    <h2>Work</h2>
 
    <!-- Show Other Work -->
-   {%- for project in collections.sortedWork -%}
-   <a class="project-link" href="{{ project.filePathStem }}">
-      <div class="project not-featured">
-         <div class="left">
-            <h3 class="title">
-               {{ project.data.title }}
-            </h3>
-            <h4 class="headline">
-               {{ project.templateContent | getHeadline }}
-            </h4>
-         </div>
-         <p class="summary">
-            {{ project.templateContent | getSummary }}
-         </p>
-      </div>
-   </a>
+   {%- for work in collections.sortedWork -%}
+   <a class="project-link" href="{{ work.filePathStem }}">{%- include "components/work-card.njk" -%}</a>
    {%- endfor -%}
 </div>

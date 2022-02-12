@@ -1,4 +1,6 @@
+require("dotenv").config();
 const cheerio = require("cheerio");
+
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const eleventyImage = require("@11ty/eleventy-img");
 var md = require("markdown-it")();
@@ -103,7 +105,7 @@ module.exports = (eleventyConfig) => {
          loading: "lazy",
          decoding: "async",
          // sizes: "(min-width: 22em) 30vw, 100vw",
-         class: "sites-screenshot",
+         class: "screenshot",
       });
    });
 

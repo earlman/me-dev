@@ -1,3 +1,4 @@
+//docs: https://github.com/octokit/core.js#readme
 const { Octokit } = require("@octokit/core");
 
 // Gets Github language data from api

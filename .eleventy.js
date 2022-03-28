@@ -79,7 +79,6 @@ module.exports = (eleventyConfig) => {
    // https://github.com/earlman/me-dev-11ty-screenshot-plugin
    //
    // Valid style values: small, medium, large, opengraph
-   // https://github.com/earlman/me-dev-11ty-screenshot-plugin
 
    eleventyConfig.addShortcode("getScreenshotHtml", function (siteUrl) {
       // Feed url into screenshot-generator-api (hosted separately)

@@ -24,5 +24,5 @@ Metal Law Group was looking to redesign their website. It was slow, and out-of-s
 
 ## Tech
 
-- [Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
+- [{% indieAvatar "https://gridsome.org/" %}Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
 - [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology

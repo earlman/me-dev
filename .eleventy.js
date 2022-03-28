@@ -108,7 +108,18 @@ module.exports = (eleventyConfig) => {
       });
    });
 
-   return {
+   // https://github.com/11ty/api-indieweb-avatar
+   //github.com/zachleat/zachleat.com/blob/f9c0c9b7f5159e8e0204e956a8dcc68401a0a384/_includes/imageAvatarPlugin.js
+   function indieAvatarHtml(url = "", classes = "z-avatar") {
+      let screenshotUrl = `https://v1.indieweb-avatar.11ty.dev/${encodeURIComponent(url)}/`;
+      return `<img alt="IndieWeb Avatar for ${url}" class="${classes}" loading="lazy" decoding="async" 
+      style="width: 1rem;height: 1rem;border-radius: 15%;vertical-align: baseline;	margin: 0 .25em; display: inline;"
+      src="${screenshotUrl}" width="60" height="60">`;
+   }
+
+   eleventyConfig.addShortcode("indieAvatar", indieAvatarHtml);
+
+   https: return {
       dir: {
          input: "src",
          output: "_dist",

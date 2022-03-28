@@ -13,4 +13,4 @@ After you take a look at the projects below, if you're interested in what I have
 
 Feel free to write as much or as little as you want. The more detail you add, the better I can contextualize the work I can do.
 
-You can also ping me on [Linkedin](https://www.linkedin.com/in/earl-mangulabnan-5b0740109/) if you're worried I'll miss the email. 
+You can also ping me on [{% indieAvatar "https://www.linkedin.com/" %}Linkedin](https://www.linkedin.com/in/earl-mangulabnan-5b0740109/) if you're worried I'll miss the email. 

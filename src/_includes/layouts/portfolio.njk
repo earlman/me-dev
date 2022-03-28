@@ -4,7 +4,12 @@ layout: layouts/_base.njk
 
 <div class="portfolio">
    <div class="hero">
-      <p class="company">Earl Mangulabnan | Portfolio for {{ company }}</p>
+      <p class="company">
+         Earl Mangulabnan | Portfolio 
+         {% if company -%} 
+         for {{ company }}
+         {%- endif -%}
+      </p>
       <p class="greeting">Hi {{ correspondent }},</p>
       <div class="markdown-content">
          <p>

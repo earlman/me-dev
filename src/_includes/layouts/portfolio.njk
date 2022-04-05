@@ -4,11 +4,8 @@ layout: layouts/_base.njk
 
 <div class="portfolio">
    <div class="hero">
-
       <p class="company">
-         Earl Mangulabnan | Portfolio 
-         {% if company -%} 
-         for {{ company }}
+         Earl Mangulabnan | Portfolio {% if company -%} for {{ company }}
          {%- endif -%}
       </p>
 
@@ -23,12 +20,9 @@ layout: layouts/_base.njk
             {{ content | safe }}
          </p>
       </div>
-
    </div>
 
-   {%if featured%}
-   {%- include 'components/featured.njk' -%}
-   {%endif%}
+   {# {%if featured%} {%- include 'components/legacy_featured.njk' -%} {%endif%} #}
 
    <h2>Work</h2>
 

@@ -1,6 +1,7 @@
 ---
 title: Cyber Admitted
-url: quotes.cyberadmitted.com
+url: https://cyberadmitted-demo.earlman.me
+customScreenshot: ./images/cyber-admitted-screenshot.png
 urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
 urlGithubPrivate: true
 repo:
@@ -8,8 +9,7 @@ repo:
   repo: bdi-global-llc
 password: NETHER-rustle-flea
 date-completed: ongoing
-tags:
-  - featured
+sort: 1
 ---
 
 # Cyber Admitted

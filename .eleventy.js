@@ -6,14 +6,30 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const eleventyImage = require("@11ty/eleventy-img");
 var md = require("markdown-it")();
 
+async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
+   let metadata = await eleventyImage(src, {
+      widths: [300, 900, 1500],
+      formats: ["avif", "jpeg"],
+      outputDir: "./_dist/img/",
+   });
+
+   let imageAttributes = {
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+   };
+
+   console.log(src);
+   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+   return eleventyImage.generateHTML(metadata, imageAttributes);
+}
+
 module.exports = (eleventyConfig) => {
    eleventyConfig.addPlugin(Collections);
    eleventyConfig.addPlugin(EleventyRenderPlugin);
 
    eleventyConfig.addWatchTarget("./styles/");
-
-   // copy /images to dist/images
-   // eleventyConfig.addPassthroughCopy("./src/images");
 
    eleventyConfig.addPassthroughCopy({
       // "node_modules/@fontsource/open-sans/files": "css/fonts",
@@ -92,6 +108,9 @@ module.exports = (eleventyConfig) => {
    }
 
    eleventyConfig.addShortcode("indieAvatar", indieAvatarHtml);
+   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+   eleventyConfig.addLiquidShortcode("image", imageShortcode);
+   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
    https: return {
       dir: {

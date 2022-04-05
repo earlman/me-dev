@@ -2,7 +2,11 @@
    <a class="project-link" href="{{ work.filePathStem }}">
       <div class="project not-featured">
          <div class="left">
-            <div class="screenshot-container">{% getScreenshotHtml work.data.url %}</div>
+            <div class="screenshot-container">
+               {%- if not work.data.customScreenshot -%}
+                  {%- getScreenshotHtml work.data.url -%}
+               {%- endif -%}
+            </div>
             <h3 class="title">
                {{ work.data.title }}
             </h3>

@@ -5,7 +5,13 @@ layout: layouts/_base.njk
 <div class="work">
    <a href="/portfolio">⬅ Back to portfolio</a>
 
-   <div class="screenshot-container">{% getScreenshotHtml url %}</div>
+   <div class="screenshot-container">
+      {%- if customScreenshot -%}
+         {%- image customScreenshot, url, "width: 1100" -%}
+      {%- else -%}
+         {%- getScreenshotHtml url -%}
+      {%- endif -%}
+   </div>
 
    <div class="links">
       <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>

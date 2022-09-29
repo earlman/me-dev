@@ -1,6 +1,6 @@
 ---
 title: Lee Law Offices
-url: https://leelawltd.com/en-us/
+url: https://leelawoffices-demo.foundations.design/en-us/
 url-github: https://github.com/earlman/lee-law-offices
 repo:
   owner: earlman

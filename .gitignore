@@ -1,3 +1,4 @@
 node_modules
 _dist
 .env
+.DS_Store

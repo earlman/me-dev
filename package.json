@@ -18,7 +18,7 @@
       "@11ty/eleventy-img": "^1.0.0",
       "@fontsource/merriweather": "^4.5.4",
       "@fontsource/open-sans": "^4.5.3",
-      "@netlify/plugin-lighthouse": "^3.4.1",
+      "@netlify/plugin-lighthouse": "^5.0.0",
       "cheerio": "^1.0.0-rc.10",
       "dotenv": "^16.0.0",
       "markdown-it": "^12.3.2",

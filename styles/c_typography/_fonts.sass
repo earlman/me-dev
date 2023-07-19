@@ -1,0 +1,10 @@
+@use "../../node_modules/@fontsource/open-sans/scss/mixins" as OpenSans
+@use "../../node_modules/@fontsource/merriweather/scss/mixins" as Merriweather
+
+// This file sets some config that should not be changed based on aesthetics (ex. $fontDir)
+// This module isn't necessary for every project.
+// If you're loading fonts in an entry javascript file, you're like using Webpack or some other bundler, and don't need this.
+
+@include OpenSans.fontFaceVariable($weight: 1 999, $display: fallback,$fontDir: "./fonts",$type:"full")
+@include Merriweather.fontFace($weight: 400, $style:normal ,$display: fallback,$fontDir: "./fonts")
+@include Merriweather.fontFace($weight: 400, $style:italic, $display: fallback,$fontDir: "./fonts")

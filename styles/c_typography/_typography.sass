@@ -1,0 +1,37 @@
+@use 'text-sizes' as *
+@use 'fonts' as *
+@use '../e_layout/_layout' as *
+@use '../d_spacing/_space-sizes' as *
+
+\:root
+   --font-primary: 'Open SansVariable'
+   --font-secondary: 'Merriweather'
+
+*
+   font-family: var(--font-primary)
+   color: var(--color-t)
+   font-weight: 400
+
+html
+   line-height: 1.6
+
+b, strong
+   font-weight: bold
+
+h1, h2, h3, h4, h5, h6
+   font-family: var(--font-secondary)
+   color: var(--color-t-h)
+   font-weight: 400
+
+   *
+      font-family: inherit
+      color: inherit
+      font-weight: inherit
+
+a
+   text-decoration: none
+   color: var(--color-t-c)
+
+// limit width of text for legibility
+p, ul
+   max-width: var(--text-max-width)

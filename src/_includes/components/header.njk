@@ -1,8 +1,43 @@
+<style>
+  :root {
+    --color-b-d: #373131;
+    --color-b-l: #FCFBF4;
+    --color-t: #D4CBC4;
+  }
+
+  header {
+    background-color: var(--color-b-d);
+    width: 100vw;
+    position: fixed;
+    height: 200px;
+    box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 1) inset,
+      0px 2px 1px 1px rgba(0, 0, 0, 1) inset,
+      0px 0px 1px 0px rgba(0, 0, 0, 1) inset;
+    z-index: 0;
+    padding: var(--space-sm);
+  }
+
+  header * {
+    color: var(--color-t);
+  }
+
+  main {
+    background-color: var(--color-b-l);
+    width: 100vw;
+    position: relative;
+    z-index: 1;
+    top: 200px;
+    box-shadow: 0px 9px 30px 0px var(--color-b-l);
+  }
+</style>
 <header>
-  <img src="" alt="signature" class="logo">
-  <ul>
-    <li>History</li>
-    <li>Goals</li>
-    <li>Aspirations</li>
-  </ul>
+  <div>
+
+    <img src="" alt="signature" class="logo">
+    <ul>
+      <li>History</li>
+      <li>Goals</li>
+      <li>Aspirations</li>
+    </ul>
+  </div>
 </header>

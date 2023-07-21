@@ -10,6 +10,7 @@ repo:
 password: NETHER-rustle-flea
 date-completed: ongoing
 sort: 1
+tags: featured
 ---
 
 # Cyber Admitted

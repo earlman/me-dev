@@ -26,6 +26,6 @@ module.exports = {
    eleventyComputed: {
       githubData: async ({ repo }) => await getGithubData(repo),
    },
-   layout: "layouts/work.njk",
+   layout: "layouts/work-item.njk",
    tags: "project",
 };

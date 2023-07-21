@@ -1,0 +1,39 @@
+---
+layout: layouts/_base.njk
+---
+
+
+
+<!-- Hero -->
+<section class="hero">
+  <style>
+    .hero {
+      position: relative
+    }
+
+    .hero h1 {
+      font-size: 160px;
+      color: #85400D;
+      font-family: "Playfair Display";
+      letter-spacing: -0.5775rem;
+    }
+
+    .hero-content {
+      position: absolute;
+    }
+
+    .platonic-solids {
+      position: absolute;
+      left: 0;
+      top: var(--space-md);
+      width: 100%;
+    }
+  </style>
+  <h1> Happy Monday </h1>
+  <div class="platonic-solids">
+    {%- include "components/platonic-solids.njk" -%}
+  </div>
+  <div class="hero-content">
+    {%- include "components/hero-content.njk" -%}
+  </div>
+</section>

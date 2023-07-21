@@ -8,7 +8,8 @@
       "start:eleventy": "eleventy --serve",
       "build": "npm-run-all build:*",
       "build:sass": "sass styles:_dist/css",
-      "build:eleventy": "eleventy"
+      "build:eleventy": "eleventy",
+      "dev": "start"
    },
    "author": "Earl Mangulabnan",
    "license": "MIT",

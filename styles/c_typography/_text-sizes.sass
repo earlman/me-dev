@@ -1,22 +1,22 @@
 /*----------  Import Media Queries to set Responsive Font Sizes  ----------*/
 @use "../e_layout/media"    
-    
-\:root 
+
+\:root
 
     /*============================================*/
     /*             Set Type Scale Variables       */
     /*============================================*/  
-    
+
     /*----------  Set Base Font Sizes  ----------*/
 
-    --d-base-font-size: 20px
-    --m-base-font-size: 18px
-    
+    --d-base-font-size: 16px
+    --m-base-font-size: 16px
+
     /*----------  Set Type Scale Multipliers  ----------*/
 
     --d-multiplier: 1.333
     --m-multiplier: 1.250
-    
+
     /*=============================================
     /*               Type Scale                   =
     /*============================================*/
@@ -39,7 +39,7 @@
     --d-3xl: calc(var(--d-base-font-size) * var(--d-multiplier) * var(--d-multiplier) * var(--d-multiplier) * var(--d-multiplier))
     /* 4.209rem, 75.76px */
     --d-4xl: calc(var(--d-base-font-size) * var(--d-multiplier) * var(--d-multiplier) * var(--d-multiplier) * var(--d-multiplier) * var(--d-multiplier))
-    
+
     /*----------  Mobile Scale  ----------*/
 
     /* 0.640rem, 10.24px */
@@ -59,17 +59,11 @@
     /* 3.052rem, 48.83px */
     --m-4xl: calc(var(--m-base-font-size) * var(--m-multiplier) * var(--m-multiplier) * var(--m-multiplier) * var(--m-multiplier))
 
-
-
-
-
-
 /*----------  Set font-size on html (responsively)  ----------*/
 html
     font-size: var(--m-base-font-size)
     @include media.md
         font-size: var(--d-base-font-size)
-
 
 /*==========================================================
 /*=       Create Mixins to include Responsive Sizes        =
@@ -79,7 +73,6 @@ html
     font-size: var(--m-#{$size})
     @include media.md
         font-size: var(--d-#{$size})
-
 
 // example of compiled CSS:
 // @include media-md 

@@ -3,18 +3,28 @@
     --color-b-d: #373131;
     --color-b-l: #FCFBF4;
     --color-t: #D4CBC4;
+
+    --header-height: 75px;
   }
+
 
   header {
     background-color: var(--color-b-d);
     width: 100vw;
     position: fixed;
-    height: 200px;
-    box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 1) inset,
-      0px 2px 1px 1px rgba(0, 0, 0, 1) inset,
-      0px 0px 1px 0px rgba(0, 0, 0, 1) inset;
+    height: var(--header-height);
+    box-shadow: 0px -15px 35px -15px rgb(0, 0, 0) inset, 0px -1px 1px 1px rgb(0, 0, 0) inset, 0px 0px 1px 0px rgb(0, 0, 0) inset;
     z-index: 0;
-    padding: var(--space-sm);
+    padding: var(--space-2xs) var(--space-md) var(--space-2xs) var(--space-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  nav ul {
+    display: flex;
+    gap: var(--space-md);
   }
 
   header * {
@@ -26,17 +36,17 @@
     width: 100vw;
     position: relative;
     z-index: 1;
-    margin-top: 200px;
+    margin-top: var(--header-height);
   }
 </style>
 <header>
-  <div>
 
-    <img src="" alt="signature" class="logo">
+  {%- include "components/signature.svg"-%}
+  <nav>
     <ul>
       <li>History</li>
       <li>Goals</li>
       <li>Aspirations</li>
     </ul>
-  </div>
+  </nav>
 </header>

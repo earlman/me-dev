@@ -26,6 +26,10 @@
         "level": 2
       },
       {
+        "name": "GSAP",
+        "level": 1
+      },
+      {
         "name": "GraphQL",
         "level": 1
       },

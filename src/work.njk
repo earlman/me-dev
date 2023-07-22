@@ -3,36 +3,36 @@ layout: layouts/_base.njk
 permalink: "index.html"
 ---
 
-<div class="work">
-   <a href="/portfolio">⬅ Back to portfolio</a>
+<!-- Hero -->
+<section class="hero">
+   <style>
+      .hero {
+         position: relative
+      }
 
-   <div class="screenshot-container">
-      {%- if customScreenshot -%}
-      {%- image customScreenshot, url, "width: 1100" -%}
-      {%- else -%}
-      {%- getScreenshotHtml url -%}
-      {%- endif -%}
-   </div>
+      .hero h1 {
+         font-size: 160px;
+         color: #85400D;
+         font-family: "Playfair Display";
+         letter-spacing: -0.5775rem;
+      }
 
-   <div class="links">
-      <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>
-      {%- if (urlGithub) and (not urlGithubPrivate) -%}
-      <a href="{{ urlGithub | url }}" target="_blank">{% indieAvatar "https://github.com/" %}Github{{ urlGithub | log
-         }}</a>
-      {%- endif -%}
+      .hero-content {
+         position: absolute;
+      }
+
+      .platonic-solids {
+         position: absolute;
+         left: 0;
+         top: var(--space-md);
+         width: 100%;
+      }
+   </style>
+   <h1> Happy Monday </h1>
+   <div class="platonic-solids">
+      {%- include "components/platonic-solids.njk" -%}
    </div>
-   <div class="markdown-content">
-      {{ content | safe }}
+   <div class="hero-content">
+      {%- include "components/hero-content.njk" -%}
    </div>
-   <hr />
-   <div class="github">
-      <h2>Unformatted Data:</h2>
-      <div>
-         <h3>Repository Languages</h3>
-         <p>
-            <!-- see work/work.11tydata.js -->
-            {{ githubData }}
-         </p>
-      </div>
-   </div>
-</div>
+</section>

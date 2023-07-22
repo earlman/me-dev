@@ -18,7 +18,7 @@ permalink: "index.html"
       }
 
       .hero-content {
-         position: absolute;
+         /*position: absolute;*/
       }
 
       .platonic-solids {
@@ -34,5 +34,10 @@ permalink: "index.html"
    </div>
    <div class="hero-content">
       {%- include "components/hero-content.njk" -%}
+   </div>
+   <div>
+      {% renderTemplate "webc" %}
+      <skills-table></skills-table>
+      {% endrenderTemplate %}
    </div>
 </section>

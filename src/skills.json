@@ -1,6 +1,6 @@
 {
-  "Skills": {
-    "Languages & Frameworks": [
+  "skills": {
+    "lang_frame": [
       {
         "name": "CSS & SASS",
         "level": 3
@@ -34,7 +34,7 @@
         "level": 1
       }
     ],
-    "Tools & Apps": [
+    "tools_apps": [
       {
         "name": "VSCode",
         "level": 3
@@ -67,6 +67,7 @@
         "name": "Postman",
         "level": 1
       }
-    ]
+    ],
+    "soft_skills": []
   }
 }

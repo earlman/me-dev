@@ -1,77 +1,38 @@
-{
-  "skills": {
-    "lang_frame": [
-      {
-        "name": "CSS & SASS",
-        "level": 3
-      },
-      {
-        "name": "HTML",
-        "level": 3
-      },
-      {
-        "name": "Vue.js 2.x (+vuex, +vue-router)",
-        "level": 3
-      },
-      {
-        "name": "Python",
-        "level": 2
-      },
-      {
-        "name": "Node.js",
-        "level": 2
-      },
-      {
-        "name": "Static Site Generators (11ty, Gridsome, Hexo)",
-        "level": 2
-      },
-      {
-        "name": "GSAP",
-        "level": 1
-      },
-      {
-        "name": "GraphQL",
-        "level": 1
-      },
-      {
-        "name": "PHP",
-        "level": 1
-      }
-    ],
-    "tools_apps": [
-      {
-        "name": "VSCode",
-        "level": 3
-      },
-      {
-        "name": "Figma",
-        "level": 3
-      },
-      {
-        "name": "Git & Github",
-        "level": 2
-      },
-      {
-        "name": "Google Firebase",
-        "level": 2
-      },
-      {
-        "name": "Wordpress",
-        "level": 2
-      },
-      {
-        "name": "Component Libraries (Bootstrap, Buefy, Vuetify)",
-        "level": 1
-      },
-      {
-        "name": "Directus",
-        "level": 1
-      },
-      {
-        "name": "Postman",
-        "level": 1
-      }
-    ],
-    "soft_skills": []
+[
+  {
+    "name": "CSS & SASS",
+    "level": 3
+  },
+  {
+    "name": "HTML",
+    "level": 3
+  },
+  {
+    "name": "Vue.js 2.x (+vuex, +vue-router)",
+    "level": 3
+  },
+  {
+    "name": "Python",
+    "level": 2
+  },
+  {
+    "name": "Node.js",
+    "level": 2
+  },
+  {
+    "name": "Static Site Generators (11ty, Gridsome, Hexo)",
+    "level": 2
+  },
+  {
+    "name": "GSAP",
+    "level": 1
+  },
+  {
+    "name": "GraphQL",
+    "level": 1
+  },
+  {
+    "name": "PHP",
+    "level": 1
   }
-}
+]

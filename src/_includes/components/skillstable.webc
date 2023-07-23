@@ -1,5 +1,4 @@
-TEST
-<!-- <template id="json-table-template">
+<template id="json-table-template">
   <style>
     table {
       border-collapse: collapse;
@@ -13,6 +12,7 @@ TEST
     }
   </style>
   <table></table>
+  <p>test</p>
 </template>
 
 <script>
@@ -31,6 +31,7 @@ TEST
       try {
         const response = await fetch(src);
         const data = await response.json();
+        console.log(Object.keys(data))
         this.buildTable(data);
       } catch (err) {
         console.error('Failed to load JSON: ', err);
@@ -68,4 +69,4 @@ TEST
   }
 
   customElements.define('json-table', JSONTable);
-</script> -->
+</script>

@@ -36,8 +36,14 @@ permalink: "index.html"
       {%- include "components/hero-content.njk" -%}
    </div>
    <div>
+      {% renderFile "./src/_includes/components/skillstable.webc" %}
+
       {% renderTemplate "webc" %}
-      <skills-table></skills-table>
+      <json-table src="_data/skills.json"></json-table>
       {% endrenderTemplate %}
+
+
+      {% renderFile "./src/_includes/components/skillstable.vue" %}
+
    </div>
 </section>

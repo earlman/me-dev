@@ -1,0 +1,71 @@
+TEST
+<!-- <template id="json-table-template">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+  </style>
+  <table></table>
+</template>
+
+<script>
+  class JSONTable extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.shadowRoot.appendChild(document.getElementById('json-table-template').content.cloneNode(true));
+    }
+
+    connectedCallback() {
+      this.loadJSON(this.getAttribute('src'));
+    }
+
+    async loadJSON(src) {
+      try {
+        const response = await fetch(src);
+        const data = await response.json();
+        this.buildTable(data);
+      } catch (err) {
+        console.error('Failed to load JSON: ', err);
+      }
+    }
+
+    buildTable(data) {
+      const table = this.shadowRoot.querySelector('table');
+      const keys = Object.keys(data[0]);
+
+      // Create table headers
+      const thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      keys.forEach(key => {
+        const th = document.createElement('th');
+        th.textContent = key;
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      // Create table rows
+      const tbody = document.createElement('tbody');
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        keys.forEach(key => {
+          const td = document.createElement('td');
+          td.textContent = item[key];
+          row.appendChild(td);
+        });
+        tbody.appendChild(row);
+      });
+      table.appendChild(tbody);
+    }
+  }
+
+  customElements.define('json-table', JSONTable);
+</script> -->

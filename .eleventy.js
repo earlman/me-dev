@@ -2,10 +2,11 @@ require("dotenv").config();
 const cheerio = require("cheerio");
 
 const Collections = require("./collections.js");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const eleventyImage = require("@11ty/eleventy-img");
-const pluginWebc = require("@11ty/eleventy-plugin-webc");
 var md = require("markdown-it")();
+const eleventyVue = require("@11ty/eleventy-plugin-vue");
+const pluginWebc = require("@11ty/eleventy-plugin-webc");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
    let metadata = await eleventyImage(src, {
@@ -28,9 +29,9 @@ async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw
 
 module.exports = (eleventyConfig) => {
    eleventyConfig.addPlugin(Collections);
-   eleventyConfig.addPlugin(EleventyRenderPlugin);
+   eleventyConfig.addPlugin(eleventyVue);
    eleventyConfig.addPlugin(pluginWebc);
-
+   eleventyConfig.addPlugin(EleventyRenderPlugin);
    eleventyConfig.addWatchTarget("./styles/");
 
    eleventyConfig.addPassthroughCopy({

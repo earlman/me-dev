@@ -35,6 +35,16 @@ permalink: "index.html"
    <div class="hero-content">
       {%- include "components/hero-content.njk" -%}
    </div>
+
+</section>
+
+
+<style>
+   .skills {
+      height: 600px;
+   }
+</style>
+<div class="skills">
    <div>
       {% renderFile "./src/_includes/components/skillstable.webc" %}
 
@@ -46,4 +56,4 @@ permalink: "index.html"
       {% renderFile "./src/_includes/components/skillstable.vue" %}
 
    </div>
-</section>
+</div>

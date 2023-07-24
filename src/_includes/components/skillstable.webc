@@ -21,6 +21,14 @@
     .no-headers thead {
       display: none;
     }
+
+    tr td:first-child {
+      border-right: none;
+    }
+
+    tr td:last-child {
+      border-left: none;
+    }
   </style>
   <table></table>
 </template>
@@ -74,7 +82,7 @@
         const row = document.createElement('tr');
         keys.forEach(key => {
           const td = document.createElement('td');
-          td.textContent = item[key];
+          td.innerHTML = item[key];
           row.appendChild(td);
         });
         tbody.appendChild(row);

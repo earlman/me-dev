@@ -7,6 +7,8 @@ var md = require("markdown-it")();
 const eleventyVue = require("@11ty/eleventy-plugin-vue");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const sass = require("sass");
+const path = require("node:path");
 
 async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
    let metadata = await eleventyImage(src, {
@@ -28,6 +30,28 @@ async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw
 }
 
 module.exports = (eleventyConfig) => {
+   // Recognize Sass as a "template languages"
+   eleventyConfig.addTemplateFormats("sass");
+
+   // Compile Sass
+   eleventyConfig.addExtension("sass", {
+      outputFileExtension: "css", // optional, default: "html"
+
+      // can be an async function
+      compile: function (inputContent, inputPath) {
+         let parsed = path.parse(inputPath);
+
+         let result = sass.compileString(inputContent, {
+            loadPaths: [parsed.dir || ".", this.config.dir.includes],
+            syntax: "indented",
+         });
+
+         return (data) => {
+            return result.css;
+         };
+      },
+   });
+
    eleventyConfig.addPlugin(Collections);
    eleventyConfig.addPlugin(eleventyVue);
    eleventyConfig.addPlugin(pluginWebc, {

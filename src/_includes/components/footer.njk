@@ -6,9 +6,11 @@
   footer {
     background-color: var(--color-b-d);
     position: fixed;
-    bottom: 0;
+    bottom: var(--space-xs);
     height: var(--footer-height);
     width: 100vw;
+    display: grid;
+    place-content: center;
   }
 
   footer nav {
@@ -35,7 +37,7 @@
   }
 
   main {
-    margin-bottom: var(--footer-height);
+    margin-bottom: calc(var(--footer-height) + var(--space-sm));
     min-height: 90vh;
   }
 
@@ -47,6 +49,15 @@
   footer .bottom {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr))
+  }
+
+  footer .logo {
+    display: grid;
+    place-content: center end;
+  }
+
+  footer .logo svg {
+    width: 250px;
   }
 </style>
 <footer>

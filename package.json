@@ -15,16 +15,17 @@
       "@11ty/eleventy-plugin-vue": "^0.8.0",
       "@11ty/eleventy-plugin-webc": "^0.11.1",
       "@fontsource-variable/fraunces": "^5.0.6",
-      "@fontsource/merriweather": "^4.5.4",
-      "@fontsource/open-sans": "^4.5.3",
       "@netlify/plugin-lighthouse": "^5.0.0",
+      "browserslist": "^4.21.9",
       "cheerio": "^1.0.0-rc.10",
       "dotenv": "^16.0.0",
+      "lightningcss": "^1.21.5",
       "markdown-it": "^12.3.2",
       "netlify-cli": "^8.18.1",
       "octokit": "^1.7.1",
-      "sass": "^1.64.1",
-      "browserslist": "^4.21.9",
-      "lightningcss": "^1.21.5"
+      "sass": "^1.64.1"
+   },
+   "dependencies": {
+      "@fontsource/alegreya-sans": "^5.0.5"
    }
 }

@@ -1135,15 +1135,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/fraunces/-/fraunces-5.0.6.tgz#687ee3a575c287672b0f5358e7143e94f86fa2df"
   integrity sha512-7ZMiwtBkTOxCt03jQ/ogyugpwG90si+L/vudbdrCrgJUbRBtzrqvwxbAt7UUVdtqKlk3/TwBpZtwtz0mmhm2tA==
 
-"@fontsource/merriweather@^4.5.4":
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-4.5.4.tgz#d3768028349d040e1e31d29b245d9dbc211824b0"
-  integrity sha512-nHGjhafMqDS9cO7EdPU46+T7TcwuJeAYlTZYlmHP1oId+sKcoWF+5JQDer2xA2n1Z5LWRdqz5lAs1OAzDe2qxQ==
-
-"@fontsource/open-sans@^4.5.3":
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.3.tgz#168670a01d195fcff29a169b0c70a676a8e63fdf"
-  integrity sha512-zabYpvz2XkZ4Vp1EN2/k0r5X9kQgwjdj1+kJ6B0T/oN4h9yqJqr9VKxa+JspRxClxDEo23K5GqfuIEH1+WyFOw==
+"@fontsource/alegreya-sans@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/alegreya-sans/-/alegreya-sans-5.0.5.tgz#b67a64ac510b63d7cab5021983e076894346d50b"
+  integrity sha512-BZDw4++ybdRuzABJ+kP22jaMrPAu0xf/zfPoBkWTeJHpDOTzExY8TCQCTEsnnRTZKIGmKVnpzuCao7Q++7MYXw==
 
 "@iarna/toml@^2.2.5":
   version "2.2.5"

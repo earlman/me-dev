@@ -79,16 +79,10 @@ module.exports = (eleventyConfig) => {
 
    eleventyConfig.addPassthroughCopy({
       "src/_data": "data",
-      "node_modules/@fontsource-variable/fraunces": "css/fonts",
-      // "node_modules/@fontsource/open-sans/files": "css/fonts",
-      // "node_modules/@fontsource/merriweather/files": "css/fonts",
+
       // Only copying the specific .woff2 files I need because the hot-reloading is taking a while
-      "node_modules/@fontsource/open-sans/files/open-sans-latin-ext-variable-full-normal.woff2": "css/fonts/open-sans-latin-ext-variable-full-normal.woff2",
-      "node_modules/@fontsource/open-sans/files/open-sans-latin-variable-full-normal.woff2": "css/fonts/open-sans-latin-variable-full-normal.woff2",
-      "node_modules/@fontsource/merriweather/files/merriweather-latin-ext-400-normal.woff2": "css/fonts/merriweather-latin-ext-400-normal.woff2",
-      "node_modules/@fontsource/merriweather/files/merriweather-latin-400-normal.woff2": "css/fonts/merriweather-latin-400-normal.woff2",
-      "node_modules/@fontsource/merriweather/files/merriweather-latin-ext-400-italic.woff2": "css/fonts/merriweather-latin-ext-400-italic.woff2",
-      "node_modules/@fontsource/merriweather/files/merriweather-latin-400-italic.woff2": "css/fonts/merriweather-latin-400-italic.woff2",
+      "node_modules/@fontsource-variable/fraunces": "assets/fonts/fraunces",
+      "node_modules/@fontsource/alegreya-sans": "assets/fonts/alegreya-sans",
    });
 
    eleventyConfig.addFilter("getSummary", function (value) {

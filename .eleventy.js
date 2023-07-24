@@ -9,6 +9,8 @@ const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const sass = require("sass");
 const path = require("node:path");
+const browserslist = require("browserslist");
+const { transform, browserslistToTargets } = require("lightningcss");
 
 async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
    let metadata = await eleventyImage(src, {
@@ -54,8 +56,16 @@ module.exports = (eleventyConfig) => {
          // trigger rebuilds when using --incremental
          this.addDependencies(inputPath, result.loadedUrls);
 
+         let targets = browserslistToTargets(browserslist("defaults"));
+
          return async () => {
-            return result.css;
+            let { code } = await transform({
+               code: Buffer.from(result.css),
+               minify: true,
+               sourceMap: true,
+               targets,
+            });
+            return code;
          };
       },
    });

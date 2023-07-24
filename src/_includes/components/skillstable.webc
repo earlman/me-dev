@@ -1,3 +1,10 @@
+<!-- 
+  params:
+  - src (req): Path to json file
+  - path (opt): Path to the specific data within the javascript file
+-->
+
+
 <template id="json-table-template">
   <style>
     table {
@@ -10,9 +17,12 @@
       border: 1px solid #ddd;
       padding: 8px;
     }
+
+    .no-headers thead {
+      display: none;
+    }
   </style>
   <table></table>
-  <p>test</p>
 </template>
 
 <script>
@@ -24,15 +34,20 @@
     }
 
     connectedCallback() {
-      this.loadJSON(this.getAttribute('src'));
+
+      this.loadJSON(this.getAttribute('src'), this.getAttribute('path'), this.getAttribute("no-headers"));
+
+      if (this.hasAttribute('no-headers')) {
+        this.shadowRoot.querySelector('table').classList.add('no-headers');
+      }
     }
 
-    async loadJSON(src) {
+    async loadJSON(src, path, noHeaders) {
       try {
         const response = await fetch(src);
-        const data = await response.json();
-        console.log(Object.keys(data))
-        this.buildTable(data);
+        const allData = await response.json();
+        const requestedData = this.getAttribute('path') ? allData[path] : allData;
+        this.buildTable(requestedData);
       } catch (err) {
         console.error('Failed to load JSON: ', err);
       }

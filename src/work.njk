@@ -83,7 +83,7 @@ permalink: "index.html"
             ease: "power1.out"
          })
       </script>
-   </div>"
+   </div>
    <div class="platonic-solids">
       {%- include "components/platonic-solids.njk" -%}
    </div>
@@ -101,21 +101,7 @@ permalink: "index.html"
 </style>
 <div class="skills">
    <div>
-      <p>1</p>
-      <json-table src="/data/skills.json"></json-table>
-
-      <p>2</p>
-      {% renderFile "./src/_includes/components/skillstable.webc" %}
-
-      <p>3</p>
-      {% renderTemplate "webc" %}
-      <skillstable></skillstable>
-      <json-table src="_data/skills.json"></json-table>
-      {% endrenderTemplate %}
-
-
-      <p>4</p>
-      {% renderFile "./src/_includes/components/skillstable.vue" %}
-
+      <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
+      <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
    </div>
 </div>

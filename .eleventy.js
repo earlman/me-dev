@@ -38,6 +38,7 @@ module.exports = (eleventyConfig) => {
 
    eleventyConfig.addPassthroughCopy({
       "src/_data": "data",
+      "node_modules/@fontsource-variable/fraunces": "css/fonts",
       // "node_modules/@fontsource/open-sans/files": "css/fonts",
       // "node_modules/@fontsource/merriweather/files": "css/fonts",
       // Only copying the specific .woff2 files I need because the hot-reloading is taking a while

@@ -13,7 +13,9 @@
    },
    "author": "Earl Mangulabnan",
    "license": "MIT",
-   "dependencies": {},
+   "dependencies": {
+      "@fontsource-variable/fraunces": "^5.0.6"
+   },
    "devDependencies": {
       "@11ty/eleventy": "^2.0.1",
       "@11ty/eleventy-img": "^1.0.0",

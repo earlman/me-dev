@@ -1130,6 +1130,11 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
+"@fontsource-variable/fraunces@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/fraunces/-/fraunces-5.0.6.tgz#687ee3a575c287672b0f5358e7143e94f86fa2df"
+  integrity sha512-7ZMiwtBkTOxCt03jQ/ogyugpwG90si+L/vudbdrCrgJUbRBtzrqvwxbAt7UUVdtqKlk3/TwBpZtwtz0mmhm2tA==
+
 "@fontsource/merriweather@^4.5.4":
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-4.5.4.tgz#d3768028349d040e1e31d29b245d9dbc211824b0"

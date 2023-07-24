@@ -35,23 +35,30 @@ module.exports = (eleventyConfig) => {
 
    // Compile Sass
    eleventyConfig.addExtension("sass", {
-      outputFileExtension: "css", // optional, default: "html"
-
-      // can be an async function
-      compile: function (inputContent, inputPath) {
+      outputFileExtension: "css",
+      compile: async function (inputContent, inputPath) {
+         // Skip files like _fileName.scss
          let parsed = path.parse(inputPath);
+         if (parsed.name.startsWith("_")) {
+            return;
+         }
 
+         // Run file content through Sass
          let result = sass.compileString(inputContent, {
-            loadPaths: [parsed.dir || ".", this.config.dir.includes],
-            syntax: "indented",
+            loadPaths: [parsed.dir || "."],
+            sourceMap: false, // or true, your choice!,
+            syntax: "indented", // ! .SASS files don't work without this line
          });
 
-         return (data) => {
+         // Allow included files from @use or @import to
+         // trigger rebuilds when using --incremental
+         this.addDependencies(inputPath, result.loadedUrls);
+
+         return async () => {
             return result.css;
          };
       },
    });
-
    eleventyConfig.addPlugin(Collections);
    eleventyConfig.addPlugin(eleventyVue);
    eleventyConfig.addPlugin(pluginWebc, {

@@ -97,11 +97,11 @@ permalink: "index.html"
 <style>
    .skills {
       height: 600px;
+      display: flex;
+      gap: var(--space-sm)
    }
 </style>
 <div class="skills">
-   <div>
-      <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
-      <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
-   </div>
+   <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
+   <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
 </div>

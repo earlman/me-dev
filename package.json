@@ -15,8 +15,10 @@
    "license": "MIT",
    "dependencies": {},
    "devDependencies": {
-      "@11ty/eleventy": "^1.0.0",
+      "@11ty/eleventy": "^2.0.1",
       "@11ty/eleventy-img": "^1.0.0",
+      "@11ty/eleventy-plugin-vue": "^0.8.0",
+      "@11ty/eleventy-plugin-webc": "^0.11.1",
       "@fontsource/merriweather": "^4.5.4",
       "@fontsource/open-sans": "^4.5.3",
       "@netlify/plugin-lighthouse": "^5.0.0",

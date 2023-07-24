@@ -6,6 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>{{ title }}</title>
+   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
 
    <link rel="stylesheet" href="{{ '/css/index.css' }}" />
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +17,7 @@
 </head>
 
 {%- include "components/header.njk"-%}
+{%- include "components/skillstable.webc"-%}
 
 <body class="{{ page.fileSlug }}">
    <main>

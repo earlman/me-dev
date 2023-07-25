@@ -1,5 +1,7 @@
 ### Colophon
 
+This website was designed and built from scratch by Earl Justin Mangulabnan. [11ty](https://www.11ty.dev/) is its primary technology. It's hosted on [Netlify](https://www.netlify.com/) and you can see the code on [Github](https://github.com/earlman/me-dev). I'm not using any CDN. I'm adapting work from several creators 
+
 This website is the professional portfolio of Earl Mangulabnan, hosted at dev.earlman.me. The source code is publicly available on GitHub.
 The site is built using a variety of technologies:
 

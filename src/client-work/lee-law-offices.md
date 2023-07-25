@@ -1,12 +1,13 @@
 ---
 title: Lee Law Offices
+displayTitle: "Lee Law\nOffices"
 url: https://leelawoffices-demo.foundations.design/en-us/
-url-github: https://github.com/earlman/lee-law-offices
+urlGithub: https://github.com/earlman/lee-law-offices
 repo:
   owner: earlman
   repo: lee-law-offices
-date-completed: 2021-10-02
-sort: 2
+dateCompleted: 2021-10-02
+sort: 10
 ---
 
 # Lee Law Offices

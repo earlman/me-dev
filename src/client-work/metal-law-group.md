@@ -5,7 +5,7 @@ urlGithub: https://github.com/earlman/Metal-Law-Group-Redesign
 repo:
   owner: earlman
   repo: metal-law-group-redesign
-sort: 3
+sort: 5
 ---
 
 # Metal Law Group

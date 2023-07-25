@@ -8,8 +8,8 @@ repo:
   owner: foundations-design
   repo: bdi-global-llc
 password: NETHER-rustle-flea
-date-completed: ongoing
-sort: 1
+dateCompleted: ongoing
+sort: 3
 tags: 
   - featured
 ---

@@ -92,4 +92,24 @@ layout: layouts/portfolio.njk
     {%- endfor -%}
 </div>
 
+<div class="portfolio">
+  <div class="hero">
+    <div>
+      {{ content | safe }}
+    </div>
+  </div>
+
+  <!-- {%if featured%}
+  {%- include 'components/legacy_featured.njk' -%}
+  {%endif%} -->
+
+
+  <!-- Show Other Work -->
+  <!-- {%- for work in collections.sortedWork -%}
+  <a class="project-link" href="{{ work.filePathStem }}">
+    {%- include "components/work-card.njk" -%}
+  </a>
+  {%- endfor -%} -->
+</div>
+
 </section>

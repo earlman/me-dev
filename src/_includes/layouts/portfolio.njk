@@ -3,22 +3,7 @@ layout: layouts/_base.njk
 ---
 
 <div class="portfolio">
-   <div class="hero">
-      <div>
-         {{ content | safe }}
-      </div>
+   <div>
+      {{ content | safe }}
    </div>
-
-   {%if featured%}
-   {%- include 'components/legacy_featured.njk' -%}
-   {%endif%}
-
-   <h2>Work</h2>
-
-   <!-- Show Other Work -->
-   {%- for work in collections.sortedWork -%}
-   <a class="project-link" href="{{ work.filePathStem }}">
-      {%- include "components/work-card.njk" -%}
-   </a>
-   {%- endfor -%}
 </div>

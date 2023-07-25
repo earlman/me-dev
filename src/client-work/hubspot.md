@@ -10,4 +10,5 @@ title: Hubspot
 # password: NETHER-rustle-flea
 # date-completed: ongoing
 sort: 1
+layout: layouts/work-item.njk
 ---

@@ -1,3 +1,9 @@
 ---
 layout: layouts/portfolio.njk
 ---
+
+<section class="client-work">
+  {%- for work in collections.sortedWork -%}
+  <li><a href="{{ work.url }}">{{ work.url }}</a></li>
+  {%- endfor -%}
+</section>

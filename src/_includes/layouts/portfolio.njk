@@ -4,21 +4,8 @@ layout: layouts/_base.njk
 
 <div class="portfolio">
    <div class="hero">
-      <p class="company">
-         Earl Mangulabnan | Portfolio {% if company -%} for {{ company }}
-         {%- endif -%}
-      </p>
-
-      {% if correspondent %}
-      <p class="greeting">Hi {{ correspondent }},</p>
-      {% else %}
-      <p class="greeting">Hi there,</p>
-      {% endif %}
-
-      <div class="markdown-content">
-         <p>
-            {{ content | safe }}
-         </p>
+      <div>
+         {{ content | safe }}
       </div>
    </div>
 

@@ -3,9 +3,9 @@ module.exports = function (eleventyConfig) {
    // Item moves to end if data.order is undefined
    eleventyConfig.addCollection("sortedWork", function (collectionApi) {
       return collectionApi
-         .getFilteredByGlob("src/work/*.md")
+         .getFilteredByGlob("src/client-work/*.md")
          .filter((item) => {
-            return !item.data.tags.includes("featured");
+            return !item.data?.tags?.includes("featured");
          })
          .sort(function (a, b) {
             if (!a.data.sort) {

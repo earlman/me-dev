@@ -1,36 +1,73 @@
 ---
 layout: layouts/_base.njk
 ---
+<style>
+   .work {
+      --max-width: 1440px;
+   }
 
-<div class="work">
-   <a href="/portfolio">⬅ Back to portfolio</a>
+   .work {
+      max-width: var(--max-width);
+   }
 
-   <div class="screenshot-container">
-      {%- if customScreenshot -%}
-         {%- image customScreenshot, url, "width: 1100" -%}
-      {%- else -%}
-         {%- getScreenshotHtml url -%}
-      {%- endif -%}
+   .work .title h1 {
+      font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
+      margin-bottom: var(--space-md);
+      font-family: "Abril Fatface";
+      line-height: 1.2;
+   }
+
+   .work .overview {
+      max-width: 50ch;
+      margin-bottom: var(--space-xl);
+      font-size: var(--d-lg);
+      color: #151515;
+   }
+
+   .work .markdown-content {
+      width: var(--max-width);
+   }
+
+   .work .back {
+      text-align: right;
+      margin-top: var(--space-md);
+   }
+
+   .work .content {
+      grid-template-columns: 25% 50% 25%;
+   }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+<section class="work">
+   <div class="back">
+
+      <a href="/work">⬅ Back to portfolio</a>
    </div>
 
-   <div class="links">
-      <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>
-      {%- if (urlGithub) and (not urlGithubPrivate) -%}
-      <a href="{{ urlGithub | url }}" target="_blank">{% indieAvatar "https://github.com/" %}Github{{ urlGithub | log }}</a>
-      {%- endif -%}
+   <div class="title">
+      <h1 class="display-text">
+         {{ title }}
+      </h1>
    </div>
-   <div class="markdown-content">
+
+   <div class="overview">
+      {{overview}}
+   </div>
+
+   <div>
+      {{testdata}}
+   </div>
+
+   <div class="markdown-content content">
+      <div class="links">
+         <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>
+         {%- if (urlGithub) and (not urlGithubPrivate) -%}
+         <a href="{{ urlGithub | url }}" target="_blank">{% indieAvatar "https://github.com/" %}Github{{ urlGithub | log
+            }}</a>
+         {%- endif -%}
+      </div>
       {{ content | safe }}
    </div>
-   <hr />
-   <div class="github">
-      <h2>Unformatted Data:</h2>
-      <div>
-         <h3>Repository Languages</h3>
-         <p>
-            <!-- see work/work.11tydata.js -->
-            {{ githubData }}
-         </p>
-      </div>
-   </div>
-</div>
+</section>

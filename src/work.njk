@@ -41,7 +41,6 @@ layout: layouts/portfolio.njk
     letter-spacing: -0.3rem;
     fill: none;
     stroke: var(--color-b2);
-
     stroke-dasharray: 50px 600px 100px 600px;
     stroke-width: 1px;
     animation: stroke-offset 5.5s infinite linear;
@@ -70,24 +69,25 @@ layout: layouts/portfolio.njk
   <section class="client-work">
     {%- for work in collections.sortedWork -%}
     <div class="work-item">
-      <h3><a href="{{ work.url }}">{{ work.data.title }}</a></h3>
-      <!-- <svg viewBox="0 0 1200 300"> -->
-      <svg>
-        <symbol id="{{ work.fileSlug }}">
-          <text text-anchor="start" x="" y="80%" dy="10%" class="text-copy">
-            {%- if work.data.displayTitle -%}
-            {{ work.data.displayTitle | safe }}
-            {%- else -%}
-            {{ work.data.title }}
-            {%- endif -%}
-          </text>
-        </symbol>
+      <a href="{{ work.url }}">
+        <h3>{{ work.data.title }}</h3>
+        <!-- <svg viewBox="0 0 1200 300"> -->
+        <svg>
+          <symbol id="{{ work.fileSlug }}">
+            <text text-anchor="start" x="" y="80%" dy="10%" class="text-copy">
+              {%- if work.data.displayTitle -%}
+              {{ work.data.displayTitle | safe }}
+              {%- else -%}
+              {{ work.data.title }}
+              {%- endif -%}
+            </text>
+          </symbol>
 
-        <g class="g-ants">
-          <use xlink:href="#{{ work.fileSlug }}"></use>
-        </g>
-      </svg>
-
+          <g class="g-ants">
+            <use xlink:href="#{{ work.fileSlug }}"></use>
+          </g>
+        </svg>
+      </a>
     </div>
     {%- endfor -%}
 </div>

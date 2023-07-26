@@ -8,6 +8,7 @@ repo:
   repo: lee-law-offices
 dateCompleted: 2021-10-02
 sort: 10
+overview: "At Lee Law Offices, a client-facing website was designed and deployed, achieving impressive Google Lighthouse scores for performance and accessibility. Additionally, a markdown-based content management solution was implemented, along with internationalization to cater to Spanish speakers."
 ---
 
 # Lee Law Offices

@@ -1,3 +1,16 @@
 ---
 layout: layouts/_base.njk
 ---
+
+<style>
+  .personal-mission {
+    border: 1px solid var(--color-b2);
+    padding: var(--space-sm);
+    font-size: var(--d-lg);
+    color: #492306;
+    --text-max-width: 25em;
+  }
+</style>
+<section class="personal-mission markdown-content">
+  {% renderFile "./src/_includes/components/personal-mission.md" %}
+</section>

@@ -10,8 +10,9 @@ repo:
 password: NETHER-rustle-flea
 dateCompleted: ongoing
 sort: 3
-tags: 
-  - featured
+# tags: 
+#   - featured
+overview: "Developed a client portal for Cyber Admitted, facilitating the management of substantial monthly written insurance premiums. The project involved creating a secure authentication system with Vue and Firebase, and planning integrations with several other platforms."
 ---
 
 # Cyber Admitted

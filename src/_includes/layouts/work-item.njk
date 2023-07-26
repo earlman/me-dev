@@ -57,7 +57,10 @@ layout: layouts/_base.njk
    </div>
 
    <div>
-      {{testdata}}
+      {%- for item in tech -%}
+      {{item.name}}
+      {{item.link}}
+      {%- endfor -%}
    </div>
 
    <div class="markdown-content content">

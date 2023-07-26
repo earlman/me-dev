@@ -27,6 +27,10 @@
     gap: var(--space-md);
   }
 
+  header .nav_item.active {
+    background-color: blue;
+  }
+
   header * {
     color: var(--color-t-l);
   }
@@ -44,9 +48,10 @@
   {%- include "components/signature.svg"-%}
   <nav>
     <ul>
-      <li><a href="/work">Work</a></li>
-      <li><a href="/">Capabilities</a></li>
-      <li><a href="/aspirations">Aspirations</a></li>
+      <li><a class="nav_item {{ 'active' if 'work' in page.fileSlug }}" href="/work">Work</a></li>
+      <li><a class="nav_item {{ 'active' if 'capabilities' in page.fileSlug }}" href="/">Capabilities</a></li>
+      <li><a class="nav_item {{ 'active' if 'aspirations' in page.fileSlug }}" href="/aspirations">Aspirations</a></li>
     </ul>
   </nav>
+
 </header>

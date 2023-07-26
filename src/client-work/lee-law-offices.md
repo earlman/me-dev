@@ -31,4 +31,4 @@ Lee Law Offices is a boutique law firm based in California that was looking to b
 - [{% indieAvatar "https://gridsome.org/" %}Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
 - Markdown
 - [{% indieAvatar "https://www.netlify.com/" %}Netlify Forms](https://www.netlify.com/products/forms/)
-- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology
+- [Shipwright CSS](../../client-work/shipwright-css) - My personal CSS/SASS methodology

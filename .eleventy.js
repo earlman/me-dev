@@ -7,7 +7,6 @@ var md = require("markdown-it")();
 const eleventyVue = require("@11ty/eleventy-plugin-vue");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const sass = require("sass");
 const path = require("node:path");
 const browserslist = require("browserslist");

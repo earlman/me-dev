@@ -4,17 +4,28 @@ layout: layouts/_base.njk
 <style>
    .work {
       --max-width: 1440px;
+      --display-text-height: 70vh;
    }
 
    .work {
       max-width: var(--max-width);
+      padding-left: var(--space-md);
+      padding-right: var(--space-md);
    }
 
-   .work .title h1 {
+   .work .title-c {
+      display: grid;
+      align-content: center;
+      height: var(--display-text-height);
+   }
+
+   .work .title-c h1 {
       font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
+      margin-top: var(--space-sm);
       margin-bottom: var(--space-md);
       font-family: "Abril Fatface";
-      line-height: 1.2;
+      line-height: 1.1;
+      font-size: calc(.45 * var(--display-text-height));
    }
 
    .work .overview {
@@ -41,12 +52,9 @@ layout: layouts/_base.njk
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
 <section class="work">
-   <div class="back">
 
-      <a href="/work">⬅ Back to portfolio</a>
-   </div>
 
-   <div class="title">
+   <div class="title-c">
       <h1 class="display-text">
          {{ title }}
       </h1>
@@ -54,6 +62,10 @@ layout: layouts/_base.njk
 
    <div class="overview">
       {{overview}}
+   </div>
+
+   <div class="back">
+      <a href="/work">⬅ Back to portfolio</a>
    </div>
 
    <div>

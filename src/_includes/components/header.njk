@@ -23,12 +23,18 @@
   }
 
   header nav ul {
-    display: flex;
-    /*gap: var(--space-md);*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    place-items: flex-end;
   }
 
   header .nav_item {
     padding: var(--space-sm);
+  }
+
+  header .nav_item:hover {
+    font-weight: 600;
   }
 
   header .nav_item.active {

@@ -26,7 +26,7 @@ async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw
       decoding: "async",
    };
 
-   console.log(src + "was processed");
+   console.log(src + " was processed");
    // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
    return eleventyImage.generateHTML(metadata, imageAttributes);
 }

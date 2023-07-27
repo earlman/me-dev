@@ -15,7 +15,7 @@ const { transform, browserslistToTargets } = require("lightningcss");
 async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
    let metadata = await eleventyImage(src, {
       widths: [300, 900, 1500],
-      formats: ["avif", "jpeg", "webp", "png"],
+      formats: ["jpeg", "webp"],
       outputDir: "./_dist/img/",
    });
 

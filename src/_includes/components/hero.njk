@@ -1,0 +1,101 @@
+<section class="hero">
+  <style>
+    .hero {
+      position: relative;
+      width: 100vw;
+      padding: var(--space-lg);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: var(--space-sm);
+      }
+    }
+
+    .hero h1 {
+      font-size: 160px;
+      color: #85400D;
+      font-family: "Playfair Display";
+      letter-spacing: -0.5775rem;
+    }
+
+    .platonic-solids {
+      left: 0;
+      top: var(--space-md);
+      width: 100%;
+    }
+
+    .hero-animated-text {
+      position: relative;
+      margin-left: calc(-1* var(--space-xs));
+    }
+
+    .hero-animated-text .container {
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
+
+    .hero-animated-text svg {
+      display: block;
+      font: 12em var(--font-secondary);
+      height: 300px;
+    }
+
+    .hero-animated-text .text-copy {
+      fill: none;
+      stroke: var(--color-b2);
+      stroke-dasharray: 50px 600px 100px 600px;
+      stroke-width: 1px;
+      animation: stroke-offset 5.5s infinite linear;
+    }
+
+    .skills json-table {
+      max-width: 300px;
+      width: 100%;
+    }
+
+    #s-text>text:nth-child(1) {
+      font-family: var(--font-secondary);
+      font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 363;
+      letter-spacing: -0.4125rem;
+    }
+  </style>
+
+  <div class="hero-animated-text">
+
+    <!-- I might be able to sell this web component lol $3?-->
+    <div class="container">
+      <svg viewBox="0 0 1200 300">
+        <symbol id="s-text">
+          <text text-anchor="start" x="0%" y="80%">Good Afternoon</text>
+        </symbol>
+
+        <g class="g-ants">
+          <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+      </svg>
+    </div>
+    <script>
+      var tl = gsap.timeline({ ease: "circ" });
+
+      tl.to(".text-copy", {
+        "stroke-dasharray": "150px 0 150px 0",
+        duration: 2
+      })
+        .to(".text-copy", {
+          "fill": "rgba(133, 64, 13, 1)",
+          "stroke": "rgba(133, 64, 13, 1)",
+          duration: 2
+        });
+
+    </script>
+  </div>
+  <div class="platonic-solids">
+    {%- include "components/platonic-solids.njk" -%}
+  </div>
+  <div class="hero-content">
+    {%- include "components/hero-content.njk" -%}
+  </div>
+
+</section>

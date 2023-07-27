@@ -8,12 +8,12 @@
   }
 
   #c {
-    width: 800px;
-    height: 250px;
+    width: calc(100vw - 50ch);
+    height: 30rem;
     border: 2px solid #D4CBC4;
     position: absolute;
-    top: 200px;
     left: 300px;
+    top: 2px;
     opacity: 100%;
   }
 </style>
@@ -24,8 +24,8 @@
   C = Math.cos
   t = 0
   rsz = window.onresize = () => {
-    c.width = c.clientWidth
-    c.height = c.clientHeight
+    c.width = c.clientWidth * .7
+    c.height = c.clientHeight * .7
   }
   rsz()
   Draw = () => {

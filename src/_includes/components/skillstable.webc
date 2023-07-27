@@ -33,6 +33,7 @@
          padding-right: var(--space-xs);
       }
    </style>
+   &#9432;
    <table></table>
 </template>
 

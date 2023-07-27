@@ -15,7 +15,7 @@ const { transform, browserslistToTargets } = require("lightningcss");
 async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
    let metadata = await eleventyImage(src, {
       widths: [300, 900, 1500],
-      formats: ["avif", "jpeg"],
+      formats: ["avif", "jpeg", "webp", "png"],
       outputDir: "./_dist/img/",
    });
 
@@ -26,7 +26,7 @@ async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw
       decoding: "async",
    };
 
-   console.log(src);
+   console.log(src + " processed");
    // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
    return eleventyImage.generateHTML(metadata, imageAttributes);
 }

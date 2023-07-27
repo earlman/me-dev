@@ -17,6 +17,7 @@ html
    display: grid
    justify-content: center
    background-color: var(--color-b-d)
+   overscroll-behavior-y: none // removes "scroll bounce" on mac
 
 main
    display: grid
@@ -34,6 +35,9 @@ hr
 .markdown-content
    --text-max-width: 65ch
 
+   img
+      height: auto
+
    h2
       margin-top: var(--space-sm)
 
@@ -46,6 +50,7 @@ hr
 
    ul, ol
       margin-bottom: var(--space-xs)
+      max-width: var(--text-max-width)
 
       ul
          margin-bottom: 0

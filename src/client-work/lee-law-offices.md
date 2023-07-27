@@ -1,12 +1,14 @@
 ---
 title: Lee Law Offices
+displayTitle: "Lee Law\nOffices"
 url: https://leelawoffices-demo.foundations.design/en-us/
-url-github: https://github.com/earlman/lee-law-offices
+urlGithub: https://github.com/earlman/lee-law-offices
 repo:
   owner: earlman
   repo: lee-law-offices
-date-completed: 2021-10-02
-sort: 2
+dateCompleted: 2021-10-02
+sort: 10
+overview: "At Lee Law Offices, a client-facing website was designed and deployed, achieving impressive Google Lighthouse scores for performance and accessibility. Additionally, a markdown-based content management solution was implemented, along with internationalization to cater to Spanish speakers."
 ---
 
 # Lee Law Offices
@@ -29,4 +31,4 @@ Lee Law Offices is a boutique law firm based in California that was looking to b
 - [{% indieAvatar "https://gridsome.org/" %}Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
 - Markdown
 - [{% indieAvatar "https://www.netlify.com/" %}Netlify Forms](https://www.netlify.com/products/forms/)
-- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology
+- [Shipwright CSS](../../client-work/shipwright-css) - My personal CSS/SASS methodology

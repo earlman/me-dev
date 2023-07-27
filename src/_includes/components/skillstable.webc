@@ -6,82 +6,120 @@
 
 
 <template id="json-table-template">
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
+   <style>
+      table {
+         border-collapse: collapse;
+         width: 100%;
+      }
 
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
+      th,
+      td {
+         border: 1px solid #ddd;
+         padding: 8px;
+      }
 
-    .no-headers thead {
-      display: none;
-    }
-  </style>
-  <table></table>
+      .no-headers thead {
+         display: none;
+      }
+
+      tr td:first-child {
+         border-right: none;
+         padding-left: var(--space-xs);
+      }
+
+      tr td:last-child {
+         border-left: none;
+         text-align: right;
+         padding-right: var(--space-xs);
+      }
+   </style>
+   &#9432;
+   <table></table>
 </template>
 
 <script>
-  class JSONTable extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: 'open' });
-      this.shadowRoot.appendChild(document.getElementById('json-table-template').content.cloneNode(true));
-    }
-
-    connectedCallback() {
-
-      this.loadJSON(this.getAttribute('src'), this.getAttribute('path'), this.getAttribute("no-headers"));
-
-      if (this.hasAttribute('no-headers')) {
-        this.shadowRoot.querySelector('table').classList.add('no-headers');
+   class JSONTable extends HTMLElement {
+      constructor() {
+         super();
+         this.attachShadow({ mode: 'open' });
+         this.shadowRoot.appendChild(document.getElementById('json-table-template').content.cloneNode(true));
       }
-    }
 
-    async loadJSON(src, path, noHeaders) {
-      try {
-        const response = await fetch(src);
-        const allData = await response.json();
-        const requestedData = this.getAttribute('path') ? allData[path] : allData;
-        this.buildTable(requestedData);
-      } catch (err) {
-        console.error('Failed to load JSON: ', err);
+      connectedCallback() {
+
+         this.loadJSON(this.getAttribute('src'), this.getAttribute('path'), this.getAttribute("no-headers"));
+
+         if (this.hasAttribute('no-headers')) {
+            this.shadowRoot.querySelector('table').classList.add('no-headers');
+         }
       }
-    }
 
-    buildTable(data) {
-      const table = this.shadowRoot.querySelector('table');
-      const keys = Object.keys(data[0]);
+      async loadJSON(src, path, noHeaders) {
+         try {
+            const response = await fetch(src);
+            const allData = await response.json();
+            const requestedData = this.getAttribute('path') ? allData[path] : allData;
+            this.buildTable(requestedData);
+         } catch (err) {
+            console.error('Failed to load JSON: ', err);
+         }
+      }
 
-      // Create table headers
-      const thead = document.createElement('thead');
-      const headerRow = document.createElement('tr');
-      keys.forEach(key => {
-        const th = document.createElement('th');
-        th.textContent = key;
-        headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
+      buildTable(data) {
+         const table = this.shadowRoot.querySelector('table');
+         const keys = Object.keys(data[0]);
 
-      // Create table rows
-      const tbody = document.createElement('tbody');
-      data.forEach(item => {
-        const row = document.createElement('tr');
-        keys.forEach(key => {
-          const td = document.createElement('td');
-          td.textContent = item[key];
-          row.appendChild(td);
-        });
-        tbody.appendChild(row);
-      });
-      table.appendChild(tbody);
-    }
-  }
+         // Create table headers
+         const thead = document.createElement('thead');
+         const headerRow = document.createElement('tr');
+         keys.forEach(key => {
+            const th = document.createElement('th');
+            th.textContent = key;
+            headerRow.appendChild(th);
+         });
+         thead.appendChild(headerRow);
+         table.appendChild(thead);
 
-  customElements.define('json-table', JSONTable);
+         // Create table rows
+         const tbody = document.createElement('tbody');
+         data.forEach(item => {
+            const row = document.createElement('tr');
+            keys.forEach(key => {
+               const td = document.createElement('td');
+
+               if (key == "level") {
+                  td.innerHTML = generateCircles(item[key]);
+               } else {
+                  td.innerHTML = item[key];
+               }
+
+               row.appendChild(td);
+            });
+            tbody.appendChild(row);
+         });
+         table.appendChild(tbody);
+      }
+
+   }
+
+   function generateCircles(n) {
+      // Create an array to hold all SVG strings
+      let svgs = [];
+
+      // Loop n times to create n SVG circles
+      for (let i = 0; i < n; i++) {
+         let svg = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4" fill="none">
+               <circle cx="2" cy="2" r="2" fill="#D4CBC4"/>
+            </svg>
+        `;
+         // Push the SVG string to the array
+         svgs.push(svg);
+      }
+
+      // Return the array of SVG strings
+      return svgs.join('');
+   }
+
+   customElements.define('json-table', JSONTable);
 </script>

@@ -25,5 +25,5 @@ I was looking to start a newsletter for my friends, but I didn't want to rely on
 ## Tech
 
 - [{% indieAvatar "https://www.netlify.com/" %}Netlify](https://netlify.com) - Forms & Hosting
-- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology
+- [Shipwright CSS](../../client-work/shipwright-css) - My personal CSS/SASS methodology
 - [{% indieAvatar "https://gridsome.org/" %}Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome

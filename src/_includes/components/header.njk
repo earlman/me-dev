@@ -23,8 +23,23 @@
   }
 
   header nav ul {
-    display: flex;
-    gap: var(--space-md);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    place-items: flex-end;
+  }
+
+  header .nav_item {
+    padding: var(--space-sm);
+  }
+
+  header .nav_item:hover {
+    font-weight: 600;
+  }
+
+  header .nav_item.active {
+    font-weight: bold;
+    text-decoration: underline;
   }
 
   header * {
@@ -40,13 +55,15 @@
   }
 </style>
 <header>
-
-  {%- include "components/signature.svg"-%}
+  <a href="/">
+    {%- include "components/signature.svg"-%}
+  </a>
   <nav>
     <ul>
-      <li><a href="/work">Work</a></li>
-      <li><a href="/">Capabilities</a></li>
-      <li><a href="/aspirations">Aspirations</a></li>
+      <li><a class="nav_item {{ 'active' if 'work' in page.fileSlug }}" href="/work">Work</a></li>
+      <li><a class="nav_item {{ 'active' if 'capabilities' in page.fileSlug }}" href="/">Capabilities</a></li>
+      <li><a class="nav_item {{ 'active' if 'aspirations' in page.fileSlug }}" href="/aspirations">Aspirations</a></li>
     </ul>
   </nav>
+
 </header>

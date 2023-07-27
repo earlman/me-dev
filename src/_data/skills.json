@@ -9,7 +9,7 @@
       "level": 3
     },
     {
-      "name": "Vue.js 2.x (+vuex, +vue-router)",
+      "name": "Vue.js 2.x<br>(Vuex, Vue-router)",
       "level": 3
     },
     {
@@ -21,7 +21,7 @@
       "level": 2
     },
     {
-      "name": "Static Site Generators (11ty, Gridsome, Hexo)",
+      "name": "Static Site Generators<br>(11ty, Gridsome, Hexo)",
       "level": 2
     },
     {
@@ -59,7 +59,7 @@
       "level": 2
     },
     {
-      "name": "Component Libraries (Bootstrap, Buefy, Vuetify)",
+      "name": "Component Libraries<br>(Bootstrap, Buefy, Vuetify)",
       "level": 1
     },
     {

@@ -5,7 +5,8 @@ urlGithub: https://github.com/earlman/Metal-Law-Group-Redesign
 repo:
   owner: earlman
   repo: metal-law-group-redesign
-sort: 3
+sort: 5
+overview: "Metal Law Group was looking to redesign their website. It was slow, and out-of-style. I redesigned their site and used their using their existing content to build it out. The partners of the law firm disbanded in early 2021, so I'm self-hosting this site for my portfolio."
 ---
 
 # Metal Law Group
@@ -14,7 +15,7 @@ Website Frontend Redesign
 
 ## Summary
 
-Metal Law Group was looking to redesign their website. It was slow, and out-of-style. I redesigned their site and used their using their existing content to build it out. The partners of the law firm disbanded in early 2021, so I'm self-hosting this site for my portfolio.
+
 
 ## Features
 
@@ -25,4 +26,4 @@ Metal Law Group was looking to redesign their website. It was slow, and out-of-s
 ## Tech
 
 - [{% indieAvatar "https://gridsome.org/" %}Gridsome](https://gridsome.org/) - Static-site builder powered by Vuejs and Gridsome
-- [Shipwright CSS](../../work/shipwright-css) - My personal CSS/SASS methodology
+- [Shipwright CSS](../../client-work/shipwright-css) - My personal CSS/SASS methodology

@@ -3,31 +3,30 @@
    "version": "0.0.0",
    "description": "Earl Man's professional portfolio",
    "scripts": {
-      "start": "npm-run-all build:sass --parallel start:*",
-      "start:sass": "sass --watch styles:_dist/css",
-      "start:eleventy": "eleventy --serve",
-      "build": "npm-run-all build:*",
-      "build:sass": "sass styles:_dist/css",
-      "build:eleventy": "eleventy",
+      "start": "eleventy --serve",
+      "build": "eleventy",
       "dev": "npm run start"
    },
    "author": "Earl Mangulabnan",
    "license": "MIT",
-   "dependencies": {},
    "devDependencies": {
       "@11ty/eleventy": "^2.0.1",
       "@11ty/eleventy-img": "^1.0.0",
+      "@11ty/eleventy-navigation": "^0.3.5",
       "@11ty/eleventy-plugin-vue": "^0.8.0",
       "@11ty/eleventy-plugin-webc": "^0.11.1",
-      "@fontsource/merriweather": "^4.5.4",
-      "@fontsource/open-sans": "^4.5.3",
+      "@fontsource-variable/fraunces": "^5.0.6",
       "@netlify/plugin-lighthouse": "^5.0.0",
+      "browserslist": "^4.21.9",
       "cheerio": "^1.0.0-rc.10",
       "dotenv": "^16.0.0",
+      "lightningcss": "^1.21.5",
       "markdown-it": "^12.3.2",
       "netlify-cli": "^8.18.1",
-      "npm-run-all": "^4.1.5",
       "octokit": "^1.7.1",
-      "sass": "^1.49.7"
+      "sass": "^1.64.1"
+   },
+   "dependencies": {
+      "@fontsource/alegreya-sans": "^5.0.5"
    }
 }

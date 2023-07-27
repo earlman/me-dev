@@ -1,3 +1,115 @@
 ---
 layout: layouts/portfolio.njk
 ---
+
+<style>
+  .client-work-container {
+    padding: var(--space-md)
+  }
+
+  .client-work {
+    max-width: 1920px;
+    margin: auto;
+    display: grid;
+    font-size: 132px;
+    grid-template: "a a b" "c d e" / 1fr 1fr 1fr;
+    justify-content: stretch;
+    margin-top: -1px;
+    margin-left: -1px;
+  }
+
+  .work-item:first-child {
+    grid-column: span 2;
+  }
+
+  .work-item {
+    border-radius: 0;
+    outline: 1px solid var(--color-b2);
+    margin-top: 1px;
+    margin-left: 1px;
+    height: 2em;
+  }
+
+  .work-item h3 {
+    display: none;
+  }
+
+  .text-copy {
+    font-size: 120%;
+    font-family: var(--font-secondary);
+    font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
+    letter-spacing: -0.3rem;
+    fill: none;
+    stroke: var(--color-b2);
+    stroke-dasharray: 50px 600px 100px 600px;
+    stroke-width: 1px;
+    animation: stroke-offset 5.5s infinite linear;
+  }
+
+  /* how do i set the size of the font */
+  .client-work svg {
+    max-width: unset;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+
+<script>
+  gsap.to(".text-copy", {
+    // "stroke-dashoffset": 0,
+    "stroke-dasharray": "150px 0 150px 0",
+    duration: 2,
+    ease: "circ"
+  })
+</script>
+
+<div class="client-work-container">
+
+  <section class="client-work">
+    {%- for work in collections.sortedWork -%}
+    <div class="work-item">
+      <a href="{{ work.url }}">
+        <h3>{{ work.data.title }}</h3>
+        <!-- <svg viewBox="0 0 1200 300"> -->
+        <svg>
+          <symbol id="{{ work.fileSlug }}">
+            <text text-anchor="start" x="" y="80%" dy="10%" class="text-copy">
+              {%- if work.data.displayTitle -%}
+              {{ work.data.displayTitle | safe }}
+              {%- else -%}
+              {{ work.data.title }}
+              {%- endif -%}
+            </text>
+          </symbol>
+
+          <g class="g-ants">
+            <use xlink:href="#{{ work.fileSlug }}"></use>
+          </g>
+        </svg>
+      </a>
+    </div>
+    {%- endfor -%}
+</div>
+
+<div class="portfolio">
+  <div class="hero">
+    <div>
+      {{ content | safe }}
+    </div>
+  </div>
+
+  <!-- {%if featured%}
+  {%- include 'components/legacy_featured.njk' -%}
+  {%endif%} -->
+
+
+  <!-- Show Other Work -->
+  <!-- {%- for work in collections.sortedWork -%}
+  <a class="project-link" href="{{ work.filePathStem }}">
+    {%- include "components/work-card.njk" -%}
+  </a>
+  {%- endfor -%} -->
+</div>
+
+</section>

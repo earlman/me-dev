@@ -5,7 +5,7 @@ urlGithub: https://github.com/foundations-design/Shipwright
 repo:
   owner: foundations-design
   repo: shipwright
-sort: 1
+sort: none
 ---
 
 # Shipwright CSS

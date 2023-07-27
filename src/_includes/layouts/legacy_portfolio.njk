@@ -1,0 +1,37 @@
+---
+layout: layouts/_base.njk
+---
+
+<div class="portfolio">
+  <div class="hero">
+    <p class="company">
+      Earl Mangulabnan | Portfolio {% if company -%} for {{ company }}
+      {%- endif -%}
+    </p>
+
+    {% if correspondent %}
+    <p class="greeting">Hi {{ correspondent }},</p>
+    {% else %}
+    <p class="greeting">Hi there,</p>
+    {% endif %}
+
+    <div class="markdown-content">
+      <p>
+        {{ content | safe }}
+      </p>
+    </div>
+  </div>
+
+  {%if featured%}
+  {%- include 'components/legacy_featured.njk' -%}
+  {%endif%}
+
+  <h2>Work</h2>
+
+  <!-- Show Other Work -->
+  {%- for work in collections.sortedWork -%}
+  <a class="project-link" href="{{ work.filePathStem }}">
+    {%- include "components/work-card.njk" -%}
+  </a>
+  {%- endfor -%}
+</div>

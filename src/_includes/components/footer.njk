@@ -57,7 +57,12 @@
 
   footer .bottom {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr))
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-rows: 2;
+  }
+
+  .colophon {
+    grid-row: span 2;
   }
 
   footer .logo {
@@ -72,6 +77,11 @@
   .colophon a {
     text-decoration: underline;
     text-decoration-style: dotted;
+  }
+
+  .high-contrast-switch {
+    place-self: center flex-start;
+    padding-left: var(--space-lg);
   }
 </style>
 <footer>
@@ -168,37 +178,8 @@
     <div class="colophon markdown-content">
       {% renderFile "./src/_includes/components/colophon.md" %}
     </div>
-    <div class="high-contrast-toggle">
-
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-
-      <script>
-        const clippedElement = document.querySelector('html')
-        const hcSwitch = document.querySelector('.high-contrast-toggle .switch')
-
-        const accessibleColors = {
-          "--color-t-l": "#ffffff",
-          "--color-t5": "#9d6749"
-        }
-
-        const onChange = (e) => {
-          if (e.target.checked) {
-            for (const [key, value] of Object.entries(accessibleColors)) {
-              clippedElement.style.setProperty(key, value)
-            }
-          }
-          else {
-            for (const [key, value] of Object.entries(accessibleColors)) {
-              clippedElement.style.removeProperty(key)
-            }
-          }
-        }
-
-        hcSwitch.addEventListener('change', onChange)
-      </script>
+    <div class="high-contrast-switch">
+      {% include "components/high-contrast-switch.njk" %}
     </div>
     <div class="logo">
       {%- include "components/signature.svg"-%}

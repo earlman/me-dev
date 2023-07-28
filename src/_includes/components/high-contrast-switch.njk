@@ -1,0 +1,36 @@
+<style>
+  .switch {
+    text-transform: none;
+  }
+</style>
+<div class="">
+  <label class="switch" id="hct-switch">
+    <input type="checkbox">
+    <span class="">&nbsp;&nbsp;High Contrast Toggle</span>
+  </label>
+
+  <script>
+    const clippedElement = document.querySelector('html')
+    const hcSwitch = document.querySelector('#hct-switch')
+
+    const accessibleColors = {
+      "--color-t-l": "#ffffff",
+      "--color-t5": "#9d6749"
+    }
+
+    const onChange = (e) => {
+      if (e.target.checked) {
+        for (const [key, value] of Object.entries(accessibleColors)) {
+          clippedElement.style.setProperty(key, value)
+        }
+      }
+      else {
+        for (const [key, value] of Object.entries(accessibleColors)) {
+          clippedElement.style.removeProperty(key)
+        }
+      }
+    }
+
+    hcSwitch.addEventListener('change', onChange)
+  </script>
+</div>

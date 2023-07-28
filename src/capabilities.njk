@@ -33,12 +33,12 @@ permalink: "index.html"
 
   {%include "components/hero.njk"%}
 
-  <section class="skills">
+  <section id="skills" class="skills">
     <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
     <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
   </section>
 
-  <section class="featured-projects">
+  <section id="featured-work" class="featured-projects">
     <div class="featured">
       {%- for featured in collections.featured_intro -%}
       <div class="featured-intro">

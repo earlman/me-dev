@@ -10,29 +10,22 @@
       best-practices = 0.8
       seo = 0.8
 
-   # to audit a sub path of the build directory
-   [[plugins.inputs.audits]]
-      path = "/portfolio/moonrise"
+[[context.deploy-preview.plugins]]
+   [[plugins]]
+      package = "netlify-plugin-visual-diff"
+      [plugins.inputs]
+         # ignoreSelector = "#today,.copyright"
+         failBuildOnDiff = false
 
-      # you can specify output_path per audit, relative to the path
-      output_path = "reports/portfolio-moonrise"
+         [[plugins.inputs.browser]]
+         name = "chrome"
+         width = 1024
+         height = 768
 
+         [[plugins.inputs.browser]]
+         name = "firefox"
+         width = 1920
+         height = 1080
 
-[[plugins]]
-   package = "netlify-plugin-visual-diff"
-   [plugins.inputs]
-      # ignoreSelector = "#today,.copyright"
-      failBuildOnDiff = false
-
-      [[plugins.inputs.browser]]
-      name = "chrome"
-      width = 1024
-      height = 768
-
-      [[plugins.inputs.browser]]
-      name = "firefox"
-      width = 1920
-      height = 1080
-
-      [[plugins.inputs.browser]]
-      deviceName = "iPhone X"
+         [[plugins.inputs.browser]]
+         deviceName = "iPhone X"

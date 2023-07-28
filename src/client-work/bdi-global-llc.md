@@ -1,5 +1,5 @@
 ---
-title: Cyber Admitted
+title: BDI Global
 url: https://cyberadmitted-demo.earlman.me
 customScreenshot: ./images/cyber-admitted-screenshot.png
 urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
@@ -12,16 +12,16 @@ dateCompleted: ongoing
 sort: 3
 # tags: 
 #   - featured
-overview: "Developed a client portal for Cyber Admitted, facilitating the management of substantial monthly written insurance premiums. The project involved creating a secure authentication system with Vue and Firebase, and planning integrations with several other platforms."
+overview: "Developed a client portal called Cyber Admitted, facilitating the management of substantial monthly written insurance premiums. The project involved creating a secure authentication system with Vue and Firebase, and planning integrations with several other platforms.
+
+Big Data Insure (BDI) was looking for a tool to help support the complicated process for underwriting cyber insurance. This has been developed over the course of the last 6 months. We're currently in the process of rolling this out internally (as an in-house tool for BDI).
+
+My work with Big Data Insure, LLC consisted of several different projects that culminated in the development of Cyber Admitted, an internal quoting tool built in Vue that integrated BDI's proprietary quoting algorithm. It used Airtable as a database and featured a live dashboard, custom business logic, Firebase Authentication, and Vuex state management."
 ---
 
 # Cyber Admitted
 
 Full-Stack Webapp Build
-
-## Summary
-
-Big Data Insure (BDI) was looking for a tool to help support the complicated process for underwriting cyber insurance. This has been developed over the course of the last 6 months. We're currently in the process of rolling this out internally (as an in-house tool for BDI).
 
 ## Features
 
@@ -41,8 +41,6 @@ Big Data Insure (BDI) was looking for a tool to help support the complicated pro
 - [{% indieAvatar "https://github.com/" %}ShipwrightCSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
 
 ---
-
-My work with Big Data Insure, LLC consisted of several different projects that culminated in the development of Cyber Admitted, an internal quoting tool built in Vue that integrated BDI's proprietary quoting algorithm. It used Airtable as a database and featured a live dashboard, custom business logic, Firebase Authentication, and Vuex state management.
 
 ### Systems Design
 

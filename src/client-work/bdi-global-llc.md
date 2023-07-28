@@ -12,41 +12,19 @@ dateCompleted: ongoing
 sort: 3
 # tags: 
 #   - featured
-overview: "Developed a client portal called Cyber Admitted, facilitating the management of substantial monthly written insurance premiums. The project involved creating a secure authentication system with Vue and Firebase, and planning integrations with several other platforms.
-
-Big Data Insure (BDI) was looking for a tool to help support the complicated process for underwriting cyber insurance. This has been developed over the course of the last 6 months. We're currently in the process of rolling this out internally (as an in-house tool for BDI).
-
-My work with Big Data Insure, LLC consisted of several different projects that culminated in the development of Cyber Admitted, an internal quoting tool built in Vue that integrated BDI's proprietary quoting algorithm. It used Airtable as a database and featured a live dashboard, custom business logic, Firebase Authentication, and Vuex state management."
+overview: "My work with Big Data Insure, LLC consisted of several different projects that culminated in the development of Cyber Admitted, an internal quoting tool built in Vue that integrated facilitated the management of their cyber insurance product. It implemented BDI's proprietary quoting algorithm and featured a live dashboard, custom business logic, Firebase Authentication, and Vuex state management."
+tagline: Full-Stack Webapp Build
 ---
 
-# Cyber Admitted
+## Systems Design
 
-Full-Stack Webapp Build
+At the beginning of my work here, BDI already had many automations in place. They used [CognitoForms](https://www.cognitoforms.com/) and its [Document Merging](https://www.cognitoforms.com/support/5/document-merging) feature to collect data and generate quotes to send out to users. They were using [Airtable](https://www.airtable.com/) to track data and build out dashboards for internal use. Generally, they hired me to help improve these systems and build out something more user-friendly.
 
-## Features
+<figcaption></figcaption>
+{% image "src/client-work/images/img1.png"  ""%}
+{% image "src/client-work/images/img6.png"  ""%}
 
-- Allows brokers to calculate cyber insurance quotes
-- Authentication system - Custom Vue components, fully integrated with Vuex & Vue-Router, adhering to my understanding of best-practices
-- [{% indieAvatar "https://router.vuejs.org" %}Vuex Route Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html) - Uses firebase rules to limit user queries
-- Analytics - Uses [{% indieAvatar "https://www.amcharts.com/" %}amCharts](https://www.amcharts.com/) and Vuex getters to process quotes data
-- Airtable Integration - This is the tool BDI uses to calculate & log their quotes. We leverage Airtable's API to calculate rates using data from our app. It's a temporary solution while we test the tool internally, since we're eventually going to run into Airtable's Rate Limits. An intermediate solution we have available is to use use [{% indieAvatar "https://docs.netlify.com" %}Netlify Functions](https://docs.netlify.com/functions/overview/) as a (serverless) rate-limiter to avoid hitting the limits from Airtable.
-
-## Tech
-
-- Vue, Vue Router, Vuex
-- [{% indieAvatar "https://buefy.org/" %}Buefy](https://buefy.org/) - Vue components based on Bulma
-- Firebase - Database & Authentication
-- [{% indieAvatar "https://www.netlify.com/" %}Netlify]({% indieAvatar "https://www.netlify.com/" %})
-- [{% indieAvatar "https://www.amcharts.com/" %}amCharts](https://www.amcharts.com/)
-- [{% indieAvatar "https://github.com/" %}ShipwrightCSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
-
----
-
-### Systems Design
-
-At the beginning of my work here, BDI already had many automations in place. They used [CognitoForms](https://www.cognitoforms.com/) and its [Document Merging](https://www.cognitoforms.com/support/5/document-merging) feature to collect data and generate quotes to send out to users. They were also using [Airtable](https://www.airtable.com/) to track data and build out dashboards for internal use. Generally, they were looking to improve on these systems and build out something more user-friendly.
-
-From 2020-2021, we worked on several POCs to improve the general workflow between BDI and their clients. They had many ideas they wanted to try including white-labelled websites to let their biggest clients submit data, an internal dashboard to track their "Total Written Premiums", and a tool to help them with generating quoting.  
+From 2020-2021, we worked on several POCs to improve the general workflow between BDI and their clients. They had many ideas they wanted to try including white-labelled websites to let their biggest clients submit data quickly, an internal dashboard to track their "Total Written Premiums", and a tool to help them calculate and provide quotes.
 
 The process they used for underwriting insurance was a complicated one. It involved many back and forth emails between the brokers (BDI's clients) and BDI. There was a lot of information that had to be exchanged, and there wasn't an organized system to keep track of it all. 
 
@@ -56,47 +34,55 @@ We were looking to improve on that process in several ways.  Ambitiously, in the
 3) Allow brokers to see their data
 4) Integrate the dashboard we had previously built as POC
 
-This is an illustration of the business logic that needed to be integrated into the app.
+This is an illustration of the business logic that was to be integrated into the app.
+
 {% image "src/client-work/images/screenshot-2023-07-27-at-3.38.04-am.png"  ""%}
 
 We wanted to keep the development work as streamlined as possible. There was a competing project at BDI working another vendor to build out a more traditional solution using SQL databases and PHP frontends. It was clear to me, though, that a faster solution could be built at a fraction of the cost.
 
-We decided to build the app with Vue, using Google Firebase as a backend and Netlify as our hosting service. BDI had implemented their quoting algorithm in Airtable using Airtable formulas and we could use that as an API to avoid exposing the algorithm on the frontend. 
-
-*You might be wondering at this point why somebody with no experience expected they could take on a project this enormous as the only developer. I'm wondering too.*
+We decided to build the app with Vue, using Google Firebase as a backend and Netlify as our hosting service. BDI had already implemented their quoting algorithm in Airtable using Airtable formulas, which we could use that as an API. This would let us avoid exposing the proprietary algorithm on the frontend. 
 
 ## Development
 
-At this point, I had learned from several projects with BDI that was all to easy to let things fall through the cracks and lose all momentum, so project management was a top priority for me. 
+BDI put together some wireframes at the beginning to guide the project. They didn't want to spend any resources on design work for this project, so we chose to use a Vue component library called [Buefy](https://buefy.org/)
 
-Unfortunately, the work fizzled out near the end of 2022 due to culture differences. I wasn't able to keep up with the pace of development work that would be needed to maintain their webapp and they were working with many other parties on similar projects and weren't able to give Cyber Admitted the attention it needed. 
+{% image "src/client-work/images/Screenshot 2023-07-28 at 1.24.34 AM 1.png"  ""%}
+{% image "src/client-work/images/Screenshot 2023-07-28 at 1.26.15 AM 1.png"  ""%}
+
+At this point, I had learned from several projects that it was all to easy to let things fall through the cracks and lose momentum, so project management was a top priority for me. BDI had some concerns that these projects weren't delivering on expectations. I thought that this was a communication issue and not because of the work itself, so my colleague and I committed to biweekly meetings and I compiled biweekly progress reports to keep everybody on the same page.
+
+While I was making these reports I was starting to notice how much we were getting distracted by different third party software, so I opted to create these reports as an HTML document and host them online. It wasn't the easiest format to work with, but it kept me focused and was maximally flexible.
+
+{% image "src/client-work/images/Screenshot 2023-07-28 at 1.52.23 AM.png"  ""%}
+{% image "src/client-work/images/Screenshot 2023-07-28 at 1.53.31 AM.png"  ""%}
+
+One interesting aspect of the project was setting up rules on the Firebase backend. This is something that's become much easier in recent years, allowing people to build full-fledged applications without the overhead and rigidity of setting up a server and building an API on top of it. A lot of older industries work with that type of legacy set up and just eat the cost. I didn't see any reason to go down that route.
+
+<figcaption>Example of the Firebase rules</figcaption>
+{% image "src/client-work/images/img4.png"  ""%}
+
+The plan we laid out at the beginning of the project was a strong foundation and got us through 7 months of steady work building out the project. We completed all the features we were trying to build and everything was working very smoothly. We were pulling the data from both Firebase and Airtable, processing them using the user's local storage and got the complicated business logic to work seamlessly.
+
+If you'd like to see the demo, shoot me a message on LinkedIn. Otherwise, here's some screenshots.
+
+{% image "src/client-work/images/img5.png"  ""%}
+{% image "src/client-work/images/img2.png"  ""%}
+{% image "src/client-work/images/sc1.png"  ""%}
+{% image "src/client-work/images/sc2.png"  ""%}
+{% image "src/client-work/images/sc2.png"  ""%}
+{% image "src/client-work/images/Screenshot 2023-07-28 at 2.05.51 AM.png"  ""%}
+
+Unfortunately, the product never widely used. We had over 200 regular users on one of the previous POCs that we had built, but didn't have a plan in place to get them moved over. I was also starting to get burned out between BDI and my other clients at the time.
+
+The work fizzled out near the end of 2021. I wasn't able to keep up with the pace of development that would be needed to maintain their web apps and they were working on many concurrent projects and weren't able to give Specialty Cyber the attention it needed. Definitely happy to have this experience, though. BDI played a huge role in giving me the confidence that I could build a career in this industry and I'm immensely grateful for that. 
 
 ---
 
-## Additional Info - Major Refactoring Sprint
+For those curious, these are screenshots from Cyber Admitted, which  had over 200 users. It was still using an embedded CognitoForm to grab the user data. It was a headache to manage on the backend, but definitely didn't seem to detract from the users' experience.
 
-The code on this app was a mess and I was looking to better understand the data flows within the app. This motivated an in-depth audit of every component and the data flows between them and the Vuex data store. I don't expect to do this with many work, but it seemed was important in this case—both for my education and to ensure we can implement the upcoming features without further tangling up the code. Some obvious problems I was aware of prior:
+{% image "src/client-work/images/ca1.png"  ""%}
+{% image "src/client-work/images/ca2.png"  ""%}
+{% image "src/client-work/images/ca3.png"  ""%}
+{% image "src/client-work/images/ca4.png"  ""%}
 
-- The entire Firebase database was being loaded into the state every time the app was loaded. It was used as a shortcut to streamline the initial development and give us some time to better understand our needs on the backend (but still l-o-l).
-- We lacked clarity on when to pull data from the store or pass it in via props.
-- There was no clear way to manage user-specific data.
-
-The process basically involved going through each component and taking a look at:
-
-1. How it's communicating with the store
-2. What it's Parent & Child components are
-3. What logic it's implementing
-
-It took about a week to do this. This provided insight not only on where refactors should be made, but how to best move forward with new features. Here's a short list of the refactoring work that was done:
-
-- Implement [{% indieAvatar "https://github.com/" %}Vuex naming conventions](https://github.com/vuestorefront/vue-storefront/issues/2069)
-- Remove unnecessary data calls
-- Standardize how/which components access the Vuex store
-- Ensure data is loaded prior to loading views (or load a skeleton component instead)
-- Build strategy to securily access data from Firebase
-  - Add [{% indieAvatar "https://firebase.google.com/" %}Security Rules](https://firebase.google.com/docs/rules)
-- Fix outstanding bugs
-
-Although the app and development experience _feels_ notably better, I don't currently have decent metrics for the changes. This is something I'll definitely consider when doing refactors in the future.
-
-We were also looking to split up the store into submodules, to make further development easier—however, we were running short on time and I realized that that refactor didn't block the development of other features. It was moved to a later date.
+---

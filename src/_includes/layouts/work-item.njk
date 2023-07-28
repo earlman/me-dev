@@ -30,7 +30,7 @@ layout: layouts/_base.njk
 
    .work .overview {
       max-width: 50ch;
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-md);
       font-size: var(--d-lg);
       color: var(--color-t3);
    }
@@ -49,8 +49,6 @@ layout: layouts/_base.njk
    }
 </style>
 
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-
 <section class="work">
 
 
@@ -68,21 +66,21 @@ layout: layouts/_base.njk
       <a href="/work">⬅ Back to portfolio</a>
    </div> -->
 
-   <div>
+   <!-- <div>
       {%- for item in tech -%}
       {{item.name}}
       {{item.link}}
       {%- endfor -%}
-   </div>
+   </div> -->
 
    <div class="markdown-content content">
-      <div class="links">
+      <!-- <div class="links">
          <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>
          {%- if (urlGithub) and (not urlGithubPrivate) -%}
          <a href="{{ urlGithub | url }}" target="_blank">{% indieAvatar "https://github.com/" %}Github{{ urlGithub | log
             }}</a>
          {%- endif -%}
-      </div>
+      </div> -->
       {{ content | safe }}
    </div>
 </section>

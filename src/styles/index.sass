@@ -35,6 +35,31 @@ hr
 .markdown-content
    --text-max-width: 65ch
 
+   .image_group
+      display: flex
+      gap: var(--space-xs)
+      margin-top: var(--space-md)
+      margin-bottom: var(--space-md)
+
+      figcaption
+         max-width: 300px
+
+      picture
+         flex-grow: 1
+         width: 100%
+
+      &.scroll
+         overflow-x: scroll
+         white-space: nowrap
+         display: block
+
+         picture
+            max-width: 60vw
+            display: inline-block
+
+   figcaption
+      font-style: italic
+
    img
       height: auto
 

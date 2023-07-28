@@ -21,11 +21,9 @@ TLDR
 
 
 ## Research
-```on-research
 For the type of work that I do, research works a little bit differently than in normal web design. While UI/UX research focuses on the end user, the things I build primarily focus on the client (keeping the user in mind, of course). 
 
 I focus on building systems that make it *easier* for my client to achieve *their goals*. After all, my client understands their users better than I do. My job is to make my client's work as easy as possible.
-```
 
 On this project, Hubspot already generated and built the reports that were sent out to the company. This is great. Some clients haven't delivered a final product yet, so there's nothing to iterate on. Not in this case.
 

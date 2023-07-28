@@ -3,49 +3,71 @@ layout: layouts/_base.njk
 permalink: "index.html"
 ---
 
-{%include "components/hero.njk"%}
-
 <style>
+  .capabilities {
+    --left-margin: 300px;
+  }
+
+  .capabilities {
+    padding: var(--space-lg);
+    width: 100vw;
+
+  }
+
   .skills {
     height: 600px;
     display: flex;
-    gap: var(--space-sm)
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+    margin-left: var(--left-margin);
+  }
+
+  @media (max-width: 900px) {
+    .capabilities {
+      padding: var(--space-sm);
+    }
   }
 </style>
-<section class="skills">
-  <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
-  <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
-</section>
 
-<section class="featured-projects">
-  <div class="featured">
-    {%- for featured in collections.featured_intro -%}
-    <div class="featured-intro">
-      <div class="markdown-content">
-        {{ featured.templateContent | safe }}
-      </div>
-    </div>
-    {%- endfor -%}
+<div class="capabilities">
 
-    <!-- Show Featured Work (based on frontmatter tag) -->
-    {%- for project in collections.project -%} {%- if project.data.tags.includes('featured') -%}
-    <a class="project-link" href="{{ project.filePathStem }}">
-      <div>
-        <div class="caption">featured work</div>
-        <div class="project">
-          <h3 class="title">
-            {{ project.data.title }}
-          </h3>
-          <h4 class="headline">
-            {{ project.templateContent | getHeadline }}
-          </h4>
-          <p class="summary">
-            {{ project.templateContent | getSummary }}
-          </p>
+  {%include "components/hero.njk"%}
+
+  <section id="skills" class="skills">
+    <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
+    <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
+  </section>
+
+  <section id="featured-work" class="featured-projects">
+    <div class="featured">
+      {%- for featured in collections.featured_intro -%}
+      <div class="featured-intro">
+        <div class="markdown-content">
+          {{ featured.templateContent | safe }}
         </div>
       </div>
-    </a>
-    {%- endif -%} {%- endfor -%}
-  </div>
+      {%- endfor -%}
 
-</section>
+      <!-- Show Featured Work (based on frontmatter tag) -->
+      {%- for project in collections.project -%} {%- if project.data.tags.includes('featured') -%}
+      <a class="project-link" href="{{ project.filePathStem }}">
+        <div>
+          <div class="caption">featured work</div>
+          <div class="project">
+            <h3 class="title">
+              {{ project.data.title }}
+            </h3>
+            <h4 class="headline">
+              {{ project.templateContent | getHeadline }}
+            </h4>
+            <p class="summary">
+              {{ project.templateContent | getSummary }}
+            </p>
+          </div>
+        </div>
+      </a>
+      {%- endif -%} {%- endfor -%}
+    </div>
+
+  </section>
+</div>

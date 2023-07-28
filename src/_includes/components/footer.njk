@@ -13,6 +13,11 @@
     place-content: center;
   }
 
+  footer a:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+
   footer nav {
     display: flex;
     justify-content: space-between;
@@ -24,6 +29,10 @@
     display: grid;
     grid-gap: 0 var(--space-sm);
     grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  footer .history ul li:first-child {
+    grid-column: 1/-1;
   }
 
   footer nav ul {
@@ -53,7 +62,7 @@
 
   footer .logo {
     display: grid;
-    place-content: center end;
+    place-content: center;
   }
 
   footer .logo svg {
@@ -62,43 +71,101 @@
 
   .colophon a {
     text-decoration: underline;
-    text-decoration-line: dotted;
     text-decoration-style: dotted;
   }
 </style>
 <footer>
   <nav>
     <div>
-      <h4>Capabilities (Home)</h4>
       <ul>
-        <li>Skills</li>
-        <li>Featured Work</li>
-        <li>Resume (PDF) <br> Last Updated 2023-07-03 </li>
+        <li>
+          <h4>
+            <a href="">
+              Capabilities (Home)
+            </a>
+          </h4>
+        </li>
+        <li>
+          <a href="/#skills">
+            Skills
+          </a>
+
+        </li>
+        <li>
+          <a href="/#featured-work">
+            Featured Work
+          </a>
+        </li>
       </ul>
     </div>
     <div class="history">
-      <h4>History</h4>
       <ul>
-        <li>Client Work / Hubspot</li>
-        <li>Client Work / Moonrise Labs</li>
-        <li>Client Work / Lee law Offices</li>
-        <li>Client Work / Big Data Insure</li>
+        <li>
+          <h4>
+            <a href="/work">
+              Work
+            </a>
+          </h4>
+        </li>
+        <li>
+          <a href="/client-work/hubspot">
+            Client Work / Hubspot
+          </a>
+        </li>
+        <li>
+          <a href="/client-work/moonrise-labs">
+            Client Work / Moonrise Labs
+          </a>
+        </li>
+        <li>
+          <a href="/client-work/lee-law-offices">
+            Client Work / Lee law Offices
+          </a>
+        </li>
+        <li>
+          <a href="/client-work/bdi-global-llc">
+            Client Work / BDI Global LLC
+          </a>
+        </li>
       </ul>
     </div>
 
     <div>
-      <h4>Aspirations</h4>
-      <li>Career Goals</li>
-      <li>Mission</li>
+      <ul>
+        <li>
+          <h4>
+            <a href="/aspirations">
+              Aspirations
+            </a>
+          </h4>
+        </li>
+        <li>
+          <a href="/aspirations/#career-goals">
+            Career Goals
+          </a>
+        </li>
+        <li>
+          <a href="/aspirations/#personal-mission">
+            Personal Mission
+          </a>
+        </li>
+      </ul>
     </div>
     <div>
-      <a rel="me" href="https://mastodon.social/@justinspe4ks">Mastodon</a>
-      {%- include "components/icon-linkedin.svg" -%}
+      <ul>
+        <li>
+          <h4>Contact</h4>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/earl-justin-mangulabnan-5b0740109/">LinkedIn</a>
+        </li>
+      </ul>
+      <!-- {%- include "components/icon-linkedin.svg" -%} -->
     </div>
   </nav>
 
   <div class="bottom">
-    <div class="colophon">
+    <div class="colophon markdown-content">
       {% renderFile "./src/_includes/components/colophon.md" %}
     </div>
     <div class="logo">

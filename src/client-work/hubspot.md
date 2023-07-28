@@ -30,15 +30,12 @@ I focus on building systems that make it *easier* for my client to achieve *thei
 On this project, Hubspot already generated and built the reports that were sent out to the company. This is great. Some clients haven't delivered a final product yet, so there's nothing to iterate on. Not in this case.
 
 
-```caption
-This was my starting point:
-```
+<figcaption>This was my starting point</figcaption>
 
 {% image "src/client-work/images/Slide 16_9 - 13.png" ""%}
 {% image "src/client-work/images/Slide 16_9 - 14.png"  ""%}
 
 I've been starting to see a lot of beautiful reports in the last couple years, so I started compiling those for inspiration, too.
-
 
 %%3 images in a row%%
 {% image "src/client-work/images/Screenshot 2023-07-26 at 9.11.07 PM.png"  ""%}
@@ -47,32 +44,32 @@ I've been starting to see a lot of beautiful reports in the last couple years, s
 {% image "src/client-work/images/Screenshot 2023-07-26 at 9.40.18 PM.png"  ""%}
 {% image "src/client-work/images/Screenshot 2023-07-26 at 9.40.38 PM.png"  ""%}
 
+Building on past work, meant that there were already processes in place to get the job done. These weren't articulated, though, which is common for fast-moving teams. The first step of the work was to figure what those processes were.
 
-Since Hubspot has generated reports in the past, it meant that there were already processes in place to get the job done. They weren't articulated, though (which is common for fast-moving teams), so the first step of the work was to figure what those processes were.
-
-I don't like working on things that never get published, so it was important that my work fit into the work that people were already doing. I spent the first couple weeks talking to everybody involved in the reports. These are the types of questions I asked:
-- How are you coming up with the content? How far before the due date?
+I don't like working on things that never get published, so it's important that my work fits into the work that people are already doing, which is why I spent the first couple weeks talking to everybody involved in the reports. These are the types of questions I asked:
+- How are you coming up with the content? How far before the due date? What does the brainstorming/ideation process look like?
 - Who are these reports being sent to? Have you received any feedback so far?
 - What tools are you using?
 - Are there any assets that already exist that would be helpful for this project?
 - How can I write code that fits into your work without breaking anything?
 
-These are generalized versions, but he details really do matter here. One oversite—a broken plugin, for example—can derail an entire project.
+These are generalized versions, but details really do matter here. One oversite—a broken plugin, for example—can derail an entire project.
 
 ## Systems Design
+<figcaption>An early concept of what their design system might look like ("✅ finish coding" was added later). None of the people on this team has really worked with design systems or CSS packages before, so I was trying to figure out what they would need in terms of documentation.</figcaption>
 
-```caption
-An early concept of what their design system might look 
-```
 {% image "src/client-work/images/Screenshot 2023-07-26 at 8.57.32 PM.png"  ""%}
 
-In the design process, I took a step back from all the process-stuff to look for a visual identity for the reports. This would be the start of a small "Design System" that I knew would be necessary. Hubspot wanted to be able to use my work to continuously generate new reports, not yet knowing what the content will be. Thankfully, I had access to all the UI/UX assets created by Hubspot's amazing design team, as well as their documentation. I'm still working on improving my visual design skills, so this info was invaluable for both the project and my career.
+A lot of this work in the Design Phase is about managing expectations, and I don't think this topic that is discussed enough in the world of frontend development. It's a topic of increasing importance as the "Designer/Developer" role becomes more prominent.
 
-A lot of this work in this phase was about managing expectations. Again, I wanted my work to continue to be useful after I left. If I show everybody stellar designs without considering how I would build them, I could easily get to the end of my contract without leaving anything useful for the team. This is a mistake I've made before, and one I'm trying to avoid.
+Here's the issue: I want my work to be useful after I leave, but the internet is so filled with beautiful UIs that designers are expected to crank out mockups quickly. A mockup of a webpage represents maybe 20% of the information/decision-making that's needed when properly implementing a new design, so if the team is particularly enthusiastic, they may keep asking for new design deliverables without budgeting the proper amount of time to build them. On top of that, coming up with beautiful designs and getting into the weeds of HTML/CSS architecture require totally different mindsets. Trying to do both every single day is a recipe for burnout.
 
-The folks on this particular project really loved seeing regular design deliverables, so that was something I had to be sympathetic of, knowing that things would slow way down when it came to coding them. 
+**How does a mockup represent so little of the information?**
+A web app (or PDF builder, in this case) is much closer to a piece of furniture than a magazine or painting. A poorly designed section of a chair or cabinet will bother you *every single day*. With a magazine, all you have to do is turn the page.
 
-I managed this by really spreading out the design phase and giving the team a look into every aspect of the process. This gave me extra time to set up the codebase and start iterating on the code as the report was being designed.
+The folks on this project really loved seeing regular design deliverables, so that was something I wanted to be sympathetic of, but I didn't want to get to the end of my contract without leaving anything useful for the team. It's a mistake I've made before, and one I won't repeat again.
+
+I managed this by breaking up and spreading out the design work as I was building the code. I tried to communicate the details of all the design decisions and considerations being made. It's a time-consuming process which stakeholders aren't always too interested in, but this gave me extra time to properly set up and iterate on the codebase where the designs would be implemented. 
 
 ### Technical Specifics
 - The HTML version of the reports were built in R-Markdown, using [RStudio](https://posit.co/download/rstudio-desktop/). I haven't used R at that point, but I didn't expect it to be a problem. It wasn't.
@@ -81,9 +78,12 @@ I managed this by really spreading out the design phase and giving the team a lo
 - Data came from Snowflake, which I didn't have to touch. The team provided me an alternate build script to generate the reports using a CSV.
 
 ## Visual Design
-Getting to the actual aesthetics of the report was a fluid process. It involved taking a look of all the reports that have been generated in the past and finding the common patterns. We started with design language from the existing Hubspot assets and considered how they could be recycled for our purposes
+Working on the actual aesthetics of the report was a fluid process. Like I mentioned, I spread the work out and figured out the architecture of the code as I went along. This involved taking a look of all the reports that were generated in the past and finding the common patterns. 
 
-### Notes on My Approach
+Those patterns informed the components that would be needed, leading to wireframes. From there, I applied some of the design language of Hubspot's existing assets, along with the inspiration I gathered before to come up with some final mockups. 
+
+**Before we get there, some comments on my approach:**
+
 One way I could have done this was to *focus on making the perfect design for one report and iterate from there*. That was the initial suggestion and a common practice in software development, but there are some problems doing it this way:
 
 1) This was an old report, so that particular design wouldn't even be used directly.
@@ -97,7 +97,6 @@ Rather than getting into the design details too early, I started by identifying 
 {% image "src/client-work/images/Slide 16_9 - 11.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 16.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 38.png"  ""%}
-
 
 - - -
 These were the final designs of that first report:
@@ -113,13 +112,31 @@ These were the final designs of that first report:
 
 ## Development
 
+I'm incredibly comfortable with HTML, CSS and Markdown, so the dev work on this project wasn't too difficult from a technical standpoint. Of course, there were still a couple challenges:
 
+### 1) wkhtmltopdf is an *archaic* piece of software
+This is something that really should have been addressed at the outset. What had ended up happening was I built the entire CSS codebase using the latest CSS features (custom properties, parent selectors, nesting) and threw the team into a slight panic when we realized the established software didn't support these features. The only way we could actually use these styles was if we opened the HTML reports on Chrome and manually clicked "Save to PDF". *There were 1,046 reports* 😬
 
+I built a [Node.js](https://nodejs.org/en) script using [Puppeteer's PDF method](https://pptr.dev/#what-can-i-do) to generate the reports. My colleague told me it built all 1,046 reports on the first try. *Ridiculous, I know*
 
-## Turn Over
+### 2) I didn't know R-Markdown
+I graduated as a Chemical Engineering major, so my entire career was built on Youtube tutorials, good documentation, and the amazing open-source community. Now, especially with ChatGPT,  unfamiliar syntax isn't really a problem for me. It was easy enough to figure out how to apply the new styles to the already-existing R-Scripts, and I had friendly teammates willing to help if I had any questions.
 
+- - -
+Here's a general overview of how the codebase/Design System worked:
+- A base layer of CSS was stored `/styles/`. This contained the following stylesheets where the meat of my work was done:
+	- `/styles/utilities.css`
+	- `/styles/reset.css`
+	- `/styles/color.css`
+	- `/styles/typography.css`
+	- `/styles/spacing.css`
+- `example_report.Rmd` contained all our content and linked the stylesheets
+- `staging.R` was the script we used to compile the reports to HTML. (The PDF compiler didn't work that well).
+	- Here we also set up themes for the R plots. CSS didn't work for those
+- `/page.css` was a *blank stylesheet* the Design System provided. This would let the team add styles on top of the base layer. Because of how the CSS Cascade works, this means they could mess around with things and have the important styles neatly tucked away out of reach.
 
-Special thanks to [Matthew Corritore](https://www.linkedin.com/in/matthewcorritore/), [Rita Seabrook](https://www.linkedin.com/in/ritaseabrook/) , and [Yuan Hou](https://www.linkedin.com/in/yuan-hou-phd-he-him-54197514/)
-for the support in all of this work.
+**The system could be applied by adding a CSS Class to the Markdown section. This allows the team to generate nice looking reports without even having to touch the CSS. It provided 4 layouts along with documentation to give some flexibility and the organized stylesheets made it easy to make broad adjustments to the whole report just by changing a single CSS custom property.**
 
-%% How did I go above and beyond> %%
+- - -
+
+Special thanks to [Matthew Corritore](https://www.linkedin.com/in/matthewcorritore/), [Rita Seabrook](https://www.linkedin.com/in/ritaseabrook/) , and [Yuan Hou](https://www.linkedin.com/in/yuan-hou-phd-he-him-54197514/) for the support in all of this work.

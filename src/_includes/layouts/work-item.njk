@@ -4,7 +4,7 @@ layout: layouts/_base.njk
 <style>
    .work {
       --max-width: 1440px;
-      --display-text-height: 70vh;
+      --display-text-height: 35vh;
    }
 
    .work {
@@ -15,28 +15,28 @@ layout: layouts/_base.njk
 
    .work .title-c {
       display: grid;
-      align-content: center;
-      height: var(--display-text-height);
+      align-content: flex-end;
+      margin-left: calc(-1 * var(--space-xs));
    }
 
    .work .title-c h1 {
-      font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
-      margin-top: var(--space-sm);
+      font-variation-settings: "WONK" 0, "opsz" 100, "SOFT" 0, "wght" 800;
+      margin-top: var(--space-2xl);
       margin-bottom: var(--space-md);
-      font-family: "Abril Fatface";
       line-height: 1.1;
-      font-size: calc(.45 * var(--display-text-height));
+      color: var(--color-t5);
+      font-size: 30vh;
    }
 
    .work .overview {
       max-width: 50ch;
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-md);
       font-size: var(--d-lg);
-      color: #151515;
+      color: var(--color-t3);
    }
 
    .work .markdown-content {
-      width: var(--max-width);
+      max-width: var(--max-width);
    }
 
    .work .back {
@@ -48,8 +48,6 @@ layout: layouts/_base.njk
       grid-template-columns: 25% 50% 25%;
    }
 </style>
-
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
 <section class="work">
 
@@ -64,25 +62,25 @@ layout: layouts/_base.njk
       {{overview}}
    </div>
 
-   <div class="back">
+   <!-- <div class="back">
       <a href="/work">⬅ Back to portfolio</a>
-   </div>
+   </div> -->
 
-   <div>
+   <!-- <div>
       {%- for item in tech -%}
       {{item.name}}
       {{item.link}}
       {%- endfor -%}
-   </div>
+   </div> -->
 
    <div class="markdown-content content">
-      <div class="links">
+      <!-- <div class="links">
          <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>
          {%- if (urlGithub) and (not urlGithubPrivate) -%}
          <a href="{{ urlGithub | url }}" target="_blank">{% indieAvatar "https://github.com/" %}Github{{ urlGithub | log
             }}</a>
          {%- endif -%}
-      </div>
+      </div> -->
       {{ content | safe }}
    </div>
 </section>

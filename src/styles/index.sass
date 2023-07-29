@@ -34,6 +34,32 @@ hr
 
 .markdown-content
    --text-max-width: 65ch
+   margin-bottom: var(--space-lg)
+
+   .image_group
+      display: flex
+      gap: var(--space-xs)
+      margin-top: var(--space-md)
+      margin-bottom: var(--space-md)
+
+      figcaption
+         max-width: 300px
+
+      picture
+         flex-grow: 1
+         width: 100%
+
+      &.scroll
+         overflow-x: scroll
+         white-space: nowrap
+         display: block
+
+         picture
+            max-width: 60vw
+            display: inline-block
+
+   figcaption
+      font-style: italic
 
    img
       height: auto
@@ -62,7 +88,9 @@ hr
       max-width: var(--text-max-width)
 
    code
-      background-color: var(--color-b-alt)
+      background-color: var(--color-b3)
+      padding: 4px 6px 2px
+      font-size: .9em
 
    pre>code
       background-color: unset

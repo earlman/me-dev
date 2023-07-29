@@ -57,7 +57,12 @@
 
   footer .bottom {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr))
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-rows: 2;
+  }
+
+  .colophon {
+    grid-row: span 2;
   }
 
   footer .logo {
@@ -72,6 +77,11 @@
   .colophon a {
     text-decoration: underline;
     text-decoration-style: dotted;
+  }
+
+  .high-contrast-switch {
+    place-self: center flex-start;
+    padding-left: var(--space-lg);
   }
 </style>
 <footer>
@@ -168,8 +178,12 @@
     <div class="colophon markdown-content">
       {% renderFile "./src/_includes/components/colophon.md" %}
     </div>
+    <div class="high-contrast-switch">
+      {% include "components/high-contrast-switch.njk" %}
+    </div>
     <div class="logo">
       {%- include "components/signature.svg"-%}
     </div>
+
   </div>
 </footer>

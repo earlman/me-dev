@@ -1,6 +1,6 @@
 ---
 title: Hubspot
-overview: "Redesigned and improved the PDF reporting system at HubSpot through the use of contemporary CSS features and semantic HTML. This involved the creation of an efficient report building process with Puppeteer, enabling a smooth conversion of a large volume of HTML files into PDFs."
+overview: "Redesigned and improved the PDF reporting system at HubSpot through the use of modern CSS features and semantic HTML. This involved the creation of an efficient report building process with Puppeteer, enabling a smooth conversion of a large volume of HTML files into PDFs."
 # url: https://cyberadmitted-demo.earlman.me
 # customScreenshot: ./images/cyber-admitted-screenshot.png
 # urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
@@ -16,37 +16,40 @@ layout: layouts/work-item.njk
 
 From the first interview, Hubspot had a goal in mind. Level up the aesthetics of their reports to compete with enterprise software.
 
-TLDR
+<figcaption>TLDR</figcaption>
+<div style="max-width: 800px">
 {% image "src/client-work/images/20230726215152.png" "" %}
-
+</div>
 
 ## Research
-```on-research
 For the type of work that I do, research works a little bit differently than in normal web design. While UI/UX research focuses on the end user, the things I build primarily focus on the client (keeping the user in mind, of course). 
 
 I focus on building systems that make it *easier* for my client to achieve *their goals*. After all, my client understands their users better than I do. My job is to make my client's work as easy as possible.
-```
 
 On this project, Hubspot already generated and built the reports that were sent out to the company. This is great. Some clients haven't delivered a final product yet, so there's nothing to iterate on. Not in this case.
 
 
-<figcaption>This was my starting point</figcaption>
-
-{% image "src/client-work/images/Slide 16_9 - 13.png" ""%}
+<div class="image_group">
+{% image "src/client-work/images/Slide 16_9 - 13.png" "" %}
 {% image "src/client-work/images/Slide 16_9 - 14.png"  ""%}
+<figcaption>This was the starting point—A report from the previous quarter</figcaption>
+</div>
 
 I've been starting to see a lot of beautiful reports in the last couple years, so I started compiling those for inspiration, too.
 
-%%3 images in a row%%
-{% image "src/client-work/images/Screenshot 2023-07-26 at 9.11.07 PM.png"  ""%}
-{% image "src/client-work/images/Screenshot 2023-07-26 at 9.15.37 PM.png"  ""%}
-{% image "src/client-work/images/Screenshot 2023-07-26 at 9.40.53 PM.png"  ""%}
+<div class="image_group">
+{% image "src/client-work/images/Screenshot 2023-07-26 at 9.11.07 PM.png"  "" "400px"%}
+{% image "src/client-work/images/Screenshot 2023-07-26 at 9.15.37 PM.png"  """400px"%}
+{% image "src/client-work/images/Screenshot 2023-07-26 at 9.40.53 PM.png"  """400px"%}
+</div>
+<div class="image_group">
 {% image "src/client-work/images/Screenshot 2023-07-26 at 9.40.18 PM.png"  ""%}
 {% image "src/client-work/images/Screenshot 2023-07-26 at 9.40.38 PM.png"  ""%}
+</div>
 
-Building on past work, meant that there were already processes in place to get the job done. These weren't articulated, though, which is common for fast-moving teams. The first step of the work was to figure what those processes were.
+Building on past work meant that there were already processes in place to get the job done. These weren't articulated, though, which is common for fast-moving teams. The first step of the work was to figure what those processes were.
 
-I don't like working on things that never get published, so it's important that my work fits into the work that people are already doing, which is why I spent the first couple weeks talking to everybody involved in the reports. These are the types of questions I asked:
+I don't like working on things that never get published, so it's important that my work fits into the work that people are already doing. I spent much of the first couple weeks getting to know everybody involved in the reports. These are the types of questions I asked:
 - How are you coming up with the content? How far before the due date? What does the brainstorming/ideation process look like?
 - Who are these reports being sent to? Have you received any feedback so far?
 - What tools are you using?
@@ -56,9 +59,14 @@ I don't like working on things that never get published, so it's important that 
 These are generalized versions, but details really do matter here. One oversite—a broken plugin, for example—can derail an entire project.
 
 ## Systems Design
-<figcaption>An early concept of what their design system might look like ("✅ finish coding" was added later). None of the people on this team has really worked with design systems or CSS packages before, so I was trying to figure out what they would need in terms of documentation.</figcaption>
-
+<div class="image_group">
+<div style="max-width: 800px">
 {% image "src/client-work/images/Screenshot 2023-07-26 at 8.57.32 PM.png"  ""%}
+</div>
+<figcaption>An early concept of what their design system might look like. None of the people on this team has really worked with design systems or CSS packages before, so I was trying to figure out what they would need in terms of documentation.</figcaption>
+</div>
+
+<div style="columns:2">
 
 A lot of this work in the Design Phase is about managing expectations, and I don't think this topic that is discussed enough in the world of frontend development. It's a topic of increasing importance as the "Designer/Developer" role becomes more prominent.
 
@@ -77,6 +85,10 @@ I managed this by breaking up and spreading out the design work as I was buildin
 - [WKhtmltopdf](https://wkhtmltopdf.org/) was used to generate the final PDFs from HTML. This uses a browser version from 2012, which would make it near impossible to build "enterprise-level" designs. 
 - Data came from Snowflake, which I didn't have to touch. The team provided me an alternate build script to generate the reports using a CSV.
 
+</div>
+
+---
+
 ## Visual Design
 Working on the actual aesthetics of the report was a fluid process. Like I mentioned, I spread the work out and figured out the architecture of the code as I went along. This involved taking a look of all the reports that were generated in the past and finding the common patterns. 
 
@@ -94,23 +106,32 @@ This would be like buying the paint & building the furniture without knowing the
 
 Rather than getting into the design details too early, I started by identifying the page and layout templates we would need. From there I moved on to the basic design elements (color, spacing, typography), *then* delivered a full design of the report. 
 
+<div class="image_group scroll">
 {% image "src/client-work/images/Slide 16_9 - 11.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 16.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 38.png"  ""%}
+</div>
 
 - - -
+
 These were the final designs of that first report:
+
+<div class="image_group">
 {% image "src/client-work/images/Slide 16_9 - 17.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 18.png"  ""%}
+</div>
+<div class="image_group">
 {% image "src/client-work/images/Slide 16_9 - 19.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 20.png"  ""%}
+</div>
+<div class="image_group">
 {% image "src/client-work/images/Slide 16_9 - 21.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 34.png"  ""%}
-
-
-%%You can see an HTML version here.%%
+</div>
 
 ## Development
+
+<div style="columns:2">
 
 I'm incredibly comfortable with HTML, CSS and Markdown, so the dev work on this project wasn't too difficult from a technical standpoint. Of course, there were still a couple challenges:
 
@@ -122,7 +143,8 @@ I built a [Node.js](https://nodejs.org/en) script using [Puppeteer's PDF method]
 ### 2) I didn't know R-Markdown
 I graduated as a Chemical Engineering major, so my entire career was built on Youtube tutorials, good documentation, and the amazing open-source community. Now, especially with ChatGPT,  unfamiliar syntax isn't really a problem for me. It was easy enough to figure out how to apply the new styles to the already-existing R-Scripts, and I had friendly teammates willing to help if I had any questions.
 
-- - -
+---
+
 Here's a general overview of how the codebase/Design System worked:
 - A base layer of CSS was stored `/styles/`. This contained the following stylesheets where the meat of my work was done:
 	- `/styles/utilities.css`
@@ -137,6 +159,6 @@ Here's a general overview of how the codebase/Design System worked:
 
 **The system could be applied by adding a CSS Class to the Markdown section. This allows the team to generate nice looking reports without even having to touch the CSS. It provided 4 layouts along with documentation to give some flexibility and the organized stylesheets made it easy to make broad adjustments to the whole report just by changing a single CSS custom property.**
 
-- - -
+</div>
 
 Special thanks to [Matthew Corritore](https://www.linkedin.com/in/matthewcorritore/), [Rita Seabrook](https://www.linkedin.com/in/ritaseabrook/) , and [Yuan Hou](https://www.linkedin.com/in/yuan-hou-phd-he-him-54197514/) for the support in all of this work.

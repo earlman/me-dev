@@ -35,7 +35,8 @@ module.exports = (eleventyConfig) => {
    eleventyConfig.addWatchTarget("./styles/");
 
    eleventyConfig.addPassthroughCopy({
-      "src/_data": "data",
+      "src/_data": "data", // Web components are using local data files (skillstable.webc)
+      "src/_includes/favicons": "/",
 
       // Only copying the specific .woff2 files I need because the hot-reloading is taking a while
       "node_modules/@fontsource-variable/fraunces": "assets/fonts/fraunces",
@@ -43,6 +44,7 @@ module.exports = (eleventyConfig) => {
    });
 
    // PLUGINS
+
    eleventyConfig.addPlugin(Collections);
    eleventyConfig.addPlugin(eleventyVue);
    eleventyConfig.addPlugin(pluginWebc, {

@@ -49,9 +49,15 @@ title: Home
       </div>
       {%- endfor -%}
 
+      <div>
+        <ticker-message speed="50" content="hello" style="height:50px;"></ticker-message>
+      </div>
+
       <!-- Show Featured Work (based on frontmatter tag) -->
       {%- for project in collections.project -%} {%- if project.data.tags.includes('featured') -%}
       <a class="project-link" href="{{ project.filePathStem }}">
+
+
         <div>
           <div class="caption">featured work</div>
           <div class="project">

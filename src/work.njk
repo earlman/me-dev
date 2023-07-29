@@ -12,13 +12,17 @@ layout: layouts/portfolio.njk
     margin: auto;
     display: grid;
     font-size: 132px;
-    grid-template: "a a b" "c d e" / 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: stretch;
     margin-top: -1px;
     margin-left: -1px;
   }
 
   .work-item:first-child {
+    grid-column: span 2;
+  }
+
+  .work-item:nth-child(2) {
     grid-column: span 2;
   }
 
@@ -54,16 +58,6 @@ layout: layouts/portfolio.njk
   }
 </style>
 
-
-<script>
-  gsap.to(".text-copy", {
-    // "stroke-dashoffset": 0,
-    "stroke-dasharray": "150px 0 150px 0",
-    duration: 2,
-    ease: "circ"
-  })
-</script>
-
 <div class="client-work-container">
 
   <section class="client-work">
@@ -90,7 +84,25 @@ layout: layouts/portfolio.njk
       </a>
     </div>
     {%- endfor -%}
+
+    <script>
+      var tl = gsap.timeline({ ease: "power3" });
+
+      tl.to(".text-copy", {
+        "stroke-dasharray": "150px 0 150px 0",
+        duration: 2,
+        stagger: 1
+      })
+        .to(".text-copy", {
+          "fill": "rgba(133, 64, 13, 1)",
+          "stroke": "rgba(133, 64, 13, 1)",
+          duration: 2
+        }, ">1")
+
+
+    </script>
 </div>
+
 
 <div class="portfolio">
   <div class="hero">

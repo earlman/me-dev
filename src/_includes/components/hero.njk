@@ -26,12 +26,13 @@
       display: flex;
       height: 100%;
       align-items: center;
+      margin-top: var(--space-md);
     }
 
     .hero-animated-text svg {
       display: block;
       font: 15em var(--font-secondary);
-      height: 300px;
+      height: 55vh;
     }
 
     .hero-animated-text .text-copy {
@@ -47,10 +48,10 @@
       width: 100%;
     }
 
-    #s-text>text:nth-child(1) {
+    #s-text>text {
       font-family: var(--font-secondary);
       font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 363;
-      letter-spacing: -0.4125rem;
+      letter-spacing: -0.03ch;
     }
   </style>
 
@@ -58,9 +59,10 @@
 
     <!-- I might be able to sell this web component lol $3?-->
     <div class="container">
-      <svg viewBox="0 0 1500 300">
+      <svg viewBox="0 0 1200 500">
         <symbol id="s-text">
-          <text text-anchor="start" x="0%" y="80%">Good Afternoon</text>
+          <text text-anchor="start" x="0%" y="35%">Good </text>
+          <text text-anchor="start" x="0%" y="80%">Afternoon</text>
         </symbol>
 
         <g class="g-ants">
@@ -68,6 +70,29 @@
         </g>
       </svg>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var date = new Date();
+        var currentHour = date.getHours();
+        var greeting;
+
+        if (currentHour >= 4 && currentHour < 12) {
+          greeting = "Morning";
+        }
+        else if (currentHour >= 12 && currentHour < 17) {
+          greeting = "Afternoon";
+        }
+        else if (currentHour >= 17 || currentHour < 4) {
+          greeting = "Evening";
+        }
+
+        // Please replace with the correct selector for your specific scenario.
+        // This assumes that the target element is a HTML element, not an SVG text element.
+        var targetElement = document.querySelector("#s-text text:nth-child(2)");
+        targetElement.textContent = greeting;
+      });
+
+    </script>
     <script>
       var tl = gsap.timeline({ ease: "power3" });
 

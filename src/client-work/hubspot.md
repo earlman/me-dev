@@ -1,6 +1,6 @@
 ---
 title: Hubspot
-overview: "Redesigned and improved the PDF reporting system at HubSpot through the use of contemporary CSS features and semantic HTML. This involved the creation of an efficient report building process with Puppeteer, enabling a smooth conversion of a large volume of HTML files into PDFs."
+overview: "Redesigned and improved the PDF reporting system at HubSpot through the use of modern CSS features and semantic HTML. This involved the creation of an efficient report building process with Puppeteer, enabling a smooth conversion of a large volume of HTML files into PDFs."
 # url: https://cyberadmitted-demo.earlman.me
 # customScreenshot: ./images/cyber-admitted-screenshot.png
 # urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
@@ -66,6 +66,8 @@ These are generalized versions, but details really do matter here. One oversiteâ
 <figcaption>An early concept of what their design system might look like. None of the people on this team has really worked with design systems or CSS packages before, so I was trying to figure out what they would need in terms of documentation.</figcaption>
 </div>
 
+<div style="columns:2">
+
 A lot of this work in the Design Phase is about managing expectations, and I don't think this topic that is discussed enough in the world of frontend development. It's a topic of increasing importance as the "Designer/Developer" role becomes more prominent.
 
 Here's the issue: I want my work to be useful after I leave, but the internet is so filled with beautiful UIs that designers are expected to crank out mockups quickly. A mockup of a webpage represents maybe 20% of the information/decision-making that's needed when properly implementing a new design, so if the team is particularly enthusiastic, they may keep asking for new design deliverables without budgeting the proper amount of time to build them. On top of that, coming up with beautiful designs and getting into the weeds of HTML/CSS architecture require totally different mindsets. Trying to do both every single day is a recipe for burnout.
@@ -82,6 +84,10 @@ I managed this by breaking up and spreading out the design work as I was buildin
 - Some cover pages were designed with [Canva](https://www.canva.com/)
 - [WKhtmltopdf](https://wkhtmltopdf.org/) was used to generate the final PDFs from HTML. This uses a browser version from 2012, which would make it near impossible to build "enterprise-level" designs. 
 - Data came from Snowflake, which I didn't have to touch. The team provided me an alternate build script to generate the reports using a CSV.
+
+</div>
+
+---
 
 ## Visual Design
 Working on the actual aesthetics of the report was a fluid process. Like I mentioned, I spread the work out and figured out the architecture of the code as I went along. This involved taking a look of all the reports that were generated in the past and finding the common patterns. 
@@ -105,19 +111,27 @@ Rather than getting into the design details too early, I started by identifying 
 {% image "src/client-work/images/Slide 16_9 - 16.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 38.png"  ""%}
 </div>
+
 - - -
+
 These were the final designs of that first report:
+
+<div class="image_group">
 {% image "src/client-work/images/Slide 16_9 - 17.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 18.png"  ""%}
+</div>
+<div class="image_group">
 {% image "src/client-work/images/Slide 16_9 - 19.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 20.png"  ""%}
+</div>
+<div class="image_group">
 {% image "src/client-work/images/Slide 16_9 - 21.png"  ""%}
 {% image "src/client-work/images/Slide 16_9 - 34.png"  ""%}
-
-
-%%You can see an HTML version here.%%
+</div>
 
 ## Development
+
+<div style="columns:2">
 
 I'm incredibly comfortable with HTML, CSS and Markdown, so the dev work on this project wasn't too difficult from a technical standpoint. Of course, there were still a couple challenges:
 
@@ -129,7 +143,8 @@ I built a [Node.js](https://nodejs.org/en) script using [Puppeteer's PDF method]
 ### 2) I didn't know R-Markdown
 I graduated as a Chemical Engineering major, so my entire career was built on Youtube tutorials, good documentation, and the amazing open-source community. Now, especially with ChatGPT,  unfamiliar syntax isn't really a problem for me. It was easy enough to figure out how to apply the new styles to the already-existing R-Scripts, and I had friendly teammates willing to help if I had any questions.
 
-- - -
+---
+
 Here's a general overview of how the codebase/Design System worked:
 - A base layer of CSS was stored `/styles/`. This contained the following stylesheets where the meat of my work was done:
 	- `/styles/utilities.css`
@@ -144,6 +159,6 @@ Here's a general overview of how the codebase/Design System worked:
 
 **The system could be applied by adding a CSS Class to the Markdown section. This allows the team to generate nice looking reports without even having to touch the CSS. It provided 4 layouts along with documentation to give some flexibility and the organized stylesheets made it easy to make broad adjustments to the whole report just by changing a single CSS custom property.**
 
-- - -
+</div>
 
 Special thanks to [Matthew Corritore](https://www.linkedin.com/in/matthewcorritore/), [Rita Seabrook](https://www.linkedin.com/in/ritaseabrook/) , and [Yuan Hou](https://www.linkedin.com/in/yuan-hou-phd-he-him-54197514/) for the support in all of this work.

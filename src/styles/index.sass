@@ -38,14 +38,20 @@ hr
 
    .image_group
       display: flex
-      gap: var(--space-xs)
+      gap: 0 var(--space-xs)
       margin-top: var(--space-md)
       margin-bottom: var(--space-md)
+      flex-wrap: wrap
 
       figcaption
          max-width: 300px
 
+         &:first-child
+            max-width: unset
+            width: 100%
+
       picture
+         flex: 1
          flex-grow: 1
          width: 100%
 
@@ -55,14 +61,18 @@ hr
          display: block
 
          picture
+            vertical-align: top
+            margin-right: var(--space-xs)
             max-width: 60vw
             display: inline-block
 
    figcaption
       font-style: italic
+      margin-bottom: var(--space-xs)
 
    img
       height: auto
+      margin-bottom: var(--space-md)
 
    h2
       margin-top: var(--space-sm)

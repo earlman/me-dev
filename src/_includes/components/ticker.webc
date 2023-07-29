@@ -23,14 +23,14 @@
     }
 
     startTicker() {
-      console.log(this.content)
-      let totalWidth = this.tickerText.offsetWidth;
+      let totalWidth = this.offsetWidth;
       let animationCSS = `
             @keyframes ticker {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(-${totalWidth}px); }
             }
         `;
+
 
       let styleElement = document.createElement("style");
       styleElement.innerHTML = animationCSS;
@@ -43,7 +43,7 @@
       this.tickerText.style.animation = "none";
 
       // This forces a reflow, which is necessary to restart the animation
-      void this.tickerText.offsetWidth;
+      //void this.tickerText.offsetWidth;
     }
   }
 

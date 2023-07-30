@@ -1,4 +1,4 @@
-<canvas id='rotatingGlobe' width='990' height='990' style='width: 990px; height: 990px;'></canvas>
+<canvas id='rotatingGlobe' width='990' height='990'></canvas>
 
 
 <script>

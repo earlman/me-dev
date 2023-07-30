@@ -7,25 +7,61 @@ layout: layouts/_base.njk
     width: 100vw;
   }
 
+  #career-goals {
+    max-width: 800px;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  #career-goals h2 {
+    text-align: center;
+    margin-bottom: var(--space-xs);
+  }
+
+  #cg-text {
+    columns: 2;
+    gap: var(--space-sm);
+  }
+
   .personal-mission {
-    border: 1px solid var(--color-b2);
-    padding: var(--space-sm);
+    --text-max-width: 25em;
     font-size: var(--d-lg);
     color: #492306;
-    --text-max-width: 25em;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
+  .personal-mission .markdown-content {
+    grid-column: 2;
+    max-width: 600px;
+    border: 1px solid var(--color-b2);
+    padding: var(--space-md);
+    margin-left: var(--space-lg);
   }
 </style>
 
 <div class="aspirations">
 
-  <section id="career-goals">
+  <section>
 
+    <div id="career-goals">
+      <h2>Career Goals</h2>
+      <div id="cg-text">
+        {% renderFile "./src/_includes/components/career-goals.md" %}
+      </div>
+    </div>
   </section>
 
-  {% include "components/planet.webc" %}
-  <ejm-planet></ejm-planet>
+  <section id="persional-mission" class="personal-mission">
+    {% include "components/planet.webc" %}
+    <ejm-planet></ejm-planet>
 
-  <section id="persional-mission" class="personal-mission markdown-content">
-    {% renderFile "./src/_includes/components/personal-mission.md" %}
+    <div class="markdown-content">
+      {% renderFile "./src/_includes/components/personal-mission.md" %}
+    </div>
   </section>
 </div>

@@ -1,3 +1,28 @@
+<style>
+  ticker-message {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: var(--color-b);
+    height: 100%;
+    outline: 1px solid var(--color-outline);
+    -webkit-text-stroke: 1px var(--color-outline);
+    color: var(--color-b1);
+  }
+
+  .ticker-text text {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+    animation-iteration-count: infinite;
+    font-family: var(--font-secondary);
+    letter-spacing: -0.03ch;
+  }
+</style>
+
 <script>
   class TickerMessage extends HTMLElement {
     constructor() {
@@ -12,13 +37,16 @@
 
       this.render();
 
-      this.addEventListener("mouseover", this.startTicker);
+      this.addEventListener("mouseover",
+
+        this.startTicker
+      );
       this.addEventListener("mouseout", this.resetTicker);
       // this.startTicker();
     }
 
     render() {
-      this.innerHTML = `<div class="ticker-text">${this.content}</div>`;
+      this.innerHTML = `<div class="ticker-text"><text>${this.content}</text></div>`;
       this.tickerText = this.querySelector(".ticker-text");
     }
 
@@ -31,13 +59,18 @@
             }
         `;
 
+      let textWidth = this.children[0].children[0].offsetWidth
+
 
       let styleElement = document.createElement("style");
       styleElement.innerHTML = animationCSS;
       document.head.appendChild(styleElement);
 
       let duration = (totalWidth / this.speed) * 1000;
-      this.tickerText.style.animation = `ticker ${duration}ms linear`;
+
+      if (textWidth > totalWidth) {
+        this.tickerText.style.animation = `ticker ${duration}ms linear`;
+      }
     }
     resetTicker() {
       this.tickerText.style.animation = "none";
@@ -49,23 +82,3 @@
 
   customElements.define("ticker-message", TickerMessage);
 </script>
-
-<style>
-  ticker-message {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    background: #f0f0f0;
-    height: 100%;
-  }
-
-  .ticker-text {
-    display: inline-block;
-    white-space: nowrap;
-    position: absolute;
-    right: 0;
-    animation-iteration-count: infinite;
-  }
-</style>

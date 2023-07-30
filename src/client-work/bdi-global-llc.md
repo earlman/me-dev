@@ -1,5 +1,5 @@
 ---
-title: BDI Global
+title: BDI Global LLC
 url: https://cyberadmitted-demo.earlman.me
 customScreenshot: ./images/cyber-admitted-screenshot.png
 urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
@@ -10,8 +10,8 @@ repo:
 password: NETHER-rustle-flea
 dateCompleted: ongoing
 sort: 2
-# tags: 
-#   - featured
+tags: 
+  - featured
 overview: "My work with Big Data Insure, LLC consisted of several different projects that culminated in the development of Cyber Admitted, an internal quoting tool built in Vue that integrated facilitated the management of their cyber insurance product. It implemented BDI's proprietary quoting algorithm and featured a live dashboard, custom business logic, Firebase Authentication, and Vuex state management."
 tagline: Full-Stack Webapp Build
 ---

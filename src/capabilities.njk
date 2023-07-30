@@ -27,6 +27,19 @@ title: Home
       padding: var(--space-sm);
     }
   }
+
+  .featured-work {
+    display: grid;
+    grid-template-columns: var(--left-margin) auto;
+  }
+
+  h2 {
+    font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 363;
+    font-size: 40px;
+    letter-spacing: -0.08rem;
+    line-height: 1;
+    color: var(--color-t6);
+  }
 </style>
 
 <div class="capabilities">
@@ -38,25 +51,19 @@ title: Home
     <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
   </section>
 
-  <section id="featured-work" class="featured-projects">
-    <div class="featured">
-      {%- for featured in collections.featured_intro -%}
-      <div class="featured-intro">
-        <div class="markdown-content">
-          {{ featured.templateContent | safe }}
-        </div>
-      </div>
-      {%- endfor -%}
+  <section id="featured-work" class="featured-work">
 
-      <div>
-        <ticker-message speed="50" content="hello" style="height:50px;"></ticker-message>
-      </div>
+    <h2>Featured<br>Work</h2>
+    <!-- Show Featured Work (based on frontmatter tag) -->
+    <div>
+      {%- for project in collections.project -%}
+      {%- if project.data.tags.includes('featured') -%}
+      <a href="{{ project.filePathStem }}">
+        <ticker-message speed="50" content="{{project.data.title}}"
+          style="height: 300px;font-size: 200px;margin-bottom:var(--space-md)"></ticker-message>
+      </a>
 
-      <!-- Show Featured Work (based on frontmatter tag) -->
-      {%- for project in collections.project -%} {%- if project.data.tags.includes('featured') -%}
-      <a class="project-link" href="{{ project.filePathStem }}">
-
-
+      <!-- <a class="project-link" href="{{ project.filePathStem }}">
         <div>
           <div class="caption">featured work</div>
           <div class="project">
@@ -71,9 +78,11 @@ title: Home
             </p>
           </div>
         </div>
-      </a>
-      {%- endif -%} {%- endfor -%}
+      </a> -->
+      {%- endif -%}
+      {%- endfor -%}
     </div>
+
 
   </section>
 </div>

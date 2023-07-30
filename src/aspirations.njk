@@ -3,6 +3,10 @@ layout: layouts/_base.njk
 ---
 
 <style>
+  .aspirations {
+    width: 100vw;
+  }
+
   .personal-mission {
     border: 1px solid var(--color-b2);
     padding: var(--space-sm);
@@ -12,10 +16,16 @@ layout: layouts/_base.njk
   }
 </style>
 
-<section id="career-goals">
+<div class="aspirations">
 
-</section>
+  <section id="career-goals">
 
-<section id="persional-mission" class="personal-mission markdown-content">
-  {% renderFile "./src/_includes/components/personal-mission.md" %}
-</section>
+  </section>
+
+  {% include "components/planet.webc" %}
+  <ejm-planet></ejm-planet>
+
+  <section id="persional-mission" class="personal-mission markdown-content">
+    {% renderFile "./src/_includes/components/personal-mission.md" %}
+  </section>
+</div>

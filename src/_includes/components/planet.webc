@@ -1,3 +1,6 @@
+<canvas id='rotatingGlobe' width='990' height='990' style='width: 990px; height: 990px;'></canvas>
+
+
 <script>
   class Planet extends HTMLElement {
     constructor() {

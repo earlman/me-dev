@@ -57,8 +57,10 @@ layout: layouts/_base.njk
   </section>
 
   <section id="persional-mission" class="personal-mission">
-    {% include "components/planet.webc" %}
-    <ejm-planet></ejm-planet>
+    <div>
+      {% include "components/planet.webc" %}
+      <ejm-planet></ejm-planet>
+    </div>
 
     <div class="markdown-content">
       {% renderFile "./src/_includes/components/personal-mission.md" %}

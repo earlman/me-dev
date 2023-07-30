@@ -1,4 +1,6 @@
-<canvas id='rotatingGlobe' width='990' height='990'></canvas>
+<div class="globe-container">
+  <canvas id='rotatingGlobe' width='500'></canvas>
+</div>
 
 
 <script>
@@ -62,9 +64,15 @@
       // The `pings` plugin draws animated pings on the globe.
       //globe.loadPlugin(planetaryjs.plugins.pings());
 
+      var canvas = document.getElementById("rotatingGlobe");
 
       // Set up the globe's initial scale, offset, and rotation.
-      globe.projection.scale(275).translate([150, 450]).rotate([0, -10, 0]);
+      globe.projection.scale(canvas.width / 2).translate([canvas.width / 2, canvas.width / 2]).rotate([0, -10, 0]);
+
+
+      canvas.height = canvas.width;
+      canvas.style.maxWidth = canvas.width + 'px';
+      canvas.style.maxHeight = canvas.width + 'px';
 
       // Every few hundred milliseconds, we'll draw another random ping.
       var colors = ["white"];
@@ -75,8 +83,9 @@
       //globe.plugins.pings.add(8, 47, { color: color, ttl: 1000, angle: Math.random() *// 3 });
       //}, 150);
 
-      var canvas = document.getElementById("rotatingGlobe");
       console.log(canvas.getContext("2d"))
+
+
       // Special code to handle high-density displays (e.g. retina, some phones)
       // In the future, Planetary.js will handle this by itself (or via a plugin).
       if (window.devicePixelRatio == 2) {
@@ -168,20 +177,13 @@
 </script>
 
 <style>
-  #overlay {
+  #rotatingGlobe {
     width: 100%;
-    height: 100vh;
-    display: block;
-    z-index: 10000;
-    position: absolute;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+    height: 100%;
+    z-index: 9999;
   }
 
-  #rotatingGlobe {
-    width: 990px;
-    height: 990px;
-    margin: auto;
+  .globeContainer {
     position: absolute;
-    z-index: 9999;
   }
 </style>

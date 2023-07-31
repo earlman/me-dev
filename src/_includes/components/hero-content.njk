@@ -1,47 +1,119 @@
 <style>
-  .hero-text {}
+   .hero-text {
+      max-width: var(--left-margin);
+   }
 
-  .hero-text p {
-    margin-bottom: var(--space-sm);
-    font-family: "Alegreya Sans";
-  }
+   .hero-text p {
+      margin-bottom: var(--space-sm);
+      font-family: "Alegreya Sans";
+   }
 
-  .hero-text h3 {
-    color: #B8A89C;
-    font-weight: 500;
-    font-family: "Alegreya Sans";
-    font-size: var(--d-md);
-  }
+   .hero-text h3 {
+      color: var(--color-t7);
+      font-weight: 500;
+      font-family: "Alegreya Sans";
+      font-size: var(--d-lg);
+   }
 
-  .hero-text .fs {
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: var(--color-t-l);
-    text-decoration-thickness: 2px;
-  }
+   .hero-text .fstext {
+      text-decoration: underline 2px var(--color-t5);
+   }
+
+   #par2 {
+      opacity: 0;
+   }
+
+   .hero-text p {
+      z-index: 101;
+   }
+
+   #line-end {
+      /*block elements are too wide*/
+      display: inline;
+      /*repositions end of line*/
+      padding-right: var(--space-xs);
+   }
+
+   .leader-line {
+      /*opacity: 0;*/
+      z-index: 100;
+
+   }
+
+   #leader-line-1-line-shape {
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+   }
 </style>
 
 <div class="hero-text">
-  <p>
-    My name is Earl Justin Mangulabnan.<br>
-    I design and develop <span class="fs">frontend systems</span>.
-  </p>
-  <p>
-    I like when things are<br>
-    built well & built for everybody.
-  </p>
-  <h3>What do I mean?</h3>
-  <p>
-    Good web development means<br>
-    more than a pretty site.
-  </p>
-  <p>
-    It means maintainable code, <br>
-    meaningful designs,<br>
-    clean architecture,<br>
-    well-defined processes, and<br>
-    stellar communication.<br>
-    A lofty ideal, I know.<br>
-  </p>
+   <p>
+      My name is Earl Justin Mangulabnan.<br>
+      I design and develop <span class="fstext hover-target">frontend<span id="line-start"></span>
+         systems</span>.
+   </p>
+   <p>
+      I like when things are<br>
+      built well &amp; built for everybody.
+   </p>
+   <div class=" hover-target" id="par2">
+      <h3 id="line-end">What do I mean?</h3>
+      <p>
+         Good web development means<br>
+         more than a pretty site.
+      </p>
+      <p>
+         It means maintainable code, <br>
+         meaningful designs,<br>
+         clean architecture,<br>
+         well-defined processes, and<br>
+         stellar communication.<br>
+         A lofty ideal, I know.<br>
+      </p>
 
+   </div>
 </div>
+
+<script>
+   function createLine() {
+      new LeaderLine(
+         document.getElementById('line-start'),
+         document.getElementById('line-end'),
+         {
+            path: "grid",
+            endPlug: "square",
+            size: 1,
+            startSocket: "bottom",
+            endSocket: "right",
+            color: "var(--color-t5)"
+         }
+      );
+
+      let t2 = gsap.timeline();
+      let anim = t2.to("#leader-line-1-line-shape", {
+         strokeDashoffset: 0,
+         opacity: 1,
+         duration: 1.5, // Animation duration in seconds
+         ease: "power1.out",
+      }).to(".hover-target", {
+         opacity: 1,
+      }, "-=1").pause()
+
+      const animationTargets = document.getElementsByClassName("hover-target")
+
+      for (let target of animationTargets) {
+         target.addEventListener('mouseover', animationEIB);
+      }
+
+      function animationEIB() {
+         console.log("animationEIB")
+         anim.play()
+      }
+
+      // display paragraph only after everything's loaded
+      document.getElementById("par2").style.opacity = 0.2
+
+   }
+</script>
+
+<script src="/libraries/leader-line.min.js" onload="createLine()"></script>

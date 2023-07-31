@@ -1,0 +1,84 @@
+<style>
+  ticker-message {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: var(--color-b);
+    height: 100%;
+    outline: 1px solid var(--color-outline);
+    -webkit-text-stroke: 1px var(--color-outline);
+    color: var(--color-b1);
+  }
+
+  .ticker-text text {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+    animation-iteration-count: infinite;
+    font-family: var(--font-secondary);
+    letter-spacing: -0.03ch;
+  }
+</style>
+
+<script>
+  class TickerMessage extends HTMLElement {
+    constructor() {
+      super();
+      this.tickerText = null;
+    }
+
+    connectedCallback() {
+
+      this.speed = this.getAttribute("speed")
+      this.content = this.getAttribute("content")
+
+      this.render();
+
+      this.addEventListener("mouseover",
+
+        this.startTicker
+      );
+      this.addEventListener("mouseout", this.resetTicker);
+      // this.startTicker();
+    }
+
+    render() {
+      this.innerHTML = `<div class="ticker-text"><text>${this.content}</text></div>`;
+      this.tickerText = this.querySelector(".ticker-text");
+    }
+
+    startTicker() {
+      let totalWidth = this.offsetWidth;
+      let animationCSS = `
+            @keyframes ticker {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-${totalWidth}px); }
+            }
+        `;
+
+      let textWidth = this.children[0].children[0].offsetWidth
+
+
+      let styleElement = document.createElement("style");
+      styleElement.innerHTML = animationCSS;
+      document.head.appendChild(styleElement);
+
+      let duration = (totalWidth / this.speed) * 1000;
+
+      if (textWidth > totalWidth) {
+        this.tickerText.style.animation = `ticker ${duration}ms linear`;
+      }
+    }
+    resetTicker() {
+      this.tickerText.style.animation = "none";
+
+      // This forces a reflow, which is necessary to restart the animation
+      //void this.tickerText.offsetWidth;
+    }
+  }
+
+  customElements.define("ticker-message", TickerMessage);
+</script>

@@ -12,6 +12,8 @@ overview: "Redesigned and improved the PDF reporting system at HubSpot through t
 # date-completed: ongoing
 sort: 1
 layout: layouts/work-item.njk
+tags: 
+  - featured
 ---
 
 From the first interview, Hubspot had a goal in mind. Level up the aesthetics of their reports to compete with enterprise software.

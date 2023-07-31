@@ -48,17 +48,14 @@
 
 {%- include "components/header.njk"-%}
 {%- include "components/skillstable.webc"-%}
+{%- include "components/ticker-message.webc"-%}
 
-
-<style>
-   section {
-      width: 100vw;
-   }
-</style>
 
 <body>
+
+
    <main>
-      <div class="">{{ content | safe }}</div>
+      <div class="" style="overflow-x: clip">{{ content | safe }}</div>
    </main>
    <script>
 
@@ -68,7 +65,7 @@
       let isHovered = false;
       let isShiftScroll = false;
       let isMouseDown = false;
-      let scrollSpeed = 2; // Speed of the scroll - higher is faster
+      let scrollSpeed = 5; // Speed of the scroll - higher is faster
       let scrollAnimation; // Variable to keep track of the animation
 
       // Select our scroll container

@@ -1,0 +1,191 @@
+<div style="position:relative">
+  <div id="ejm-globe-container">
+    <canvas id='ejm-rotatingGlobe' width='900'></canvas>
+  </div>
+</div>
+
+<script>
+  class Planet extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+
+      Promise.all([
+        this.loadScript('http://d3js.org/d3.v3.min.js'),
+        this.loadScript('http://d3js.org/topojson.v1.min.js'),
+        this.loadScript('https://github.com/BinaryMuse/planetary.js/releases/download/v1.1.2/planetaryjs.min.js')
+      ]).then(() => {
+        console.log('All libraries have been loaded');
+        // Your code that depends on all the libraries can be run here
+        this.render()
+
+      }).catch((error) => {
+        console.error('Failed to load one or more libraries', error);
+      });
+
+    }
+
+    loadScript(url) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    render() {
+      var globe = planetaryjs.planet();
+      // Load our custom `autorotate` plugin; see below.
+      globe.loadPlugin(autorotate(5));
+
+      // The `earth` plugin draws the oceans and the land; it's actually
+      // a combination of several separate built-in plugins.
+      //
+      // Note that we're loading a special TopoJSON file
+      // (world-110m-withlakes.json) so we can render lakes.
+      globe.loadPlugin(
+        planetaryjs.plugins.earth({
+          topojson: { file: "https://raw.githubusercontent.com/MadeByDroids/madebydroids.github.io/master/world-110m-withlakes%20(1).json" },
+          oceans: { fill: "#D4CBC4" },
+          land: { fill: "#FCFBF4" },
+          borders: { stroke: "rgba(121, 52, 0, 1)", lineWidth: 0.25 },
+        })
+      );
+      // Load our custom `lakes` plugin to draw lakes; see below.
+      globe.loadPlugin(
+        lakes({
+          fill: "#D4CBC4",
+        })
+      );
+      // The `pings` plugin draws animated pings on the globe.
+      //globe.loadPlugin(planetaryjs.plugins.pings());
+
+      var canvas = document.getElementById("ejm-rotatingGlobe");
+
+      // Set up the globe's initial scale, offset, and rotation.
+      globe.projection.scale(canvas.width / 2).translate([canvas.width / 2, canvas.width / 2]).rotate([0, -10, 0]);
+
+
+      canvas.height = canvas.width;
+      canvas.style.maxWidth = canvas.width + 'px';
+      canvas.style.maxHeight = canvas.width + 'px';
+
+      // Every few hundred milliseconds, we'll draw another random ping.
+      var colors = ["white"];
+      //      setInterval(function () {
+      //      var lat = Math.random() * 170 - 85;
+      //    var lng = Math.random() * 360 - 180;
+      //  var color = colors[Math.floor(Math.random() * colors.length)];
+      //globe.plugins.pings.add(8, 47, { color: color, ttl: 1000, angle: Math.random() *// 3 });
+      //}, 150);
+
+      console.log(canvas.getContext("2d"))
+
+
+      // Special code to handle high-density displays (e.g. retina, some phones)
+      // In the future, Planetary.js will handle this by itself (or via a plugin).
+      if (window.devicePixelRatio == 2) {
+        canvas.width = 800;
+        canvas.height = 800;
+        let context = canvas.getContext("2d");
+        context.scale(2, 2);
+      }
+      // Draw that globe!
+      globe.draw(canvas);
+
+      // This plugin will automatically rotate the globe around its vertical
+      // axis a configured number of degrees every second.
+      function autorotate(degPerSec) {
+        // Planetary.js plugins are functions that take a `planet` instance
+        // as an argument...
+        return function (planet) {
+          var lastTick = null;
+          var paused = false;
+          planet.plugins.autorotate = {
+            pause: function () {
+              paused = true;
+            },
+            resume: function () {
+              paused = false;
+            },
+          };
+          // ...and configure hooks into certain pieces of its lifecycle.
+          planet.onDraw(function () {
+            if (paused || !lastTick) {
+              lastTick = new Date();
+            } else {
+              var now = new Date();
+              var delta = now - lastTick;
+              // This plugin uses the built-in projection (provided by D3)
+              // to rotate the globe each time we draw it.
+              var rotation = planet.projection.rotate();
+              rotation[0] += (degPerSec * delta) / 1000;
+              if (rotation[0] >= 180) rotation[0] -= 360;
+              planet.projection.rotate(rotation);
+              lastTick = now;
+            }
+          });
+        };
+      }
+
+      var somePlugin = function (planet) {
+        planet.onDraw(function () {
+          planet.withSavedContext(function (context) {
+            context.beginPath();
+            planet.path.context(context)({ type: "Sphere" });
+            context.fillStyle = "green";
+            context.fill();
+          });
+        });
+      };
+      // This plugin takes lake data from the special
+      // TopoJSON we're loading and draws them on the map.
+      function lakes(options) {
+        options = options || {};
+        var lakes = null;
+
+        return function (planet) {
+          planet.onInit(function () {
+            // We can access the data loaded from the TopoJSON plugin
+            // on its namespace on `planet.plugins`. We're loading a custom
+            // TopoJSON file with an object called "ne_110m_lakes".
+            var world = planet.plugins.topojson.world;
+            lakes = topojson.feature(world, world.objects.ne_110m_lakes);
+          });
+
+          planet.onDraw(function () {
+            planet.withSavedContext(function (context) {
+              context.beginPath();
+              planet.path.context(context)(lakes);
+              context.fillStyle = options.fill || "black";
+              context.fill();
+            });
+          });
+        };
+      }
+
+    }
+
+  }
+
+  customElements.define("ejm-planet", Planet);
+
+</script>
+
+<style>
+  #ejm-rotatingGlobe {
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+
+  #ejm-globe-container {
+    position: absolute;
+    top: 0;
+  }
+</style>

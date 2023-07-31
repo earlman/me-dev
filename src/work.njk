@@ -4,21 +4,26 @@ layout: layouts/portfolio.njk
 
 <style>
   .client-work-container {
-    padding: var(--space-md)
+    padding: var(--space-md);
+    width: 100vw;
   }
 
   .client-work {
-    max-width: 1920px;
+    width: 100%;
     margin: auto;
     display: grid;
     font-size: 132px;
-    grid-template: "a a b" "c d e" / 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: stretch;
     margin-top: -1px;
     margin-left: -1px;
   }
 
   .work-item:first-child {
+    grid-column: span 2;
+  }
+
+  .work-item:nth-child(2) {
     grid-column: span 2;
   }
 
@@ -44,6 +49,11 @@ layout: layouts/portfolio.njk
     stroke-dasharray: 50px 600px 100px 600px;
     stroke-width: 1px;
     animation: stroke-offset 5.5s infinite linear;
+    stroke-opacity: 0;
+  }
+
+  .work-item:hover {
+    background-color: var(--color-b3);
   }
 
   /* how do i set the size of the font */
@@ -54,22 +64,12 @@ layout: layouts/portfolio.njk
   }
 </style>
 
-
-<script>
-  gsap.to(".text-copy", {
-    // "stroke-dashoffset": 0,
-    "stroke-dasharray": "150px 0 150px 0",
-    duration: 2,
-    ease: "circ"
-  })
-</script>
-
 <div class="client-work-container">
 
   <section class="client-work">
     {%- for work in collections.sortedWork -%}
     <div class="work-item">
-      <a href="{{ work.url }}">
+      <a class="work-item-link" href="{{ work.url }}">
         <h3>{{ work.data.title }}</h3>
         <!-- <svg viewBox="0 0 1200 300"> -->
         <svg>
@@ -90,7 +90,28 @@ layout: layouts/portfolio.njk
       </a>
     </div>
     {%- endfor -%}
+
+    <script>
+      var tl = gsap.timeline({ ease: "power3" });
+
+      tl.to(".text-copy", {
+        "stroke-dasharray": "150px 0 150px 0",
+        "stroke-opacity": 1,
+        duration: 2,
+        stagger: 1
+      })
+        .to(".text-copy", {
+          "fill": "rgba(133, 64, 13, 1)",
+          "stroke": "rgba(133, 64, 13, 1)",
+          duration: 2,
+          stagger: 1
+
+        }, ">1")
+
+
+    </script>
 </div>
+
 
 <div class="portfolio">
   <div class="hero">

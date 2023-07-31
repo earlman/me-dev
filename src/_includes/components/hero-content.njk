@@ -94,20 +94,22 @@
          strokeDashoffset: 0,
          opacity: 1,
          duration: 1.5, // Animation duration in seconds
-         ease: "power1.out",
+         ease: "power2.out"
       }).to(".hover-target", {
          opacity: 1,
+         ease: "power2.out"
       }, "-=1").pause()
 
       const animationTargets = document.getElementsByClassName("hover-target")
 
       for (let target of animationTargets) {
-         target.addEventListener('mouseover', animationEIB);
-      }
-
-      function animationEIB() {
-         console.log("animationEIB")
-         anim.play()
+         target.addEventListener('mouseover', function () {
+            anim.play()
+         });
+         target.addEventListener('mouseout', function () {
+            console.log(document.getElementById("par2").opacity)
+            anim.reverse()
+         });
       }
 
       // display paragraph only after everything's loaded

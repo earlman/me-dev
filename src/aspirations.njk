@@ -17,9 +17,15 @@ layout: layouts/_base.njk
     margin-bottom: var(--space-2xl);
   }
 
-  #career-goals h2 {
+  #career-goals>p {
+    width: 100%;
+    max-width: unset;
     text-align: center;
     margin-bottom: var(--space-xs);
+  }
+
+  #career-goals>h2 {
+    text-align: center;
   }
 
   #cg-text {
@@ -34,7 +40,7 @@ layout: layouts/_base.njk
     width: 100%;
     grid-template-columns: minmax(10%, 60%) minmax(300px, 90%);
     display: grid;
-    gap: var(--space-sm)
+    gap: var(--space-md)
   }
 
   .personal-mission .markdown-content {
@@ -51,6 +57,15 @@ layout: layouts/_base.njk
     width: 90%;
     margin-left: var(--space-md);
   }
+
+  .subtitle {
+    font-family: var(--font-secondary);
+    font-style: italic;
+    font-size: var(--d-md);
+    color: var(--color-t1);
+    font-variation-settings: "opsz" 17, "WONK" 0, "SOFT" 0;
+    font-weight: 348;
+  }
 </style>
 
 <div class="aspirations">
@@ -59,7 +74,9 @@ layout: layouts/_base.njk
 
     <div id="career-goals">
       <h2>Career Goals</h2>
+      <p class="subtitle">Updated: {{ goalsLastUpdated }}</p>
       <div id="cg-text">
+
         {% renderFile "./src/_includes/components/career-goals.md" %}
       </div>
     </div>

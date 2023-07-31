@@ -1,4 +1,18 @@
 {
+  "legend": [
+    {
+      "name": "1000h+",
+      "level": 3
+    },
+    {
+      "name": "200-1000h",
+      "level": 2
+    },
+    {
+      "name": "50-200h",
+      "level": 1
+    }
+  ],
   "lang_frame": [
     {
       "name": "CSS & SASS",
@@ -48,7 +62,7 @@
     },
     {
       "name": "Git & Github",
-      "level": 2
+      "level": 3
     },
     {
       "name": "Google Firebase",

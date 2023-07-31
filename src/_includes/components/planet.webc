@@ -1,7 +1,8 @@
-<div class="globe-container">
-  <canvas id='rotatingGlobe' width='500'></canvas>
+<div style="position:relative">
+  <div id="ejm-globe-container">
+    <canvas id='ejm-rotatingGlobe' width='900'></canvas>
+  </div>
 </div>
-
 
 <script>
   class Planet extends HTMLElement {
@@ -52,7 +53,7 @@
           topojson: { file: "https://raw.githubusercontent.com/MadeByDroids/madebydroids.github.io/master/world-110m-withlakes%20(1).json" },
           oceans: { fill: "#D4CBC4" },
           land: { fill: "#FCFBF4" },
-          borders: { stroke: "#D4CBC4", lineWidth: 0.25 },
+          borders: { stroke: "rgba(121, 52, 0, 1)", lineWidth: 0.25 },
         })
       );
       // Load our custom `lakes` plugin to draw lakes; see below.
@@ -64,7 +65,7 @@
       // The `pings` plugin draws animated pings on the globe.
       //globe.loadPlugin(planetaryjs.plugins.pings());
 
-      var canvas = document.getElementById("rotatingGlobe");
+      var canvas = document.getElementById("ejm-rotatingGlobe");
 
       // Set up the globe's initial scale, offset, and rotation.
       globe.projection.scale(canvas.width / 2).translate([canvas.width / 2, canvas.width / 2]).rotate([0, -10, 0]);
@@ -177,13 +178,14 @@
 </script>
 
 <style>
-  #rotatingGlobe {
+  #ejm-rotatingGlobe {
     width: 100%;
     height: 100%;
     z-index: 9999;
   }
 
-  .globeContainer {
+  #ejm-globe-container {
     position: absolute;
+    top: 0;
   }
 </style>

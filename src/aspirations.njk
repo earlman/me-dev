@@ -5,6 +5,7 @@ layout: layouts/_base.njk
 <style>
   .aspirations {
     width: 100vw;
+    margin-bottom: var(--space-2xl);
   }
 
   #career-goals {
@@ -31,8 +32,9 @@ layout: layouts/_base.njk
     font-size: var(--d-lg);
     color: #492306;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(10%, 60%) minmax(300px, 90%);
     display: grid;
+    gap: var(--space-sm)
   }
 
   .personal-mission .markdown-content {
@@ -40,7 +42,14 @@ layout: layouts/_base.njk
     max-width: 600px;
     border: 1px solid var(--color-b2);
     padding: var(--space-md);
-    margin-left: var(--space-lg);
+    margin-right: var(--space-md);
+  }
+
+  #planet-container {
+    min-width: 600px;
+    justify-self: flex-end;
+    width: 90%;
+    margin-left: var(--space-md);
   }
 </style>
 
@@ -57,7 +66,7 @@ layout: layouts/_base.njk
   </section>
 
   <section id="persional-mission" class="personal-mission">
-    <div>
+    <div id="planet-container">
       {% include "components/planet.webc" %}
       <ejm-planet></ejm-planet>
     </div>

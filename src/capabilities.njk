@@ -18,8 +18,12 @@ title: Home
     height: 600px;
     display: flex;
     gap: var(--space-sm);
-    margin-top: var(--space-xl);
     margin-left: var(--left-margin);
+  }
+
+  .skills-container {
+
+    margin-top: var(--space-xl);
   }
 
   @media (max-width: 900px) {
@@ -32,15 +36,55 @@ title: Home
     display: grid;
     grid-template-columns: var(--left-margin) auto;
   }
+
+  .skills h2 {
+    width: 300px;
+  }
+
+  .goals {
+    max-width: 300px;
+    padding-right: var(--space-md);
+  }
+
+  .goals h2 {
+    margin-bottom: var(--space-xs)
+  }
+
+  .goals a {
+    text-decoration: underline;
+    font-weight: 500;
+    color: var(--color-t2);
+  }
+
+  .goals-text {
+    margin-bottom: var(--space-sm);
+  }
+
+  .goals .cta {
+    text-align: right;
+  }
 </style>
 
 <div class="capabilities">
 
   {%include "components/hero.njk"%}
 
-  <section id="skills" class="skills">
-    <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
-    <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
+  <section class="goals">
+    <h2>Goals</h2>
+    <p class="goals-text">A this point in my career, I’m looking to build more experience working on the team. I want to
+      take on bigger
+      projects with bigger clients, and I won’t be able to do that alone.</p>
+    <p class="cta">
+      <a href="/aspirations">Read More</a>
+    </p>
+  </section>
+
+  <section class="skills-container">
+    <h2>Skills</h2>
+    <div class="skills">
+      <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
+      <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
+    </div>
   </section>
 
   <section id="featured-work" class="featured-work">

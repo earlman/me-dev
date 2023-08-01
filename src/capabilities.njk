@@ -14,16 +14,27 @@ title: Home
     width: 100vw;
   }
 
+
+  .skills-container {
+    margin-top: var(--space-xl);
+  }
+
   .skills {
     height: 600px;
     display: flex;
+    display: grid;
+    grid-template-columns: minmax(100px, calc(var(--left-margin) - var(--space-sm))) 1fr 1fr 1fr;
     gap: var(--space-sm);
-    margin-left: var(--left-margin);
   }
 
-  .skills-container {
 
-    margin-top: var(--space-xl);
+  json-table {
+    display: inline-block;
+  }
+
+  .table-title {
+    margin-left: var(--space-xs);
+    margin-bottom: var(--space-2xs);
   }
 
   @media (max-width: 900px) {
@@ -35,10 +46,6 @@ title: Home
   .featured-work {
     display: grid;
     grid-template-columns: var(--left-margin) auto;
-  }
-
-  .skills h2 {
-    width: 300px;
   }
 
   .goals {
@@ -63,6 +70,20 @@ title: Home
   .goals .cta {
     text-align: right;
   }
+
+  #le {
+    width: min-content;
+  }
+
+  #leader-line-2-line-shape {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+  }
+
+  #leader-line-3-line-shape {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+  }
 </style>
 
 <div class="capabilities">
@@ -80,11 +101,102 @@ title: Home
   </section>
 
   <section class="skills-container" id="skills">
-    <h2>Skills</h2>
     <div class="skills">
-      <json-table src="/data/skills.json" path="lang_frame" no-headers></json-table>
-      <json-table src="/data/skills.json" path="tools_apps" no-headers></json-table>
+      <h2>Skills</h2>
+      <div>
+        <p class="table-title">Languages & Frameworks&nbsp;&nbsp;<span id="ls1">&#9432;</span></p>
+        <json-table src="/data/skills.json" path="lang_frame" style="min-width:250px" no-headers></json-table>
+      </div>
+      <div>
+        <p class="table-title">Tools & Apps&nbsp;&nbsp;<span id="ls2">&#9432;</span></p>
+        <json-table src="/data/skills.json" path="tools_apps" style="min-width:250px" no-headers></json-table>
+      </div>
+      <div>
+        <p class="table-title" id="le">LEGEND</p>
+        <json-table src="/data/skills.json" path="legend" style="font-style: italic;width:150px;"
+          no-headers></json-table>
+      </div>
     </div>
+
+    <script>
+      function createLines() {
+        new LeaderLine(
+          document.getElementById('line-start'),
+          document.getElementById('line-end'),
+          {
+            path: "grid",
+            endPlug: "square",
+            size: 1,
+            startSocket: "bottom",
+            endSocket: "right",
+            color: "var(--color-t5)"
+          }
+        );
+        animateLine1()
+        //createLine2()
+        //createLine3()
+        //animateLines2and3()
+      }
+
+      function createLine2() {
+        new LeaderLine(
+          document.getElementById('ls1'),
+          document.getElementById('le'),
+          {
+            path: "grid",
+            endPlug: "square",
+            size: 1,
+            startSocket: "top",
+            endSocket: "top",
+            color: "var(--color-t5)"
+          }
+        );
+      }
+
+      function createLine3() {
+        new LeaderLine(
+          document.getElementById('ls2'),
+          document.getElementById('le'),
+          {
+            path: "grid",
+            endPlug: "square",
+            size: 1,
+            startSocket: "top",
+            endSocket: "top",
+            color: "var(--color-t5)"
+          }
+        )
+      }
+
+      function animateLines2and3() {
+
+        let t3 = gsap.timeline();
+        let anim = t3.to(["#leader-line-2-line-shape", "#leader-line-3-line-shape"], {
+          strokeDashoffset: 0,
+          opacity: 1,
+          duration: 1.5, // Animation duration in seconds
+          ease: "power2.out"
+        }).to(".hover-target", {
+          opacity: 1,
+          ease: "power2.out"
+        }, "-=1").pause()
+
+        const animationTargets = [document.getElementById("ls1"), document.getElementById("ls2")]
+
+        for (let target of animationTargets) {
+          target.addEventListener('mouseover', function () {
+            anim.play()
+          });
+          target.addEventListener('mouseout', function () {
+            console.log(document.getElementById("par2").opacity)
+            anim.reverse()
+          });
+        }
+
+      }
+    </script>
+
+    <script src="/libraries/leader-line.min.js" onload="createLines()"></script>
   </section>
 
   <section id="featured-work" class="featured-work">

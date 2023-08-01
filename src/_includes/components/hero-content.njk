@@ -37,7 +37,6 @@
    .leader-line {
       /*opacity: 0;*/
       z-index: 100;
-
    }
 
    #leader-line-1-line-shape {
@@ -49,8 +48,7 @@
 <div class="hero-text">
    <p>
       My name is Earl Justin Mangulabnan.<br>
-      I design and develop <span class="fstext hover-target">frontend<span id="line-start"></span>
-         systems</span>.
+      I design and develop <span class="fstext hover-target">frontend <span id="line-start"></span>systems</span>.
    </p>
    <p>
       I like when things are<br>
@@ -75,19 +73,8 @@
 </div>
 
 <script>
-   function createLine() {
-      new LeaderLine(
-         document.getElementById('line-start'),
-         document.getElementById('line-end'),
-         {
-            path: "grid",
-            endPlug: "square",
-            size: 1,
-            startSocket: "bottom",
-            endSocket: "right",
-            color: "var(--color-t5)"
-         }
-      );
+   function animateLine1() {
+
 
       let t2 = gsap.timeline();
       let anim = t2.to("#leader-line-1-line-shape", {
@@ -114,8 +101,8 @@
 
       // display paragraph only after everything's loaded
       document.getElementById("par2").style.opacity = 0.2
-
    }
+
 </script>
 
-<script src="/libraries/leader-line.min.js" onload="createLine()"></script>
+<!-- <script src="/libraries/leader-line.min.js" onload="createLine()"></script> -->

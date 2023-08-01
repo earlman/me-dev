@@ -13,19 +13,22 @@
 
     connectedCallback() {
 
-      Promise.all([
-        this.loadScript('http://d3js.org/d3.v3.min.js'),
-        this.loadScript('http://d3js.org/topojson.v1.min.js'),
-        this.loadScript('https://github.com/BinaryMuse/planetary.js/releases/download/v1.1.2/planetaryjs.min.js')
-      ]).then(() => {
-        console.log('All libraries have been loaded');
-        // Your code that depends on all the libraries can be run here
-        this.render()
+      this.render()
 
-      }).catch((error) => {
-        console.error('Failed to load one or more libraries', error);
-      });
-
+      /*
+            Promise.all([
+              this.loadScript('http://d3js.org/d3.v3.min.js'),
+              this.loadScript('http://d3js.org/topojson.v1.min.js'),
+              this.loadScript('https://github.com/BinaryMuse/planetary.js/releases/download/v1.1.2/planetaryjs.min.js')
+            ]).then(() => {
+              console.log('All libraries have been loaded');
+              // Your code that depends on all the libraries can be run here
+              this.render()
+      
+            }).catch((error) => {
+              console.error('Failed to load one or more libraries', error);
+            });
+      */
     }
 
     loadScript(url) {
@@ -71,6 +74,7 @@
       globe.projection.scale(canvas.width / 2).translate([canvas.width / 2, canvas.width / 2]).rotate([0, -10, 0]);
 
 
+      console.log(canvas.width)
       canvas.height = canvas.width;
       canvas.style.maxWidth = canvas.width + 'px';
       canvas.style.maxHeight = canvas.width + 'px';

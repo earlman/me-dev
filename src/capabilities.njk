@@ -204,7 +204,7 @@ title: Home
     <h2>Featured<br>Work</h2>
     <!-- Show Featured Work (based on frontmatter tag) -->
     <div>
-      {%- for project in collections.project -%}
+      {%- for project in collections.sortedWork -%}
       {%- if project.data.tags.includes('featured') -%}
       <a href="{{ project.filePathStem }}">
         <ticker-message speed="50" content="{{project.data.title}}"

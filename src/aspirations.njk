@@ -2,14 +2,15 @@
 layout: layouts/_base.njk
 title: Aspirations
 
-script1: "http://d3js.org/d3.v3.min.js"
-script2: "http://d3js.org/topojson.v1.min.js"
-script3: "//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"
+script1: "https://d3js.org/d3.v3.min.js"
+script2: "https://d3js.org/topojson.v1.min.js"
+script3: "https://github.com/BinaryMuse/planetary.js/releases/download/v1.1.2/planetaryjs.min.js"
 ---
 
-<script src="{{ script1 }}"></script>
-<script src="{{ script2 }}"></script>
-<script src="{{ script3 }}" data-main='/app.js'></script>
+<script type="text/javascript" src="{{ script1 }}"></script>
+<script type="text/javascript" src="{{ script2 }}"></script>
+<script type="text/javascript" src="/libraries/planetaryjs.min.js"></script>
+
 <style>
   .aspirations {
     width: 100vw;

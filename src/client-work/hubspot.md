@@ -1,8 +1,7 @@
 ---
 title: Hubspot
 overview: "Redesigned and improved the PDF reporting system at HubSpot through the use of modern CSS features and semantic HTML. This involved the creation of an efficient report building process with Puppeteer, enabling a smooth conversion of a large volume of HTML files into PDFs."
-# url: https://cyberadmitted-demo.earlman.me
-# customScreenshot: ./images/cyber-admitted-screenshot.png
+tagline: "1000+ Performance Reports generated from user data using HTML, CSS, and R Markdown"
 # urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
 # urlGithubPrivate: true
 # repo:

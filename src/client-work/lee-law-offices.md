@@ -8,16 +8,11 @@ repo:
   repo: lee-law-offices
 dateCompleted: 2021-10-02
 sort: 10
-overview: "At Lee Law Offices, a client-facing website was designed and deployed, achieving impressive Google Lighthouse scores for performance and accessibility. Additionally, a markdown-based content management solution was implemented, along with internationalization to cater to Spanish speakers."
+overview: "Lee Law Offices was a returning client that needed a new website built from scratch. They are a boutique law firm based in California specializing in Employment Law."
 ---
-
 # Lee Law Offices
 
 Website Build
-
-## Summary
-
-Lee Law Offices is a boutique law firm based in California that was looking to build a website from scratch. I worked with them over the span of a year, designing & building the site and helping them plan content.
 
 ## Features
 

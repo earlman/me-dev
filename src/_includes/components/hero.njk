@@ -36,12 +36,24 @@
       height: 55vh;
     }
 
+    @media (max-width:600px) {
+      .hero-animated-text {
+        height: 40vh;
+      }
+    }
+
     .hero-animated-text .text-copy {
       fill: none;
       stroke: var(--color-b2);
       stroke-dasharray: 50px 600px 100px 600px;
-      stroke-width: 1px;
       animation: stroke-offset 5.5s infinite linear;
+      stroke-width: 2px;
+    }
+
+    @media (min-width: 600px) {
+      .hero-animated-text .text-copy {
+        stroke-width: 1px;
+      }
     }
 
     .skills json-table {

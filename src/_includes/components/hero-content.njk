@@ -19,10 +19,6 @@
       text-decoration: underline 2px var(--color-t5);
    }
 
-   #par2 {
-      opacity: 0;
-   }
-
    .hero-text p {
       z-index: 101;
    }
@@ -99,8 +95,11 @@
          });
       }
 
-      // display paragraph only after everything's loaded
-      document.getElementById("par2").style.opacity = "var(--opacity-light)"
+      if (window.innerWidth > 600) {
+         // display paragraph only after everything's loaded
+         document.getElementById("par2").style.opacity = "var(--opacity-light)"
+      }
+
    }
 
 </script>

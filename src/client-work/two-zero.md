@@ -12,5 +12,5 @@ tagline: "Bespoke low-budget website for a new small business"
 sort: 1
 layout: layouts/work-item.njk
 tags: 
-  - featured
+  # - featured
 ---

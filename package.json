@@ -5,7 +5,7 @@
    "scripts": {
       "start": "eleventy --serve",
       "build": "eleventy",
-      "dev": "npm run start"
+      "dev": "DevEnv=TRUE npm run start"
    },
    "author": "Earl Mangulabnan",
    "license": "MIT",

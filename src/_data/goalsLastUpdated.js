@@ -32,9 +32,11 @@ const repo = "me-dev";
 const filePath = "src/_includes/components/career-goals.md";
 
 module.exports = async function () {
-   return await getLastUpdatedDate(owner, repo, filePath).then((r) => {
-      return reformatDate(r);
-   });
+   return process.env.DevEnv
+      ? await getLastUpdatedDate(owner, repo, filePath).then((r) => {
+           return process.env.DevEnv;
+        })
+      : "This is a Developer Environment";
 };
 
 // module.exports = {

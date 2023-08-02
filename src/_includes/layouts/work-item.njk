@@ -25,7 +25,7 @@ layout: layouts/_base.njk
       margin-bottom: var(--space-md);
       line-height: 1.1;
       color: var(--color-t5);
-      font-size: 30vh;
+      font-size: 12vh;
    }
 
    .work .overview {
@@ -46,6 +46,13 @@ layout: layouts/_base.njk
 
    .work .content {
       grid-template-columns: 25% 50% 25%;
+   }
+
+
+   @media (min-width: 600px) {
+      .work .title-c h1 {
+         font-size: 30vh;
+      }
    }
 </style>
 

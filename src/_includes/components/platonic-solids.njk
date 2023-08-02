@@ -315,7 +315,7 @@
           })
           x.closePath()
           x.lineWidth = Math.min(200, 4e4 / (Z ** 1.25))
-          x.globalAlpha = .3 * globalAlpha
+          x.globalAlpha = .1 * globalAlpha
           x.strokeStyle = strokeStyle
           x.stroke()
           x.lineWidth /= 7
@@ -356,7 +356,7 @@
     oX = 0, oY = 0, oZ = 1000
     Rl = 0, Pt = -t, Yw = S(t / 4) * 3
     for (i = 5; i--;) {
-      DrawSolid(shapes[i], (-2 + i) * 300, 0, 0, '#E6BE73', '#E6BE73', 0, .5)
+      DrawSolid(shapes[i], (-2 + i) * 300, 0, 0, '#E6BE73', '#E6BE73', 0, 1)
     }
     t += 1 / 60
     requestAnimationFrame(Draw)

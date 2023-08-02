@@ -11,10 +11,11 @@
       letter-spacing: -0.5775rem;
     }
 
-    .platonic-solids {
-      left: 0;
-      top: var(--space-md);
-      width: 100%;
+    .hero-illustration {
+      width: calc(100vw - var(--left-margin) - var(--space-xl));
+      height: 30rem;
+      position: absolute;
+      left: var(--left-margin);
     }
 
     .hero-animated-text {
@@ -113,7 +114,7 @@
 
     </script>
   </div>
-  <div class="platonic-solids">
+  <div class="hero-illustration">
     {%- include "components/platonic-solids.njk" -%}
   </div>
   <div class="hero-content">

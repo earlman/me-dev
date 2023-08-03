@@ -95,12 +95,24 @@
          });
       }
 
+      // This is better implemented with GSAP scroll triggers
+
       // play animation on scroll on mobile
       if (window.innerWidth < 600) {
          document.addEventListener("scroll", function () {
             anim.play()
          })
+
+         // reverse animation when user is at the top
+         window.addEventListener('scroll', function () {
+            if (window.scrollY < 50) {
+               anim.reverse()
+            }
+         });
+
       }
+
+
 
       // display paragraph only after everything's loaded
       document.getElementById("par2").style.opacity = "var(--opacity-light)"

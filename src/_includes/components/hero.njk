@@ -38,7 +38,16 @@
 
     @media (max-width:600px) {
       .hero-animated-text {
-        height: 40vh;
+        height: 30vh;
+        margin-left: 0;
+      }
+
+      .hero-animated-text .container {
+        margin-top: 0;
+      }
+
+      .text-copy {
+        font-size: 300px;
       }
     }
 
@@ -47,7 +56,7 @@
       stroke: var(--color-b2);
       stroke-dasharray: 50px 600px 100px 600px;
       animation: stroke-offset 5.5s infinite linear;
-      stroke-width: 2px;
+      stroke-width: 3px;
     }
 
     @media (min-width: 600px) {
@@ -76,10 +85,10 @@
 
     <!-- I might be able to sell this web component lol $3?-->
     <div class="container">
-      <svg viewBox="0 0 1200 500">
+      <svg viewBox="0 0 1200 600">
         <symbol id="s-text">
-          <text text-anchor="start" x="0%" y="35%">Good </text>
-          <text text-anchor="start" x="0%" y="80%">Afternoon</text>
+          <text text-anchor="start" x="0%" y="38%">Good </text>
+          <text text-anchor="start" x="0%" y="83%">Afternoon</text>
         </symbol>
 
         <g class="g-ants">
@@ -113,16 +122,14 @@
     <script>
       var tl = gsap.timeline({ ease: "power3" });
 
-      tl.to(".text-copy", {
+      let animGm = tl.to(".text-copy", {
         "stroke-dasharray": "150px 0 150px 0",
         duration: 2
-      })
-        .to(".text-copy", {
-          "fill": "rgba(133, 64, 13, 1)",
-          "stroke": "rgba(133, 64, 13, 1)",
-          duration: 2
-        }, ">1")
-
+      }).to(".text-copy", {
+        "fill": "rgba(133, 64, 13, 1)",
+        "stroke": "rgba(133, 64, 13, 1)",
+        duration: 2
+      }, ">1")
 
     </script>
   </div>

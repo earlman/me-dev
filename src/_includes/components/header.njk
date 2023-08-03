@@ -7,7 +7,6 @@
     --header-height: 75px;
   }
 
-
   header {
     background-color: var(--color-b-d);
     width: 100vw;
@@ -52,9 +51,41 @@
     z-index: 1;
     margin-top: var(--header-height);
   }
+
+
+  @media (max-width: 600px) {
+    :root {}
+
+    header {
+      padding-left: var(--space-2xs);
+      padding-right: var(--space-2xs);
+    }
+
+    header nav ul {
+      gap: var(--space-xs);
+    }
+
+    .logo {
+      width: 110px;
+      margin-left: -15px;
+      rotate: -52deg;
+    }
+
+    nav .nav_item {
+      padding: var(--space-2xs);
+      padding-right: var(--space-xs);
+    }
+  }
+
+  @media (min-width: 500px) {
+    .logo {
+      rotate: 0deg;
+      margin-left: var(--space-xs);
+    }
+  }
 </style>
 <header>
-  <a href="/">
+  <a href="/" class="logo">
     {%- include "components/signature.svg"-%}
   </a>
   <nav>

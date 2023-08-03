@@ -1,21 +1,3 @@
----
-title: BDI Global LLC
-url: https://cyberadmitted-demo.earlman.me
-customScreenshot: ./images/cyber-admitted-screenshot.png
-urlGithub: https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber
-urlGithubPrivate: true
-repo:
-  owner: foundations-design
-  repo: bdi-global-llc
-password: NETHER-rustle-flea
-dateCompleted: ongoing
-sort: 2
-tags: 
-  - featured
-overview: "My work with Big Data Insure, LLC consisted of several different projects that culminated in the development of Cyber Admitted, an internal quoting tool built in Vue that integrated facilitated the management of their cyber insurance product. It implemented BDI's proprietary quoting algorithm and featured a live dashboard, custom business logic, Firebase Authentication, and Vuex state management."
-tagline: Full-Stack Webapp Build
----
-
 ## Systems Design
 
 At the beginning of my work here, BDI already had many automations in place. They used [CognitoForms](https://www.cognitoforms.com/) and its [Document Merging](https://www.cognitoforms.com/support/5/document-merging) feature to collect data and generate quotes to send out to users. They were using [Airtable](https://www.airtable.com/) to track data and build out dashboards for internal use. Generally, they hired me to help improve these systems and build out something more user-friendly.

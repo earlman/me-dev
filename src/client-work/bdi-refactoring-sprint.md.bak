@@ -1,19 +1,4 @@
-## Features
 
-- Allows brokers to calculate cyber insurance quotes
-- Authentication system - Custom Vue components, fully integrated with Vuex & Vue-Router, adhering to my understanding of best-practices
-- [{% indieAvatar "https://router.vuejs.org" %}Vuex Route Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html) - Uses firebase rules to limit user queries
-- Analytics - Uses [{% indieAvatar "https://www.amcharts.com/" %}amCharts](https://www.amcharts.com/) and Vuex getters to process quotes data
-- Airtable Integration - This is the tool BDI uses to calculate & log their quotes. We leverage Airtable's API to calculate rates using data from our app. It's a temporary solution while we test the tool internally, since we're eventually going to run into Airtable's Rate Limits. An intermediate solution we have available is to use use [{% indieAvatar "https://docs.netlify.com" %}Netlify Functions](https://docs.netlify.com/functions/overview/) as a (serverless) rate-limiter to avoid hitting the limits from Airtable.
-
-## Tech
-
-- Vue, Vue Router, Vuex
-- [{% indieAvatar "https://buefy.org/" %}Buefy](https://buefy.org/) - Vue components based on Bulma
-- Firebase - Database & Authentication
-- [{% indieAvatar "https://www.netlify.com/" %}Netlify]({% indieAvatar "https://www.netlify.com/" %})
-- [{% indieAvatar "https://www.amcharts.com/" %}amCharts](https://www.amcharts.com/)
-- [{% indieAvatar "https://github.com/" %}ShipwrightCSS](https://github.com/foundations-design/shipwright) - My personal CSS/SASS methodology
 
 ## Additional Info - Major Refactoring Sprint
 

@@ -95,13 +95,16 @@
          });
       }
 
-      if (window.innerWidth > 600) {
-         // display paragraph only after everything's loaded
-         document.getElementById("par2").style.opacity = "var(--opacity-light)"
+      // play animation on scroll on mobile
+      if (window.innerWidth < 600) {
+         document.addEventListener("scroll", function () {
+            anim.play()
+         })
       }
+
+      // display paragraph only after everything's loaded
+      document.getElementById("par2").style.opacity = "var(--opacity-light)"
 
    }
 
 </script>
-
-<!-- <script src="/libraries/leader-line.min.js" onload="createLine()"></script> -->

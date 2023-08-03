@@ -52,14 +52,17 @@ export default {
 };
 </script>
 
-<style lang="sass">
-#posts
-  --space-md: 1.5rem
+<style>
+#posts {
+  --space-md: 1.5rem;
+}
 
-  .tags
-    display: flex
-    gap: var(--space-md)
+#posts .tags {
+  display: flex;
+  gap: var(--space-md);
+}
 
-    li
-      text-decoration: none
+#posts li {
+  text-decoration: none;
+}
 </style>

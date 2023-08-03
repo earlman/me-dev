@@ -19,8 +19,6 @@ title: Home
   }
 
   .skills {
-    height: 600px;
-    display: flex;
     display: grid;
     grid-template-columns: minmax(100px, calc(var(--left-margin) - var(--space-sm))) 1fr 1fr 1fr;
     gap: var(--space-sm);
@@ -83,6 +81,38 @@ title: Home
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
   }
+
+  @media (max-width: 600px) {
+    .skills-container {
+      margin-top: var(--space-md);
+    }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skills json-table {
+      width: 100%;
+    }
+
+    .featured-work {
+      margin-top: var(--space-md)
+    }
+
+    .goals {
+      max-width: none;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: right;
+    }
+
+    .goals p {
+      text-align: justify;
+    }
+  }
 </style>
 
 <div class="capabilities">
@@ -124,7 +154,7 @@ title: Home
       </div>
       <div>
         <p class="table-title" id="le">LEGEND</p>
-        <json-table src="/data/skills.json" path="legend" style="font-style: italic;width:150px;"
+        <json-table src="/data/skills.json" id="le-table" path="legend" style="font-style: italic;width:150px;"
           no-headers></json-table>
       </div>
     </div>

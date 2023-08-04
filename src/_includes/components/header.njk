@@ -24,11 +24,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
-    place-items: flex-end;
+    place-items: center;
   }
 
   header .nav_item {
-    padding: var(--space-sm);
+    padding: var(--space-xs);
   }
 
   header .nav_item:hover {
@@ -62,7 +62,7 @@
     }
 
     header nav ul {
-      gap: var(--space-xs);
+      gap: var(--space-3xs);
     }
 
     header .logo {
@@ -90,9 +90,8 @@
   </a>
   <nav>
     <ul>
-      {# <li><a class="nav_item {{ 'active' if 'work' in page.fileSlug }}" href="/#featured-work">Work</a></li> #}
-      <li></li>
       <li><a class="nav_item {{ 'active' if 'capabilities' in page.fileSlug }}" href="/">Capabilities</a></li>
+      <li><a class="nav_item {{ 'active' if 'work' in page.fileSlug }}" href="/#featured-work">Work</a></li>
       <li><a class="nav_item {{ 'active' if 'aspirations' in page.fileSlug }}" href="/aspirations">Aspirations</a></li>
     </ul>
   </nav>

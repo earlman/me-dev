@@ -76,7 +76,11 @@
   @media (min-width: 1200px) {
 
     footer {
-      padding: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      width: 100%;
+      position: fixed;
+      height: var(--footer-height);
+      bottom: 0;
     }
 
     footer nav {
@@ -96,12 +100,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(300px, 1fr));
       grid-template-rows: 1fr 1fr;
-    }
-
-    footer {
-      position: fixed;
-      height: var(--footer-height);
-      bottom: var(--space-xs);
     }
 
     main {

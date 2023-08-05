@@ -1,7 +1,7 @@
 ### Colophon
 
-This website was designed and coded from scratch by Earl Justin Mangulabnan. The data is stored in JSON, Markdown, and Nunjucks files. The styles were built with Vanilla CSS on top of my own SASS methodology, but that will likely get phased out as [CSS Nesting gets more browser support](https://caniuse.com/css-nesting).
+This website was designed and coded from scratch by Earl Justin Mangulabnan. The data is stored in JSON, Markdown, and Nunjucks files. The styles were built with Vanilla CSS on top of my own SASS methodology.
 
-These files are compiled to HTML/CSS/JS using [11ty](https://www.11ty.dev/). It's hosted on [Netlify](https://www.netlify.com/) and you can see the code on [Github](https://github.com/earlman/me-dev). As of July 2023, this site is undergoing heavy development. It's currently optimized for landscape display on resolutions > 1200px. Let me know on LinkedIn if you have any questions.
+These files are compiled to HTML/CSS/JS using [11ty](https://www.11ty.dev/). It's hosted on [Netlify](https://www.netlify.com/) and you can see the code on [Github](https://github.com/earlman/me-dev). As of August 2023, this site is undergoing heavy development. Come say to me on LinkedIn.
 
 Copyright &copy; 2023 Earl Justin Mangulabnan. All rights reserved.

@@ -5,6 +5,16 @@ title: Home
 ---
 
 <style>
+  h2 {
+    text-align: right;
+  }
+
+  @media (min-width: 900px) {
+    h2 {
+      text-align: left;
+    }
+  }
+
   .capabilities {
     --left-margin: 400px;
   }
@@ -15,15 +25,37 @@ title: Home
   }
 
   .skills-container {
-    margin-top: var(--space-xl);
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-top: var(--space-md);
   }
 
-  .skills {
-    display: grid;
-    grid-template-columns: minmax(100px, calc(var(--left-margin) - var(--space-sm))) 1fr 1fr 1fr;
-    gap: var(--space-sm);
-    max-width: 1200px;
+  .skills .table-title {
+    margin-top: var(--space-sm);
   }
+
+  .skills json-table {
+    width: 100%;
+  }
+
+
+  @media (min-width: 600px) and (orientation: landscape) {
+    .skills-container {
+      grid-template-columns: minmax(200px, 1fr) 3fr;
+      margin-top: var(--space-lg);
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: var(--space-sm);
+    }
+
+    .skills .table-title {
+      margin-top: 0;
+    }
+  }
+
 
   json-table {
     display: inline-block;
@@ -40,9 +72,22 @@ title: Home
     }
   }
 
-  .featured-work {
+  .featured-work-container {
     display: grid;
-    grid-template-columns: var(--left-margin) auto;
+    grid-template-rows: auto auto;
+    margin-top: var(--space-md);
+  }
+
+  .featured-work-container h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  @media (min-width: 600px) and (orientation: landscape) {
+    .featured-work-container {
+      grid-template-columns: minmax(200px, 1fr) 3fr;
+      margin-top: var(--space-lg);
+
+    }
   }
 
   .goals {
@@ -83,19 +128,6 @@ title: Home
   }
 
   @media (max-width: 600px) {
-    .skills-container {
-      margin-top: var(--space-md);
-    }
-
-    .skills {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .skills json-table {
-      width: 100%;
-    }
-
     .featured-work {
       margin-top: var(--space-md)
     }
@@ -105,9 +137,6 @@ title: Home
       padding: 0;
     }
 
-    h2 {
-      text-align: right;
-    }
 
     .goals p {
       text-align: justify;
@@ -143,16 +172,16 @@ title: Home
     </p>
   </section>
 
-  <section class="skills-container" id="skills">
+  <section class="skills-container">
+    <h2>Skills</h2>
     <div class="skills">
-      <h2>Skills</h2>
       <div>
         <p class="table-title">Languages & Frameworks&nbsp;&nbsp;<span id="ls1">&#9432;</span></p>
-        <json-table src="/data/skills.json" path="lang_frame" style="min-width:250px" no-headers></json-table>
+        <json-table src="/data/skills.json" path="lang_frame" style="min-width:200px" no-headers></json-table>
       </div>
       <div>
         <p class="table-title">Tools & Apps&nbsp;&nbsp;<span id="ls2">&#9432;</span></p>
-        <json-table src="/data/skills.json" path="tools_apps" style="min-width:250px" no-headers></json-table>
+        <json-table src="/data/skills.json" path="tools_apps" style="min-width:200px" no-headers></json-table>
       </div>
       <div>
         <p class="table-title" id="le">LEGEND</p>
@@ -242,7 +271,7 @@ title: Home
     <script src="/libraries/leader-line.min.js" onload="createLines()"></script>
   </section>
 
-  <section id="featured-work" class="featured-work">
+  <section id="featured-work" class="featured-work-container">
 
     <h2>Featured<br>Work</h2>
     <!-- Show Featured Work (based on frontmatter tag) -->

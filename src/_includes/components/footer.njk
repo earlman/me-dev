@@ -5,30 +5,15 @@
 
   footer {
     background-color: var(--color-b-d);
-    position: fixed;
-    bottom: var(--space-xs);
-    height: var(--footer-height);
-    width: 100vw;
+    position: relative;
     display: grid;
     place-content: center;
+    padding: var(--space-xs);
   }
 
-  footer a:hover {
+  footer li:hover a {
     text-decoration: underline;
     text-decoration-style: dotted;
-  }
-
-  footer nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--space-sm)
-  }
-
-  footer .history ul {
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-    grid-gap: 0 var(--space-sm);
-    grid-template-rows: 1fr 1fr 1fr;
   }
 
   footer .history ul li:first-child {
@@ -46,19 +31,12 @@
   }
 
   main {
-    margin-bottom: calc(var(--footer-height) + var(--space-sm));
     min-height: 90vh;
   }
 
   footer * {
     color: var(--color-t-l);
     max-width: 1080px;
-  }
-
-  footer .bottom {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    grid-template-rows: 1fr 1fr;
   }
 
   .colophon {
@@ -69,6 +47,8 @@
   footer .logo {
     display: grid;
     place-content: center;
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
   }
 
   footer .logo svg {
@@ -83,6 +63,48 @@
   .high-contrast-switch {
     place-self: center flex-start;
     padding-left: var(--space-lg);
+  }
+
+  footer nav>div {
+    margin-bottom: var(--space-2xs);
+  }
+
+  @media (min-width: 600px) {}
+
+  @media (min-width: 900px) {}
+
+  @media (min-width: 1200px) {
+
+    footer {
+      padding: var(--space-sm) var(--space-md);
+      width: 100%;
+      position: fixed;
+      height: var(--footer-height);
+      bottom: 0;
+    }
+
+    footer nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-sm);
+    }
+
+    footer .history ul {
+      grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-gap: 0 var(--space-sm);
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    footer .bottom {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+      grid-template-rows: 1fr 1fr;
+    }
+
+    main {
+      margin-bottom: var(--footer-height);
+    }
   }
 </style>
 <footer>

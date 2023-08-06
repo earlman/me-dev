@@ -7,8 +7,6 @@ layout: layouts/_base.njk
       width: 800px;
    }
 </style>
-
-<div class="scratchpad">
-   <h1>Hi</h1>
-   {{ content | safe }}
+<div>
+   {% renderFile "./src/_includes/components/posts.vue" %}
 </div>

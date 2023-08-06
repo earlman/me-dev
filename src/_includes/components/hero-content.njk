@@ -35,9 +35,12 @@
       z-index: 100;
    }
 
-   #leader-line-1-line-shape {
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
+   #leader-line-1-line-path {
+      stroke-dasharray: 300px;
+      stroke-dashoffset: 300px;
+      /*      width: 100%;
+      height: 100%;
+  */
    }
 </style>
 
@@ -73,8 +76,8 @@
 
 
       let t2 = gsap.timeline();
-      let anim = t2.to("#leader-line-1-line-shape", {
-         strokeDashoffset: 0,
+      let anim = t2.to("#leader-line-1-line-path", {
+         strokeDashoffset: "1px",
          opacity: 1,
          duration: 1.5, // Animation duration in seconds
          ease: "power2.out"
@@ -95,13 +98,36 @@
          });
       }
 
-      if (window.innerWidth > 600) {
-         // display paragraph only after everything's loaded
+      // This is better implemented with GSAP scroll triggers
+
+      // play animation on scroll on mobile
+      if (window.innerWidth < 600) {
+         document.addEventListener("scroll", function () {
+            anim.play()
+         })
+
+         // reverse animation when user is at the top
+         window.addEventListener('scroll', function () {
+            if (window.scrollY < 50) {
+               anim.reverse()
+            }
+         });
+
+      }
+
+
+
+      // display paragraph only after everything's loaded
+      // don't change opacity on safari bc it doesn't render the strokewidth animation on LeaderLines
+
+      // Usage
+      if (!isSafari()) {
          document.getElementById("par2").style.opacity = "var(--opacity-light)"
       }
 
+      function isSafari() {
+         return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      }
    }
 
 </script>
-
-<!-- <script src="/libraries/leader-line.min.js" onload="createLine()"></script> -->

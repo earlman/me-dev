@@ -28,17 +28,30 @@
       height: 100%;
       align-items: center;
       margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
     }
+
 
     .hero-animated-text svg {
       display: block;
       font: 15em var(--font-secondary);
-      height: 55vh;
+      /* CAUTION svgs need a width and height to display on mobile */
+      width: 100%;
+      height: 100%;
     }
 
     @media (max-width:600px) {
       .hero-animated-text {
-        height: 40vh;
+        height: 30vh;
+        margin-left: 0;
+      }
+
+      .hero-animated-text .container {
+        margin-top: 0;
+      }
+
+      .text-copy {
+        font-size: 300px;
       }
     }
 
@@ -47,18 +60,17 @@
       stroke: var(--color-b2);
       stroke-dasharray: 50px 600px 100px 600px;
       animation: stroke-offset 5.5s infinite linear;
-      stroke-width: 2px;
+      stroke-width: 3px;
     }
 
     @media (min-width: 600px) {
       .hero-animated-text .text-copy {
         stroke-width: 1px;
       }
-    }
 
-    .skills json-table {
-      max-width: 300px;
-      width: 100%;
+      .hero-animated-text {
+        margin-left: 0
+      }
     }
 
     #s-text>text {
@@ -73,13 +85,12 @@
   </style>
 
   <div class="hero-animated-text">
-
     <!-- I might be able to sell this web component lol $3?-->
     <div class="container">
-      <svg viewBox="0 0 1200 500">
+      <svg viewBox="0 0 1200 600">
         <symbol id="s-text">
-          <text text-anchor="start" x="0%" y="35%">Good </text>
-          <text text-anchor="start" x="0%" y="80%">Afternoon</text>
+          <text text-anchor="start" x="0%" y="38%">Good </text>
+          <text text-anchor="start" x="0%" y="83%">Afternoon</text>
         </symbol>
 
         <g class="g-ants">
@@ -113,15 +124,20 @@
     <script>
       var tl = gsap.timeline({ ease: "power3" });
 
-      tl.to(".text-copy", {
+      let animGm = tl.to(".text-copy", {
         "stroke-dasharray": "150px 0 150px 0",
         duration: 2
-      })
-        .to(".text-copy", {
-          "fill": "rgba(133, 64, 13, 1)",
-          "stroke": "rgba(133, 64, 13, 1)",
-          duration: 2
-        }, ">1")
+      }).to(".text-copy", {
+        "fill": "rgba(133, 64, 13, 1)",
+        "stroke": "rgba(133, 64, 13, 1)",
+        duration: 2
+      }, ">1")
+
+      // Reset animation on click
+      document.querySelector(".hero-animated-text").addEventListener("click", function () {
+        console.log("click")
+        animGm.restart();
+      });
 
 
     </script>

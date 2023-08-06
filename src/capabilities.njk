@@ -5,6 +5,16 @@ title: Home
 ---
 
 <style>
+  h2 {
+    text-align: right;
+  }
+
+  @media (min-width: 900px) {
+    h2 {
+      text-align: left;
+    }
+  }
+
   .capabilities {
     --left-margin: 400px;
   }
@@ -14,18 +24,36 @@ title: Home
     width: 100vw;
   }
 
-
   .skills-container {
-    margin-top: var(--space-xl);
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-top: var(--space-md);
   }
 
-  .skills {
-    height: 600px;
-    display: flex;
-    display: grid;
-    grid-template-columns: minmax(100px, calc(var(--left-margin) - var(--space-sm))) 1fr 1fr 1fr;
-    gap: var(--space-sm);
-    max-width: 1200px;
+  .skills .table-title {
+    margin-top: var(--space-sm);
+  }
+
+  .skills json-table {
+    width: 100%;
+  }
+
+
+  @media (min-width: 600px) and (orientation: landscape) {
+    .skills-container {
+      grid-template-columns: minmax(200px, 1fr) 3fr;
+      margin-top: var(--space-lg);
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: var(--space-sm);
+    }
+
+    .skills .table-title {
+      margin-top: 0;
+    }
   }
 
 
@@ -44,9 +72,22 @@ title: Home
     }
   }
 
-  .featured-work {
+  .featured-work-container {
     display: grid;
-    grid-template-columns: var(--left-margin) auto;
+    grid-template-rows: auto auto;
+    margin-top: var(--space-md);
+  }
+
+  .featured-work-container h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  @media (min-width: 600px) and (orientation: landscape) {
+    .featured-work-container {
+      grid-template-columns: minmax(200px, 1fr) 3fr;
+      margin-top: var(--space-lg);
+
+    }
   }
 
   .goals {
@@ -85,6 +126,22 @@ title: Home
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
   }
+
+  @media (max-width: 600px) {
+    .featured-work {
+      margin-top: var(--space-md)
+    }
+
+    .goals {
+      max-width: none;
+      padding: 0;
+    }
+
+
+    .goals p {
+      text-align: justify;
+    }
+  }
 </style>
 
 <div class="capabilities">
@@ -92,28 +149,43 @@ title: Home
   {%include "components/hero.njk"%}
 
   <section class="goals">
-    <h2>Goals</h2>
-    <p class="goals-text">A this point in my career, I’m looking to build more experience working on a team. I'd like to
+    <h2 style="display: none;">Goals</h2>
+    <p class="goals-text">
+      My last couple projects have been about designing internal tools.
+      A this point in my career, I’m looking to build more experience working on a team. I'd like to
       take on bigger and more creative projects, and I won’t be able to do that alone.</p>
+    <p>
+      {#
+      Widely-experienced dev with in-depth knowledge of Vuejs, HTML, and CSS. Has worked on a variety of problems
+      including
+      build systems, content management, and UI/UX. Familiar with many CMSs including Google Firebase/Firestore,
+      Directus,
+      Wordpress (both headless and non-headless).
+
+      After 4 years working on a variety of long-term freelance projects, is currently transitioning into a corporate
+      environment to improve collaboration skills and tackle larger problems. Enjoys working directly with clients and
+      aims to
+      build a career architecting front-end systems. #}
+    </p>
     <p class="cta">
       <a href="/aspirations">Read More</a>
     </p>
   </section>
 
-  <section class="skills-container" id="skills">
-    <div class="skills">
-      <h2>Skills</h2>
+  <section class="skills-container">
+    <h2>Skills</h2>
+    <div class="skills" id="skills">
       <div>
         <p class="table-title">Languages & Frameworks&nbsp;&nbsp;<span id="ls1">&#9432;</span></p>
-        <json-table src="/data/skills.json" path="lang_frame" style="min-width:250px" no-headers></json-table>
+        <json-table src="/data/skills.json" path="lang_frame" style="min-width:200px" no-headers></json-table>
       </div>
       <div>
         <p class="table-title">Tools & Apps&nbsp;&nbsp;<span id="ls2">&#9432;</span></p>
-        <json-table src="/data/skills.json" path="tools_apps" style="min-width:250px" no-headers></json-table>
+        <json-table src="/data/skills.json" path="tools_apps" style="min-width:200px" no-headers></json-table>
       </div>
       <div>
         <p class="table-title" id="le">LEGEND</p>
-        <json-table src="/data/skills.json" path="legend" style="font-style: italic;width:150px;"
+        <json-table src="/data/skills.json" id="le-table" path="legend" style="font-style: italic;width:150px;"
           no-headers></json-table>
       </div>
     </div>
@@ -199,7 +271,7 @@ title: Home
     <script src="/libraries/leader-line.min.js" onload="createLines()"></script>
   </section>
 
-  <section id="featured-work" class="featured-work">
+  <section id="featured-work" class="featured-work-container">
 
     <h2>Featured<br>Work</h2>
     <!-- Show Featured Work (based on frontmatter tag) -->

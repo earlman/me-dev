@@ -85,7 +85,6 @@
   </style>
 
   <div class="hero-animated-text">
-
     <!-- I might be able to sell this web component lol $3?-->
     <div class="container">
       <svg viewBox="0 0 1200 600">
@@ -133,6 +132,13 @@
         "stroke": "rgba(133, 64, 13, 1)",
         duration: 2
       }, ">1")
+
+      // Reset animation on click
+      document.querySelector(".hero-animated-text").addEventListener("click", function () {
+        console.log("click")
+        animGm.restart();
+      });
+
 
     </script>
   </div>

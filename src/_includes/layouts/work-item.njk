@@ -58,6 +58,38 @@ layout: layouts/_base.njk
 
 <section class="work">
 
+   <!-- UNDER CONSTRUCTION -->
+   <div>
+      {{title}}
+   </div>
+   <div>
+      {{tagline}}
+   </div>
+   <div>
+      {{overview}}
+   </div>
+   <div>
+      {{features}}
+   </div>
+   <div>
+      {{tasks}}
+   </div>
+   <div>
+      <ul>
+         {% for item in tech %}
+         <li>
+            <a href="{{ item.url }}">
+               {% indieAvatar item.indieAvatar %}
+               {{ item.name }}
+            </a>
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+   <div>
+      {{url}}
+   </div>
+   <!----->
 
    <div class="title-c">
       <h1 class="display-text">

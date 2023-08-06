@@ -2,7 +2,6 @@ module.exports = function (data) {
    return {
       title: "BDI Global LLC",
       url: "https://cyberadmitted-demo.earlman.me",
-      customScreenshot: "./images/cyber-admitted-screenshot.png",
       urlGithub: "https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber",
       urlGithubPrivate: true,
       repo: {
@@ -25,13 +24,21 @@ module.exports = function (data) {
          "Airtable Integration - This is the tool BDI uses to calculate & log their quotes. We leverage Airtable's API to calculate rates using data from our app. It's a temporary solution while we test the tool internally, since we're eventually going to run into Airtable's Rate Limits. An intermediate solution we have available is to use use Netlify Functions as a (serverless) rate-limiter to avoid hitting the limits from Airtable.",
       ],
       tech: [
-         "Vue, Vue Router, Vuex",
+         {
+            indieAvatar: "https://v2.vuejs.org/v2/guide/",
+            name: "Vue, Vue Router, Vuex",
+            url: "https://v2.vuejs.org/v2/guide/",
+         },
          {
             indieAvatar: "https://buefy.org/",
             name: "Buefy",
             url: "https://buefy.org/",
          },
-         "Firebase - Database & Authentication",
+         {
+            indieAvatar: "https://buefy.org/",
+            name: "Firebase - Database & Authentication",
+            url: "https://buefy.org/",
+         },
          {
             indieAvatar: "https://www.netlify.com/",
             name: "Netlify",

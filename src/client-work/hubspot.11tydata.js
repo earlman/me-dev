@@ -1,6 +1,6 @@
 module.exports = function (data) {
    return {
-      permalink: "/hubspot",
+      permalink: "work/hubspot",
       tech: [
          {
             name: "VueRouter",

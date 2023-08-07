@@ -1,7 +1,7 @@
 module.exports = function (data) {
    return {
       title: "Moonrise Labs",
-      permalink: "/moonrise",
+      permalink: "work/moonrise",
       tech: [
          {
             name: "VueRouter",

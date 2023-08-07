@@ -1,5 +1,6 @@
 module.exports = function (data) {
    return {
+      permalink: "/bdi",
       title: "BDI Global LLC",
       url: "https://cyberadmitted-demo.earlman.me",
       customScreenshot: "./images/cyber-admitted-screenshot.png",

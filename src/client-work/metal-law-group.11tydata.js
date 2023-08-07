@@ -1,6 +1,6 @@
 module.exports = function (data) {
    return {
-      permalink: "work/metal",
+      permalink: "work/metal/",
       title: "Metal Law Group",
       url: "https://mlg.foundations.design",
       urlGithub: "https://github.com/earlman/Metal-Law-Group-Redesign",

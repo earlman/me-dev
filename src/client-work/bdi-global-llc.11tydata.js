@@ -26,32 +26,30 @@ module.exports = function (data) {
       ],
       tech: [
          {
-            indieAvatar: "https://v2.vuejs.org/v2/guide/",
             name: "Vue, Vue Router, Vuex",
             url: "https://v2.vuejs.org/v2/guide/",
          },
          {
-            indieAvatar: "https://buefy.org/",
             name: "Buefy",
             url: "https://buefy.org/",
          },
          {
-            indieAvatar: "https://buefy.org/",
-            name: "Firebase - Database & Authentication",
-            url: "https://buefy.org/",
+            name: "Firebase Database",
+            url: "https://firebase.google.com/docs/database",
          },
          {
-            indieAvatar: "https://www.netlify.com/",
+            name: "Firebase Authentication",
+            url: "https://firebase.google.com/docs/auth",
+         },
+         {
             name: "Netlify",
             url: "https://www.netlify.com/",
          },
          {
-            indieAvatar: "https://www.amcharts.com/",
             name: "amCharts",
             url: "https://www.amcharts.com/",
          },
          {
-            indieAvatar: "https://github.com/",
             name: "ShipwrightCSS",
             url: "https://github.com/foundations-design/shipwright",
          },

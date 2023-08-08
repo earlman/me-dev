@@ -58,38 +58,6 @@ layout: layouts/_base.njk
 
 <section class="work">
 
-   <!-- UNDER CONSTRUCTION -->
-   <div>
-      {{title}}
-   </div>
-   <div>
-      {{tagline}}
-   </div>
-   <div>
-      {{overview}}
-   </div>
-   <div>
-      {{features}}
-   </div>
-   <div>
-      {{tasks}}
-   </div>
-   <div>
-      <ul>
-         {% for item in tech %}
-         <li>
-            <a href="{{ item.url }}">
-               {% indieAvatar item.indieAvatar %}
-               {{ item.name }}
-            </a>
-         </li>
-         {% endfor %}
-      </ul>
-   </div>
-   <div>
-      {{url}}
-   </div>
-   <!----->
 
    <div class="title-c">
       <h1 class="display-text">
@@ -100,6 +68,102 @@ layout: layouts/_base.njk
    <div class="overview">
       {{overview}}
    </div>
+
+   {% if not content or content|trim == "" %}
+   <div>
+      Content is empty.
+   </div>
+   {% endif %}
+
+
+   <!-- UNDER CONSTRUCTION -->
+   <div>
+      {{title}}
+   </div>
+   <div>
+      <h2 style="">Overview</h2>
+      {{overview}}
+   </div>
+
+   <div>
+      <h2>Tech</h2>
+      <style>
+         ul.tech-links {
+            display: flex;
+            max-width: unset;
+            gap: var(--space-xs);
+            flex-wrap: wrap;
+         }
+
+         .tech-links li {
+            border: 1px solid var(--color-t5);
+            border-radius: var(--border-radius);
+            list-style-type: none;
+            padding: var(--space-xs);
+         }
+
+         .tech-links li a {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: var(--space-xs);
+         }
+
+         .tech-links li img {
+            filter: grayscale(100%);
+            width: var(--space-sm);
+            height: var(--space-sm);
+            transition: filter 0.2s ease;
+         }
+
+         .tech-links li img:hover {
+            filter: none;
+            filter: grayscale(0%);
+         }
+      </style>
+
+      <ul class="tech-links">
+         {% for item in tech %}
+         <li>
+            <a href="{{ item.url }}" target="_blank">
+               {% techAvatar item.url %}
+               {{ item.name }}
+            </a>
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+
+   <div>
+      <h2>Tasks</h2>
+      <ul>
+         {% for item in tasks %}
+         <li>
+            {{item}}
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+   <div>
+      <h2 style="">Tagline</h2>
+      {{tagline}}
+   </div>
+
+   <div>
+      <h2>Features</h2>
+      <ul>
+         {% for item in features %}
+         <li>
+            {{item}}
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+
+   <div>
+      {{url}}
+   </div>
+   <!----->
 
    <!-- <div class="back">
       <a href="/work">⬅ Back to portfolio</a>

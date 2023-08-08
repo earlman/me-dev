@@ -24,7 +24,6 @@ module.exports = function (data) {
          ],
          tech: [
             {
-               indieAvatar: "https://gridsome.org/",
                name: "Gridsome",
                url: "https://gridsome.org/",
             },

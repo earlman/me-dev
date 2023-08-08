@@ -155,6 +155,12 @@ module.exports = (eleventyConfig) => {
       src="${screenshotUrl}" width="60" height="60">`;
    });
 
+   eleventyConfig.addShortcode("techAvatar", function indieAvatarHtml(url = "", classes = "t-avatar") {
+      let screenshotUrl = `https://v1.indieweb-avatar.11ty.dev/${encodeURIComponent(url)}/`;
+      return `<img alt="IndieWeb Avatar for ${url}" class="${classes}"loading="lazy" decoding="async" 
+      src="${screenshotUrl}" width="50" height="50">`;
+   });
+
    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
    eleventyConfig.addLiquidShortcode("image", imageShortcode);
    eleventyConfig.addJavaScriptFunction("image", imageShortcode);

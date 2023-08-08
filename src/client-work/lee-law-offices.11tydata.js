@@ -24,13 +24,14 @@ module.exports = function (data) {
       ],
       tech: [
          {
-            indieAvatar: "https://gridsome.org/",
             name: "Gridsome",
             url: "https://gridsome.org/",
          },
-         "Markdown",
          {
-            indieAvatar: "https://www.netlify.com/",
+            name: "Markdown",
+            url: "",
+         },
+         {
             name: "Netlify Forms",
             url: "https://www.netlify.com/products/forms/",
          },

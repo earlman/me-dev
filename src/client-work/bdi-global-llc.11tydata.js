@@ -1,5 +1,6 @@
 module.exports = function (data) {
    return {
+      permalink: "work/bdi/",
       title: "BDI Global LLC",
       url: "https://cyberadmitted-demo.earlman.me",
       urlGithub: "https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber",

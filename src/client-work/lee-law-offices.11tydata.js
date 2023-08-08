@@ -1,5 +1,6 @@
 module.exports = function (data) {
    return {
+      permalink: "work/lee/",
       title: "Lee Law Offices",
       displayTitle: "Lee Law\nOffices",
       url: "https://leelawoffices-demo.foundations.design/en-us/",

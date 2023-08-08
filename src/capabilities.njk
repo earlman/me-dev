@@ -278,7 +278,7 @@ title: Home
     <div>
       {%- for project in collections.sortedWork -%}
       {%- if project.data.tags.includes('featured') -%}
-      <a href="{{ project.filePathStem }}">
+      <a href="{{ project.data.permalink }}">
         <ticker-message speed="50" content="{{project.data.title}}"
           style="height: 300px;font-size: 200px;margin-bottom:var(--space-md)"></ticker-message>
       </a>

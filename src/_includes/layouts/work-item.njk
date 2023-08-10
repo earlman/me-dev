@@ -11,6 +11,8 @@ layout: layouts/_base.njk
       max-width: var(--max-width);
       padding-left: var(--space-sm);
       padding-right: var(--space-sm);
+      display: grid;
+      grid-gap: var(--space-md);
    }
 
    .work .title-c {
@@ -29,8 +31,53 @@ layout: layouts/_base.njk
       margin-bottom: 0;
    }
 
+   @media (orientation:portrait) and (min-width:600px) {
+      .work .title-c h1 {
+         font-size: 20vw;
+      }
+   }
+
+   @media (orientation:landscape) and (min-width: 600px) {
+      .work .title-c h1 {
+         font-size: 30vh;
+      }
+   }
+
    .work hgroup {
       margin-bottom: var(--space-md);
+   }
+
+   @media (min-width: 600px) {
+      .work {
+         grid-template-columns: 1fr 1fr;
+      }
+
+      hgroup,
+      .overview,
+      .break,
+      .markdown-content {
+         grid-column: 1/-1;
+      }
+   }
+
+   @media (min-width: 900px) {
+      .overview {
+         grid-column: 1;
+      }
+
+      .features {
+         grid-row: 2;
+         grid-column: 2;
+      }
+
+      .tech {
+         grid-column: 1;
+      }
+
+      .tech-links {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+      }
    }
 
    .work hgroup .tagline {
@@ -45,6 +92,7 @@ layout: layouts/_base.njk
       margin-bottom: var(--space-md);
       font-size: var(--d-lg);
       color: var(--color-t3);
+      font-weight: 300;
    }
 
    .work .markdown-content {
@@ -64,17 +112,11 @@ layout: layouts/_base.njk
       margin-top: var(--space-xl);
       margin-bottom: var(--space-xl);
    }
-
-
-   @media (min-width: 600px) {
-      .work .title-c h1 {
-         font-size: 30vh;
-      }
-   }
 </style>
 
 <style>
    .demo a {
+      margin-top: var(--space-md);
       text-transform: uppercase;
       text-decoration: underline;
       color: var(--color-t2);
@@ -84,7 +126,6 @@ layout: layouts/_base.njk
       font-size: var(--d-lg);
       width: 100%;
       display: block;
-      margin-bottom: var(--space-md)
    }
 
    ul.tech-links {
@@ -126,9 +167,7 @@ layout: layouts/_base.njk
    }
 
    .features,
-   .tasks {
-      margin-top: var(--space-md);
-   }
+   .tasks {}
 
    .features ul,
    .tasks ul {
@@ -162,6 +201,11 @@ layout: layouts/_base.njk
 
    <div class="overview">
       {{overview}}
+      <div class="demo">
+         <a href="{{url}}">
+            Demo
+         </a>
+      </div>
    </div>
 
    {% if not content or content|trim == "" %}
@@ -170,14 +214,9 @@ layout: layouts/_base.njk
    </div>
    {% endif %}
 
-   <div class="demo">
-      <a href="{{url}}">
-         Demo
-      </a>
-   </div>
    <!-- UNDER CONSTRUCTION -->
 
-   <div>
+   <div class="tech">
       <h2>Tech</h2>
 
       <ul class="tech-links">

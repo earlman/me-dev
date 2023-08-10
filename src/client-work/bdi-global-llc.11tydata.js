@@ -55,10 +55,11 @@ module.exports = function (data) {
          },
       ],
       tasks: [
-         "Designed & deployed a client-facing website for a startup labor & employment firm, based in San Francisco",
-         "Achieved 85+ Google Lighthouse scores, with a 97 accessibility score",
-         "Implemented a markdown-based content management solution, stored on Github, with the ability to easily add an admin interface in the future",
-         "Implemented internationalization to support Spanish speakers",
+         "Developed a client portal for BDI Global, LLC, to support management of over $400,000 in monthly written insurance premiums",
+         "Planned and built integrations with Google Firebase, Airtable, Zapier, Cognitoforms, & Flipsnack",
+         "Completed over 500 hours of work for the company over the course of 3 years, including dashboards creation, online forms, and database infrastructure design",
+         "Helped serve 75+ regular users, brokers and clients of BDI Global",
+         "Created authentication system with Vue using Firebase",
       ],
    };
 };

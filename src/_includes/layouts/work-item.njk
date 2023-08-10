@@ -9,23 +9,35 @@ layout: layouts/_base.njk
 
    .work {
       max-width: var(--max-width);
-      padding-left: var(--space-md);
-      padding-right: var(--space-md);
+      padding-left: var(--space-sm);
+      padding-right: var(--space-sm);
    }
 
    .work .title-c {
       display: grid;
       align-content: flex-end;
-      margin-left: calc(-1 * var(--space-xs));
+      width: 80vw;
+      margin-top: var(--space-xl);
+      /*margin-left: calc(-1 * var(--space-xs));*/
    }
 
    .work .title-c h1 {
       font-variation-settings: "WONK" 0, "opsz" 100, "SOFT" 0, "wght" 800;
-      margin-top: var(--space-2xl);
-      margin-bottom: var(--space-md);
       line-height: 1.1;
       color: var(--color-t5);
       font-size: 12vh;
+      margin-bottom: 0;
+   }
+
+   .work hgroup {
+      margin-bottom: var(--space-md);
+   }
+
+   .work hgroup .tagline {
+      font-size: var(--d-lg);
+      color: var(--color-t7);
+      font-family: var(--font-secondary);
+      font-variation-settings: "WONK" 0, "opsz" 20, "SOFT" 0, "wght" 350;
    }
 
    .work .overview {
@@ -48,6 +60,11 @@ layout: layouts/_base.njk
       grid-template-columns: 25% 50% 25%;
    }
 
+   .work .break {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+   }
+
 
    @media (min-width: 600px) {
       .work .title-c h1 {
@@ -56,14 +73,92 @@ layout: layouts/_base.njk
    }
 </style>
 
+<style>
+   .demo a {
+      text-transform: uppercase;
+      text-decoration: underline;
+      color: var(--color-t2);
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      text-align: right;
+      font-size: var(--d-lg);
+      width: 100%;
+      display: block;
+      margin-bottom: var(--space-md)
+   }
+
+   ul.tech-links {
+      display: flex;
+      max-width: unset;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+   }
+
+   .tech-links li {
+      border: 1px solid var(--color-t5);
+      border-radius: var(--border-radius);
+      list-style-type: none;
+      padding: var(--space-2xs) var(--space-xs);
+   }
+
+   .tech-links li a {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: var(--space-xs);
+   }
+
+   .tech-links li img {
+      filter: grayscale(100%);
+      width: var(--space-sm);
+      height: var(--space-sm);
+      transition: filter 0.2s ease;
+   }
+
+   .tech-links li:hover img {
+      filter: none;
+      filter: grayscale(0%);
+   }
+
+   .features,
+   .tasks {
+      margin-top: var(--space-md);
+   }
+
+   .features ul,
+   .tasks ul {
+      list-style: none;
+      padding: 0;
+      border-top: 1px solid var(--color-outline);
+      margin-top: var(--space-sm)
+   }
+
+   .features ul li,
+   .tasks ul li {
+      border-bottom: 1px solid var(--color-outline);
+      padding: var(--space-2xs) 0;
+   }
+</style>
+
 <section class="work">
 
 
-   <div class="title-c">
-      <h1 class="display-text">
-         {{ title }}
-      </h1>
-   </div>
+   <hgroup>
+      <div class="title-c">
+         <h1 class="display-text">
+            {{ title }}
+         </h1>
+      </div>
+
+      <div class="tagline">
+         {{tagline}}
+      </div>
+   </hgroup>
 
    <div class="overview">
       {{overview}}
@@ -75,52 +170,15 @@ layout: layouts/_base.njk
    </div>
    {% endif %}
 
-
+   <div class="demo">
+      <a href="{{url}}">
+         Demo
+      </a>
+   </div>
    <!-- UNDER CONSTRUCTION -->
-   <div>
-      {{title}}
-   </div>
-   <div>
-      <h2 style="">Overview</h2>
-      {{overview}}
-   </div>
 
    <div>
       <h2>Tech</h2>
-      <style>
-         ul.tech-links {
-            display: flex;
-            max-width: unset;
-            gap: var(--space-xs);
-            flex-wrap: wrap;
-         }
-
-         .tech-links li {
-            border: 1px solid var(--color-t5);
-            border-radius: var(--border-radius);
-            list-style-type: none;
-            padding: var(--space-xs);
-         }
-
-         .tech-links li a {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            gap: var(--space-xs);
-         }
-
-         .tech-links li img {
-            filter: grayscale(100%);
-            width: var(--space-sm);
-            height: var(--space-sm);
-            transition: filter 0.2s ease;
-         }
-
-         .tech-links li img:hover {
-            filter: none;
-            filter: grayscale(0%);
-         }
-      </style>
 
       <ul class="tech-links">
          {% for item in tech %}
@@ -134,22 +192,7 @@ layout: layouts/_base.njk
       </ul>
    </div>
 
-   <div>
-      <h2>Tasks</h2>
-      <ul>
-         {% for item in tasks %}
-         <li>
-            {{item}}
-         </li>
-         {% endfor %}
-      </ul>
-   </div>
-   <div>
-      <h2 style="">Tagline</h2>
-      {{tagline}}
-   </div>
-
-   <div>
+   <div class="features">
       <h2>Features</h2>
       <ul>
          {% for item in features %}
@@ -160,9 +203,18 @@ layout: layouts/_base.njk
       </ul>
    </div>
 
-   <div>
-      {{url}}
+   <div class="tasks">
+      <h2>Tasks</h2>
+      <ul>
+         {% for item in tasks %}
+         <li>
+            {{item}}
+         </li>
+         {% endfor %}
+      </ul>
    </div>
+
+   <hr class="break">
    <!----->
 
    <!-- <div class="back">

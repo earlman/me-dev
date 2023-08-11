@@ -137,7 +137,6 @@ title: Home
       padding: 0;
     }
 
-
     .goals p {
       text-align: justify;
     }
@@ -278,7 +277,7 @@ title: Home
     <div>
       {%- for project in collections.sortedWork -%}
       {%- if project.data.tags.includes('featured') -%}
-      <a href="{{ project.data.permalink }}">
+      <a href="{{ project.data.permalink }}" class="featured-work-item">
         <ticker-message speed="50" content="{{project.data.title}}"
           style="height: 300px;font-size: 200px;margin-bottom:var(--space-md)"></ticker-message>
       </a>

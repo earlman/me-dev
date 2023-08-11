@@ -41,6 +41,14 @@
          text-decoration-style: dotted;
          color: var(--color-t);
       }
+
+      td:first-child {
+         transition: background-color 200ms ease-out;
+      }
+
+      td:first-child:hover {
+         background-color: var(--color-b3);
+      }
    </style>
    <table></table>
 </template>

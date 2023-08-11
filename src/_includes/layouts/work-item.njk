@@ -13,6 +13,8 @@ layout: layouts/_base.njk
       padding-right: var(--space-sm);
       display: grid;
       grid-gap: var(--space-md);
+      grid-auto-flow: row dense;
+
    }
 
    .work .title-c {
@@ -241,6 +243,7 @@ layout: layouts/_base.njk
       </ul>
    </div>
 
+   {% if features %}
    <div class="features">
       <h2>Features</h2>
       <ul>
@@ -251,6 +254,7 @@ layout: layouts/_base.njk
          {% endfor %}
       </ul>
    </div>
+   {% endif %}
 
    <div class="tasks">
       <h2>Tasks</h2>

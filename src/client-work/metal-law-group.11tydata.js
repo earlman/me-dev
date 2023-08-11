@@ -29,5 +29,9 @@ module.exports = function (data) {
             },
          ],
       },
+      tasks: [
+         "Redesigned & rebuilt existing website for a modern look and improved performance",
+         "Utilized old Wordpress site as a REST API backend to rebuild website as a static site",
+      ],
    };
 };

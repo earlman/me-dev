@@ -18,8 +18,8 @@ layout: layouts/_base.njk
    .work .title-c {
       display: grid;
       align-content: flex-end;
-      width: 80vw;
-      margin-top: var(--space-xl);
+      width: 90%;
+      margin-top: 0;
       /*margin-left: calc(-1 * var(--space-xs));*/
    }
 
@@ -28,6 +28,7 @@ layout: layouts/_base.njk
       line-height: 1.1;
       color: var(--color-t5);
       font-size: 12vh;
+      margin-top: 20vh;
       margin-bottom: 0;
    }
 
@@ -43,9 +44,20 @@ layout: layouts/_base.njk
       }
    }
 
-   .work hgroup {
-      margin-bottom: var(--space-md);
+   @media (orientation: landscape) and (min-width:900px) {
+
+      .work {
+         gap: var(--space-lg);
+         padding-left: var(--space-md);
+         padding-right: var(--space-md);
+      }
+
+      .work .title-c h1 {
+         font-size: 20vh;
+      }
    }
+
+   .work hgroup {}
 
    @media (min-width: 600px) {
       .work {
@@ -182,6 +194,10 @@ layout: layouts/_base.njk
       border-bottom: 1px solid var(--color-outline);
       padding: var(--space-2xs) 0;
    }
+
+   .tasks caption {
+      font-style: italic;
+   }
 </style>
 
 <section class="work">
@@ -207,12 +223,6 @@ layout: layouts/_base.njk
          </a>
       </div>
    </div>
-
-   {% if not content or content|trim == "" %}
-   <div>
-      Content is empty.
-   </div>
-   {% endif %}
 
    <!-- UNDER CONSTRUCTION -->
 
@@ -250,6 +260,10 @@ layout: layouts/_base.njk
             {{item}}
          </li>
          {% endfor %}
+         <li class="caption">
+            <i>This is how the work is described in my resume. Some of it is redundant with the <b>Feautures</b>
+               list, but included for completion.</i></em>
+         </li>
       </ul>
    </div>
 

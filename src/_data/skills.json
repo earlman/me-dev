@@ -16,73 +16,100 @@
   "lang_frame": [
     {
       "name": "CSS & SASS",
-      "level": 3
+      "level": 3,
+      "link": "https://sass-lang.com/"
     },
     {
       "name": "HTML",
-      "level": 3
+      "level": 3,
+      "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    },
+    {
+      "name": "Markdown",
+      "level": 3,
+      "link": "https://daringfireball.net/projects/markdown/"
     },
     {
       "name": "Vue.js 2.x<br>(Vuex, Vue-router)",
-      "level": 3
+      "level": 3,
+      "link": "https://vuejs.org/"
     },
     {
       "name": "Python",
-      "level": 2
+      "level": 2,
+      "link": "https://www.python.org/"
     },
     {
       "name": "Node.js",
-      "level": 2
+      "level": 2,
+      "link": "https://nodejs.org/"
     },
     {
       "name": "Static Site Generators<br>(11ty, Gridsome, Hexo)",
-      "level": 2
+      "level": 2,
+      "link": "https://www.11ty.dev/"
     },
     {
       "name": "GSAP",
-      "level": 1
+      "level": 1,
+      "link": "https://greensock.com/gsap/"
     },
     {
       "name": "GraphQL",
-      "level": 1
+      "level": 1,
+      "link": "https://graphql.org/"
     },
     {
       "name": "PHP",
-      "level": 1
+      "level": 1,
+      "link": "https://www.php.net/"
     }
   ],
   "tools_apps": [
     {
       "name": "VSCode",
-      "level": 3
+      "level": 3,
+      "link": "https://code.visualstudio.com/"
     },
     {
       "name": "Figma",
-      "level": 3
+      "level": 3,
+      "link": "https://www.figma.com/"
     },
     {
       "name": "Git & Github",
-      "level": 3
+      "level": 3,
+      "link": "https://github.com/"
     },
     {
       "name": "Google Firebase",
-      "level": 2
+      "level": 2,
+      "link": "https://firebase.google.com/"
     },
     {
       "name": "Wordpress",
-      "level": 2
+      "level": 2,
+      "link": "https://wordpress.org/"
+    },
+    {
+      "name": "11ty",
+      "level": 2,
+      "link": "https://www.11ty.dev/"
     },
     {
       "name": "Component Libraries<br>(Bootstrap, Buefy, Vuetify)",
-      "level": 1
+      "level": 1,
+      "link": "https://getbootstrap.com/"
     },
     {
       "name": "Directus",
-      "level": 1
+      "level": 1,
+      "link": "https://directus.io/"
     },
     {
       "name": "Postman",
-      "level": 1
+      "level": 1,
+      "link": "https://www.postman.com/"
     }
   ],
   "soft_skills": []

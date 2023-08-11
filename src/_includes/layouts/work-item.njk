@@ -125,6 +125,7 @@ layout: layouts/_base.njk
    .work .break {
       margin-top: var(--space-xl);
       margin-bottom: var(--space-xl);
+      width: 100%;
    }
 </style>
 
@@ -271,8 +272,9 @@ layout: layouts/_base.njk
       </ul>
    </div>
 
+   {% if content %}
    <hr class="break">
-   <!----->
+   {% endif %}
 
    <!-- <div class="back">
       <a href="/work">⬅ Back to portfolio</a>

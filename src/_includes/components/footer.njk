@@ -69,7 +69,13 @@
     margin-bottom: var(--space-2xs);
   }
 
-  @media (min-width: 600px) {}
+  @media (min-width: 600px) {
+    footer nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-sm);
+    }
+  }
 
   @media (min-width: 900px) {}
 
@@ -81,12 +87,6 @@
       position: fixed;
       height: var(--footer-height);
       bottom: 0;
-    }
-
-    footer nav {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: var(--space-sm);
     }
 
     footer .history ul {

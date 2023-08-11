@@ -31,7 +31,7 @@ layout: layouts/_base.njk
       color: var(--color-t5);
       font-size: 12vh;
       margin-top: 20vh;
-      margin-bottom: 0;
+      margin-bottom: var(--space-xs);
    }
 
    @media (orientation:portrait) and (min-width:600px) {
@@ -201,11 +201,16 @@ layout: layouts/_base.njk
    .tasks caption {
       font-style: italic;
    }
+
+   #reading-time {
+      font-style: italic;
+      font-weight: 300;
+      font-size: var(--d-lg);
+      white-space: nowrap;
+   }
 </style>
 
 <section class="work">
-
-
    <hgroup>
       <div class="title-c">
          <h1 class="display-text">
@@ -215,6 +220,7 @@ layout: layouts/_base.njk
 
       <div class="tagline">
          {{tagline}}
+         <span id="reading-time"></span>
       </div>
    </hgroup>
 
@@ -298,4 +304,36 @@ layout: layouts/_base.njk
       {{ content | safe }}
    </div>
    <!-- {{githubData}} -->
+
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         function countWordsOnPage() {
+            const bodyText = document.body.innerText;
+            const words = bodyText.split(/\s+/).filter(word => word.length > 0);
+            return words.length;
+         }
+
+         function calculateReadingTime(wordCount) {
+            const wordsPerMinute = 150;
+            return Math.ceil(wordCount / wordsPerMinute);
+         }
+
+         function countImagesOnPage() {
+            return document.querySelectorAll("img").length;
+         }
+
+         const wordCount = countWordsOnPage();
+         const readingTime = calculateReadingTime(wordCount);
+         const imageCount = countImagesOnPage();
+
+         const readingTimeElement = document.getElementById("reading-time");
+         if (readingTimeElement) {
+            readingTimeElement.innerHTML =
+               `reading time: ${readingTime} min <wbr/>(${wordCount} words & ${imageCount} images)`
+         } else {
+            console.error("Element with ID 'reading-time' not found!");
+         }
+      });
+
+   </script>
 </section>

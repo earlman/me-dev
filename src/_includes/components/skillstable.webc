@@ -32,6 +32,15 @@
          text-align: right;
          padding-right: var(--space-xs);
       }
+
+      td a {
+         width: 100%;
+         height: 100%;
+         display: inline-block;
+         text-decoration: underline;
+         text-decoration-style: dotted;
+         color: var(--color-t);
+      }
    </style>
    <table></table>
 </template>
@@ -83,17 +92,20 @@
          const tbody = document.createElement('tbody');
          data.forEach(item => {
             const row = document.createElement('tr');
-            keys.forEach(key => {
-               const td = document.createElement('td');
 
-               if (key == "level") {
-                  td.innerHTML = generateCircles(item[key]);
-               } else {
-                  td.innerHTML = item[key];
-               }
-
-               row.appendChild(td);
-            });
+            let htmlInsideRow
+            if (item["link"]) {
+               htmlInsideRow = `
+                                       <td><a href="${item["link"]}" target="_blank">${item["name"]}</a></td>
+                                       <td>${generateCircles(item["level"])}</td>
+                                    `
+            } else {
+               htmlInsideRow = `
+                                       <td>${item["name"]}</td>
+                                       <td>${generateCircles(item["level"])}</td>
+                                    `
+            }
+            row.innerHTML = htmlInsideRow
             tbody.appendChild(row);
          });
          table.appendChild(tbody);
@@ -120,5 +132,5 @@
       return svgs.join('');
    }
 
-   customElements.define('json-table', JSONTable);
+   customElements.define('skills-table', JSONTable);
 </script>

@@ -4,6 +4,10 @@ title: Work
 ---
 
 <style>
+  .work-page h1 {
+    font-size: var(--d-2xl);
+  }
+
   .work-item h2 {
     font-size: 12vh;
     color: var(--color-t5);
@@ -11,15 +15,28 @@ title: Work
     text-decoration: none;
     /*display: none;*/
   }
+
+  .work-item {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .work-page {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    margin-left: var(--space-sm);
+    margin-right: var(--space-sm);
+  }
 </style>
 
-<div>
+<div class="work-page">
+  <h1>Client Work</h1>
   {%- for work in collections.sortedWork -%}
   <div class="work-item">
     <a class="work-item-link" href="{{ work.url }}">
+      {% readingTime work.templateContent %}
       <h2>{{ work.data.title }}</h2>
       <div>{{work.data.content}}</div>
-      {% readingTime work.templateContent %}
       <!-- <svg viewBox="0 0 1200 300"> -->
 
       {#
@@ -42,3 +59,23 @@ title: Work
   </div>
   {%- endfor -%}
 </div>
+
+<script>
+  var tl = gsap.timeline({ ease: "power3" });
+
+  tl.to(".text-copy", {
+    "stroke-dasharray": "150px 0 150px 0",
+    "stroke-opacity": 1,
+    duration: 2,
+    stagger: 1
+  })
+    .to(".text-copy", {
+      "fill": "rgba(133, 64, 13, 1)",
+      "stroke": "rgba(133, 64, 13, 1)",
+      duration: 2,
+      stagger: 1
+
+    }, ">1")
+
+
+</script>

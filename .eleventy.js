@@ -13,6 +13,7 @@ const { transform, browserslistToTargets } = require("lightningcss");
 const imageShortcode = require("./shortcodes/image");
 const screenshotHtmlShortcode = require("./shortcodes/screenshotHtml.js");
 const avatarShortcode = require("./shortcodes/avatar.js");
+const readingTimeShortcode = require("./shortcodes/readingTime.js");
 const shiFilter = require("./filters/summary-headline-intro");
 
 module.exports = (eleventyConfig) => {
@@ -20,6 +21,7 @@ module.exports = (eleventyConfig) => {
    imageShortcode(eleventyConfig);
    screenshotHtmlShortcode(eleventyConfig);
    avatarShortcode(eleventyConfig);
+   readingTimeShortcode(eleventyConfig);
 
    // Filters
    shiFilter(eleventyConfig);

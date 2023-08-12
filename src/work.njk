@@ -19,6 +19,7 @@ title: Work
     <a class="work-item-link" href="{{ work.url }}">
       <h2>{{ work.data.title }}</h2>
       <div>{{work.data.content}}</div>
+      {% readingTime work.templateContent %}
       <!-- <svg viewBox="0 0 1200 300"> -->
 
       {#

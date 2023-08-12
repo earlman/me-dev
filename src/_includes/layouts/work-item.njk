@@ -220,7 +220,7 @@ layout: layouts/_base.njk
 
       <div class="tagline">
          <p>{{tagline}}</p>
-         <p><span id="reading-time"></span></p>
+         <p><span id="reading-time">{% readingTime content %}</span></p>
       </div>
    </hgroup>
 
@@ -304,36 +304,4 @@ layout: layouts/_base.njk
       {{ content | safe }}
    </div>
    <!-- {{githubData}} -->
-
-   <script>
-      document.addEventListener("DOMContentLoaded", function () {
-         function countWordsOnPage() {
-            const bodyText = document.body.innerText;
-            const words = bodyText.split(/\s+/).filter(word => word.length > 0);
-            return words.length;
-         }
-
-         function calculateReadingTime(wordCount) {
-            const wordsPerMinute = 150;
-            return Math.ceil(wordCount / wordsPerMinute);
-         }
-
-         function countImagesOnPage() {
-            return document.querySelectorAll("img").length;
-         }
-
-         const wordCount = countWordsOnPage();
-         const readingTime = calculateReadingTime(wordCount);
-         const imageCount = countImagesOnPage();
-
-         const readingTimeElement = document.getElementById("reading-time");
-         if (readingTimeElement) {
-            readingTimeElement.innerHTML =
-               `reading time: ${readingTime} min <wbr/>(${wordCount} words & ${imageCount} images)`
-         } else {
-            console.error("Element with ID 'reading-time' not found!");
-         }
-      });
-
-   </script>
 </section>

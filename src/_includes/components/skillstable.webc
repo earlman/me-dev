@@ -39,7 +39,11 @@
          display: inline-block;
          text-decoration: underline;
          text-decoration-style: dotted;
+         text-decoration-thickness: .5px;
+         text-underline-offset: 3px;
          color: var(--color-t);
+         text-decoration-color: var(--color-t5);
+
       }
 
       td:first-child {

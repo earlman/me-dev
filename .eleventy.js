@@ -1,5 +1,4 @@
 require("dotenv").config();
-const cheerio = require("cheerio");
 const eleventyImage = require("@11ty/eleventy-img");
 const Collections = require("./collections.js");
 var md = require("markdown-it")();
@@ -12,9 +11,14 @@ const browserslist = require("browserslist");
 const { transform, browserslistToTargets } = require("lightningcss");
 
 const imageShortcode = require("./shortcodes/image");
+const shiFilter = require("./filters/summary-headline-intro");
 
 module.exports = (eleventyConfig) => {
+   // Shortcodes
    imageShortcode(eleventyConfig);
+
+   // Filters
+   shiFilter(eleventyConfig);
 
    eleventyConfig.addWatchTarget("./styles/");
 
@@ -73,27 +77,6 @@ module.exports = (eleventyConfig) => {
             return code;
          };
       },
-   });
-
-   eleventyConfig.addFilter("getSummary", function (value) {
-      const $ = cheerio.load(value);
-      const summary = $("h2")
-         .filter(function () {
-            return $(this).text().trim() === "Summary";
-         })
-         .next()
-         .text();
-      return summary;
-   });
-   eleventyConfig.addFilter("getHeadline", function (value) {
-      const $ = cheerio.load(value);
-      const headline = $("h1").next().text();
-      return headline;
-   });
-   eleventyConfig.addFilter("getIntro", function (value) {
-      const $ = cheerio.load(value);
-      const intro = $("h1").next().text();
-      return intro;
    });
 
    // Dependent on two repos:

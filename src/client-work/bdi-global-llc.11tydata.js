@@ -3,7 +3,6 @@ module.exports = function (data) {
       permalink: "work/bdi/",
       title: "BDI Global LLC",
       url: "https://cyberadmitted-demo.earlman.me",
-      customScreenshot: "./images/cyber-admitted-screenshot.png",
       urlGithub: "https://github.com/foundations-design/BDI-Global-LLC/tree/main/packages/quotes-specialty-cyber",
       urlGithubPrivate: true,
       repo: {
@@ -26,34 +25,41 @@ module.exports = function (data) {
          "Airtable Integration - This is the tool BDI uses to calculate & log their quotes. We leverage Airtable's API to calculate rates using data from our app. It's a temporary solution while we test the tool internally, since we're eventually going to run into Airtable's Rate Limits. An intermediate solution we have available is to use use Netlify Functions as a (serverless) rate-limiter to avoid hitting the limits from Airtable.",
       ],
       tech: [
-         "Vue, Vue Router, Vuex",
          {
-            indieAvatar: "https://buefy.org/",
+            name: "Vue, Vue Router, Vuex",
+            url: "https://v2.vuejs.org/v2/guide/",
+         },
+         {
             name: "Buefy",
             url: "https://buefy.org/",
          },
-         "Firebase - Database & Authentication",
          {
-            indieAvatar: "https://www.netlify.com/",
+            name: "Firebase Database",
+            url: "https://firebase.google.com/docs/database",
+         },
+         {
+            name: "Firebase Authentication",
+            url: "https://firebase.google.com/docs/auth",
+         },
+         {
             name: "Netlify",
             url: "https://www.netlify.com/",
          },
          {
-            indieAvatar: "https://www.amcharts.com/",
             name: "amCharts",
             url: "https://www.amcharts.com/",
          },
          {
-            indieAvatar: "https://github.com/",
             name: "ShipwrightCSS",
             url: "https://github.com/foundations-design/shipwright",
          },
       ],
       tasks: [
-         "Designed & deployed a client-facing website for a startup labor & employment firm, based in San Francisco",
-         "Achieved 85+ Google Lighthouse scores, with a 97 accessibility score",
-         "Implemented a markdown-based content management solution, stored on Github, with the ability to easily add an admin interface in the future",
-         "Implemented internationalization to support Spanish speakers",
+         "Developed a client portal for BDI Global, LLC, to support management of over $400,000 in monthly written insurance premiums",
+         "Planned and built integrations with Google Firebase, Airtable, Zapier, Cognitoforms, & Flipsnack",
+         "Completed over 500 hours of work for the company over the course of 3 years, including dashboards creation, online forms, and database infrastructure design",
+         "Helped serve 75+ regular users, brokers and clients of BDI Global",
+         "Created authentication system with Vue using Firebase",
       ],
    };
 };

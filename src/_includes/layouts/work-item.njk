@@ -9,23 +9,96 @@ layout: layouts/_base.njk
 
    .work {
       max-width: var(--max-width);
-      padding-left: var(--space-md);
-      padding-right: var(--space-md);
+      padding-left: var(--space-sm);
+      padding-right: var(--space-sm);
+      display: grid;
+      grid-gap: var(--space-md);
+      grid-auto-flow: row dense;
+
    }
 
    .work .title-c {
       display: grid;
       align-content: flex-end;
-      margin-left: calc(-1 * var(--space-xs));
+      width: 90%;
+      margin-top: 0;
+      /*margin-left: calc(-1 * var(--space-xs));*/
    }
 
    .work .title-c h1 {
       font-variation-settings: "WONK" 0, "opsz" 100, "SOFT" 0, "wght" 800;
-      margin-top: var(--space-2xl);
-      margin-bottom: var(--space-md);
       line-height: 1.1;
       color: var(--color-t5);
       font-size: 12vh;
+      margin-top: 20vh;
+      margin-bottom: var(--space-xs);
+   }
+
+   @media (orientation:portrait) and (min-width:600px) {
+      .work .title-c h1 {
+         font-size: 20vw;
+      }
+   }
+
+   @media (orientation:landscape) and (min-width: 600px) {
+      .work .title-c h1 {
+         font-size: 30vh;
+      }
+   }
+
+   @media (orientation: landscape) and (min-width:900px) {
+
+      .work {
+         gap: var(--space-lg);
+         padding-left: var(--space-md);
+         padding-right: var(--space-md);
+      }
+
+      .work .title-c h1 {
+         font-size: 20vh;
+      }
+   }
+
+   .work hgroup {}
+
+   @media (min-width: 600px) {
+      .work {
+         grid-template-columns: 1fr 1fr;
+      }
+
+      hgroup,
+      .overview,
+      .break,
+      .markdown-content {
+         grid-column: 1/-1;
+      }
+   }
+
+   @media (min-width: 900px) {
+      .overview {
+         grid-column: 1;
+      }
+
+      .features {
+         grid-row: 2;
+         grid-column: 2;
+      }
+
+      .tech {
+         grid-column: 1;
+      }
+
+      .tech-links {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+      }
+   }
+
+   .work hgroup .tagline {
+      font-size: var(--d-lg);
+      color: var(--color-t7);
+      font-family: var(--font-secondary);
+      font-variation-settings: "WONK" 0, "opsz" 20, "SOFT" 0, "wght" 350;
    }
 
    .work .overview {
@@ -33,6 +106,7 @@ layout: layouts/_base.njk
       margin-bottom: var(--space-md);
       font-size: var(--d-lg);
       color: var(--color-t3);
+      font-weight: 400;
    }
 
    .work .markdown-content {
@@ -48,26 +122,165 @@ layout: layouts/_base.njk
       grid-template-columns: 25% 50% 25%;
    }
 
+   .work .break {
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      width: 100%;
+   }
+</style>
 
-   @media (min-width: 600px) {
-      .work .title-c h1 {
-         font-size: 30vh;
-      }
+<style>
+   .demo a {
+      margin-top: var(--space-md);
+      text-transform: uppercase;
+      text-decoration: underline;
+      color: var(--color-t2);
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      text-align: right;
+      font-size: var(--d-lg);
+      width: 100%;
+      display: block;
+   }
+
+   ul.tech-links {
+      display: flex;
+      max-width: unset;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+   }
+
+   .tech-links li {
+      border-left: 2px solid var(--color-t5);
+      border-radius: var(--border-radius);
+      list-style-type: none;
+      padding: var(--space-2xs) var(--space-xs);
+   }
+
+   .tech-links li a {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: var(--space-xs);
+   }
+
+   .tech-links li img {
+      filter: grayscale(100%);
+      width: var(--space-sm);
+      height: var(--space-sm);
+      transition: filter 0.2s ease;
+   }
+
+   .tech-links li:hover img {
+      filter: none;
+      filter: grayscale(0%);
+   }
+
+   .features,
+   .tasks {}
+
+   .features ul,
+   .tasks ul {
+      list-style: none;
+      padding: 0;
+      border-top: 1px solid var(--color-outline);
+      margin-top: var(--space-sm)
+   }
+
+   .features ul li,
+   .tasks ul li {
+      border-bottom: 1px solid var(--color-outline);
+      padding: var(--space-2xs) 0;
+   }
+
+   .tasks caption {
+      font-style: italic;
+   }
+
+   #reading-time {
+      font-style: italic;
+      font-weight: 300;
+      font-size: var(--d-lg);
+      white-space: nowrap;
    }
 </style>
 
 <section class="work">
+   <hgroup>
+      <div class="title-c">
+         <h1 class="display-text">
+            {{ title }}
+         </h1>
+      </div>
 
-
-   <div class="title-c">
-      <h1 class="display-text">
-         {{ title }}
-      </h1>
-   </div>
+      <div class="tagline">
+         <p>{{tagline}}</p>
+         <p><span id="reading-time">{% readingTime content %}</span></p>
+      </div>
+   </hgroup>
 
    <div class="overview">
       {{overview}}
+      <div class="demo">
+         <a href="{{url}}">
+            Demo
+         </a>
+      </div>
    </div>
+
+   <!-- UNDER CONSTRUCTION -->
+
+   <div class="tech">
+      <h2>Tech</h2>
+
+      <ul class="tech-links">
+         {% for item in tech %}
+         <li>
+            <a href="{{ item.url }}" target="_blank">
+               {% techAvatar item.url %}
+               {{ item.name }}
+            </a>
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+
+   {% if features %}
+   <div class="features">
+      <h2>Features</h2>
+      <ul>
+         {% for item in features %}
+         <li>
+            {{item}}
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+   {% endif %}
+
+   <div class="tasks">
+      <h2>Tasks</h2>
+      <ul>
+         {% for item in tasks %}
+         <li>
+            {{item}}
+         </li>
+         {% endfor %}
+         <li class="caption">
+            <i>This is how the work is described in my resume. Some of it is redundant with the <b>Feautures</b>
+               list, but included for completion.</i></em>
+         </li>
+      </ul>
+   </div>
+
+   {% if content %}
+   <hr class="break">
+   {% endif %}
 
    <!-- <div class="back">
       <a href="/work">⬅ Back to portfolio</a>

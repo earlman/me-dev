@@ -34,7 +34,7 @@ title: Home
     margin-top: var(--space-sm);
   }
 
-  .skills json-table {
+  .skills skills-table {
     width: 100%;
   }
 
@@ -57,7 +57,7 @@ title: Home
   }
 
 
-  json-table {
+  skills-table {
     display: inline-block;
   }
 
@@ -137,13 +137,11 @@ title: Home
       padding: 0;
     }
 
-
     .goals p {
       text-align: justify;
     }
   }
 </style>
-
 <div class="capabilities">
 
   {%include "components/hero.njk"%}
@@ -176,17 +174,17 @@ title: Home
     <h2>Skills</h2>
     <div class="skills" id="skills">
       <div>
-        <p class="table-title">Languages & Frameworks&nbsp;&nbsp;<span id="ls1">&#9432;</span></p>
-        <json-table src="/data/skills.json" path="lang_frame" style="min-width:200px" no-headers></json-table>
+        <p class="table-title">Languages & Frameworks&nbsp;&nbsp;</p>
+        <skills-table src="/data/skills.json" path="lang_frame" style="min-width:200px" no-headers></skills-table>
       </div>
       <div>
-        <p class="table-title">Tools & Apps&nbsp;&nbsp;<span id="ls2">&#9432;</span></p>
-        <json-table src="/data/skills.json" path="tools_apps" style="min-width:200px" no-headers></json-table>
+        <p class="table-title">Tools & Apps&nbsp;&nbsp;</p>
+        <skills-table src="/data/skills.json" path="tools_apps" style="min-width:200px" no-headers></skills-table>
       </div>
       <div>
         <p class="table-title" id="le">LEGEND</p>
-        <json-table src="/data/skills.json" id="le-table" path="legend" style="font-style: italic;width:150px;"
-          no-headers></json-table>
+        <skills-table src="/data/skills.json" id="le-table" path="legend" style="font-style: italic;width:150px;"
+          no-headers></skills-table>
       </div>
     </div>
 
@@ -278,7 +276,7 @@ title: Home
     <div>
       {%- for project in collections.sortedWork -%}
       {%- if project.data.tags.includes('featured') -%}
-      <a href="{{ project.data.permalink }}">
+      <a href="{{ project.data.permalink }}" class="featured-work-item">
         <ticker-message speed="50" content="{{project.data.title}}"
           style="height: 300px;font-size: 200px;margin-bottom:var(--space-md)"></ticker-message>
       </a>

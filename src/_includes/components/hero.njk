@@ -1,96 +1,116 @@
-<section class="hero">
-  <style>
-    .hero {
-      position: relative;
-    }
+<style>
+  .hero {
+    position: relative;
+  }
 
-    .hero h1 {
-      font-size: 160px;
-      color: #85400D;
-      font-family: "Playfair Display";
-      letter-spacing: -0.5775rem;
-    }
+  .hero h1 {
+    font-size: 160px;
+    color: #85400D;
+    font-family: "Playfair Display";
+    letter-spacing: -0.5775rem;
+  }
 
+  .hero-illustration {
+    height: 7rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  @media (min-width: 600px) {
     .hero-illustration {
-      width: calc(100vw - var(--left-margin) - var(--space-xl));
+      width: calc(100vw - 35ch - var(--space-xl));
+      left: 35ch;
       height: 20rem;
       position: absolute;
-      left: var(--left-margin);
+      margin-bottom: 0;
     }
+  }
 
+  @media (min-width: 900px) {
+    .hero-illustration {
+      width: calc(100vw - var(--left-margin) - var(--space-xl));
+      left: var(--left-margin)
+    }
+  }
+
+  .hero-animated-text {
+    position: relative;
+    margin-left: calc(-1* var(--space-xs));
+  }
+
+  .hero-animated-text .container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+
+  .hero-animated-text svg {
+    display: block;
+    font: 15em var(--font-secondary);
+    /* CAUTION svgs need a width and height to display on mobile */
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width:600px) {
     .hero-animated-text {
-      position: relative;
-      margin-left: calc(-1* var(--space-xs));
+      height: 30vh;
+      margin-left: 0;
     }
 
     .hero-animated-text .container {
-      display: flex;
-      height: 100%;
-      align-items: center;
-      margin-top: var(--space-md);
-      margin-bottom: var(--space-md);
+      margin-top: 0;
     }
 
-
-    .hero-animated-text svg {
-      display: block;
-      font: 15em var(--font-secondary);
-      /* CAUTION svgs need a width and height to display on mobile */
-      width: 100%;
-      height: 100%;
+    .text-copy {
+      font-size: 300px;
     }
+  }
 
-    @media (max-width:600px) {
-      .hero-animated-text {
-        height: 30vh;
-        margin-left: 0;
-      }
+  .hero-animated-text .text-copy {
+    fill: none;
+    stroke: var(--color-b2);
+    stroke-dasharray: 50px 600px 100px 600px;
+    animation: stroke-offset 5.5s infinite linear;
+    stroke-width: 3px;
+    overflow: visible;
 
-      .hero-animated-text .container {
-        margin-top: 0;
-      }
+  }
 
-      .text-copy {
-        font-size: 300px;
-      }
-    }
-
+  @media (min-width: 600px) {
     .hero-animated-text .text-copy {
-      fill: none;
-      stroke: var(--color-b2);
-      stroke-dasharray: 50px 600px 100px 600px;
-      animation: stroke-offset 5.5s infinite linear;
-      stroke-width: 3px;
+      stroke-width: 1px;
     }
 
-    @media (min-width: 600px) {
-      .hero-animated-text .text-copy {
-        stroke-width: 1px;
-      }
-
-      .hero-animated-text {
-        margin-left: 0
-      }
+    .hero-animated-text {
+      margin-left: 0
     }
+  }
 
-    #s-text>text {
-      font-family: var(--font-secondary);
-      font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
-      letter-spacing: -0.03ch;
-    }
+  #s-text {
+    width: 50vw;
+  }
 
-    .hero-content {
-      margin-bottom: var(--space-md)
-    }
-  </style>
+  #s-text>text {
+    font-family: var(--font-secondary);
+    font-variation-settings: "WONK" 0, "opsz" 72, "SOFT" 0, "wght" 500;
+    letter-spacing: -0.03ch;
+  }
 
+  .hero-content {
+    margin-bottom: var(--space-md)
+  }
+</style>
+
+<section class="hero">
   <div class="hero-animated-text">
-    <!-- I might be able to sell this web component lol $3?-->
     <div class="container">
       <svg viewBox="0 0 1200 600">
         <symbol id="s-text">
           <text text-anchor="start" x="0%" y="38%">Good </text>
-          <text text-anchor="start" x="0%" y="83%">Afternoon</text>
+          <text text-anchor="start" x="-1%" y="83%">Afternoon</text>
         </symbol>
 
         <g class="g-ants">
@@ -148,5 +168,4 @@
   <div class="hero-content">
     {%- include "components/hero-content.njk" -%}
   </div>
-
 </section>

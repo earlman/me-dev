@@ -11,14 +11,26 @@ const browserslist = require("browserslist");
 const { transform, browserslistToTargets } = require("lightningcss");
 
 const imageShortcode = require("./shortcodes/image");
+const screenshotHtmlShortcode = require("./shortcodes/screenshotHtml.js");
+const avatarShortcode = require("./shortcodes/avatar.js");
 const shiFilter = require("./filters/summary-headline-intro");
 
 module.exports = (eleventyConfig) => {
    // Shortcodes
    imageShortcode(eleventyConfig);
+   screenshotHtmlShortcode(eleventyConfig);
+   avatarShortcode(eleventyConfig);
 
    // Filters
    shiFilter(eleventyConfig);
+
+   // Plugins
+   eleventyConfig.addPlugin(Collections);
+   eleventyConfig.addPlugin(eleventyVue);
+   eleventyConfig.addPlugin(pluginWebc, {
+      components: "src/_includes/components/**/*.webc",
+   });
+   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
    eleventyConfig.addWatchTarget("./styles/");
 
@@ -31,15 +43,6 @@ module.exports = (eleventyConfig) => {
       "node_modules/@fontsource-variable/fraunces": "assets/fonts/fraunces",
       "node_modules/@fontsource/alegreya-sans": "assets/fonts/alegreya-sans",
    });
-
-   // PLUGINS
-
-   eleventyConfig.addPlugin(Collections);
-   eleventyConfig.addPlugin(eleventyVue);
-   eleventyConfig.addPlugin(pluginWebc, {
-      components: "src/_includes/components/**/*.webc",
-   });
-   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
    // Recognize Sass as a "template languages"
    eleventyConfig.addTemplateFormats("sass");
@@ -77,55 +80,6 @@ module.exports = (eleventyConfig) => {
             return code;
          };
       },
-   });
-
-   // Dependent on two repos:
-   // https://www.11ty.dev/docs/plugins/image/
-   // https://github.com/earlman/me-dev-11ty-screenshot-plugin
-   //
-   // Valid style values: small, medium, large, opengraph
-
-   eleventyConfig.addShortcode("getScreenshotHtml", function (siteUrl) {
-      // Feed url into screenshot-generator-api (hosted separately)
-      let screenshotUrl = `https://screenshot-generator-api.foundations.design/${encodeURIComponent(siteUrl)}/opengraph/`;
-
-      let viewport = {
-         width: 1200,
-         height: 630,
-      };
-
-      let options = {
-         formats: ["jpeg"],
-         widths: [1100],
-         urlFormat: function () {
-            return screenshotUrl;
-         },
-      };
-
-      let stats = eleventyImage.statsByDimensionsSync(screenshotUrl, viewport.width, viewport.height, options);
-
-      return eleventyImage.generateHTML(stats, {
-         alt: `Screenshot of ${siteUrl}`,
-         loading: "lazy",
-         decoding: "async",
-         // sizes: "(min-width: 22em) 30vw, 100vw",
-         class: "screenshot",
-      });
-   });
-
-   // https://github.com/11ty/api-indieweb-avatar
-   //github.com/zachleat/zachleat.com/blob/f9c0c9b7f5159e8e0204e956a8dcc68401a0a384/_includes/imageAvatarPlugin.js
-   eleventyConfig.addShortcode("indieAvatar", function indieAvatarHtml(url = "", classes = "z-avatar") {
-      let screenshotUrl = `https://v1.indieweb-avatar.11ty.dev/${encodeURIComponent(url)}/`;
-      return `<img alt="IndieWeb Avatar for ${url}" class="${classes}" loading="lazy" decoding="async" 
-      style="width: 1rem;height: 1rem;border-radius: 15%;vertical-align: baseline;	margin: 0 .25em; display: inline;"
-      src="${screenshotUrl}" width="60" height="60">`;
-   });
-
-   eleventyConfig.addShortcode("techAvatar", function indieAvatarHtml(url = "", classes = "t-avatar") {
-      let screenshotUrl = `https://v1.indieweb-avatar.11ty.dev/${encodeURIComponent(url)}/`;
-      return `<img alt="IndieWeb Avatar for ${url}" class="${classes}"loading="lazy" decoding="async" 
-      src="${screenshotUrl}" width="50" height="50">`;
    });
 
    https: return {

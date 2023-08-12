@@ -4,76 +4,23 @@ title: Work
 ---
 
 <style>
-  .client-work-container {
-    padding: var(--space-md);
-    width: 100vw;
-  }
-
-  .client-work {
-    width: 100%;
-    margin: auto;
-    display: grid;
-    font-size: 132px;
-    grid-template-columns: 1fr 1fr;
-    justify-content: stretch;
-    margin-top: -1px;
-    margin-left: -1px;
-  }
-
-  .work-item:first-child {
-    grid-column: span 2;
-  }
-
-  .work-item:nth-child(2) {
-    grid-column: span 2;
-  }
-
-  .work-item {
-    border-radius: 0;
-    outline: 1px solid var(--color-b2);
-    margin-top: 1px;
-    margin-left: 1px;
-    height: 2em;
-    transition: background-color 200ms ease-out;
-  }
-
-  .work-item h3 {
-    display: none;
-  }
-
-  .text-copy {
-    font-size: 120%;
-    font-family: var(--font-secondary);
-    font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
-    letter-spacing: -0.3rem;
-    fill: none;
-    stroke: var(--color-b2);
-    stroke-dasharray: 50px 600px 100px 600px;
-    stroke-width: 1px;
-    animation: stroke-offset 5.5s infinite linear;
-    stroke-opacity: 0;
-  }
-
-  .work-item:hover {
-    background-color: var(--color-b3);
-  }
-
-  /* how do i set the size of the font */
-  .client-work svg {
-    max-width: unset;
-    width: 100%;
-    height: 100%;
+  .work-item h2 {
+    font-size: 12vh;
+    color: var(--color-t5);
+    font-variation-settings: "WONK" 0, "opsz" 100, "SOFT" 0, "wght" 800;
+    text-decoration: none;
+    /*display: none;*/
   }
 </style>
 
-<div class="client-work-container">
-
-  <section class="client-work">
-    {%- for work in collections.sortedWork -%}
-    <div class="work-item">
-      <a class="work-item-link" href="{{ work.url }}">
-        <h3>{{ work.data.title }}</h3>
+<div>
+  {%- for work in collections.sortedWork -%}
+  <div class="work-item">
+    <a class="work-item-link" href="{{ work.url }}">
+      <h2>{{ work.data.title }}</h3>
         <!-- <svg viewBox="0 0 1200 300"> -->
+
+        {#
         <svg>
           <symbol id="{{ work.fileSlug }}">
             <text text-anchor="start" x="" y="80%" dy="10%" class="text-copy">
@@ -88,51 +35,8 @@ title: Work
           <g class="g-ants">
             <use xlink:href="#{{ work.fileSlug }}"></use>
           </g>
-        </svg>
-      </a>
-    </div>
-    {%- endfor -%}
-
-    <script>
-      var tl = gsap.timeline({ ease: "power3" });
-
-      tl.to(".text-copy", {
-        "stroke-dasharray": "150px 0 150px 0",
-        "stroke-opacity": 1,
-        duration: 2,
-        stagger: 1
-      })
-        .to(".text-copy", {
-          "fill": "rgba(133, 64, 13, 1)",
-          "stroke": "rgba(133, 64, 13, 1)",
-          duration: 2,
-          stagger: 1
-
-        }, ">1")
-
-
-    </script>
-</div>
-
-
-<div class="portfolio">
-  <div class="hero">
-    <div>
-      {{ content | safe }}
-    </div>
+        </svg> #}
+    </a>
   </div>
-
-  <!-- {%if featured%}
-  {%- include 'components/legacy_featured.njk' -%}
-  {%endif%} -->
-
-
-  <!-- Show Other Work -->
-  <!-- {%- for work in collections.sortedWork -%}
-  <a class="project-link" href="{{ work.filePathStem }}">
-    {%- include "components/work-card.njk" -%}
-  </a>
-  {%- endfor -%} -->
+  {%- endfor -%}
 </div>
-
-</section>

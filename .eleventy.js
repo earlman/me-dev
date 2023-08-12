@@ -1,8 +1,7 @@
 require("dotenv").config();
 const cheerio = require("cheerio");
-
-const Collections = require("./collections.js");
 const eleventyImage = require("@11ty/eleventy-img");
+const Collections = require("./collections.js");
 var md = require("markdown-it")();
 const eleventyVue = require("@11ty/eleventy-plugin-vue");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
@@ -12,26 +11,11 @@ const path = require("node:path");
 const browserslist = require("browserslist");
 const { transform, browserslistToTargets } = require("lightningcss");
 
-async function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
-   let metadata = await eleventyImage(src, {
-      widths: [300, 900, 1500],
-      formats: ["jpeg", "webp"],
-      outputDir: "./_dist/img/",
-   });
-
-   let imageAttributes = {
-      alt,
-      sizes,
-      loading: "lazy",
-      decoding: "async",
-   };
-
-   console.log(src + " was processed");
-   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-   return eleventyImage.generateHTML(metadata, imageAttributes);
-}
+const imageShortcode = require("./shortcodes/image");
 
 module.exports = (eleventyConfig) => {
+   imageShortcode(eleventyConfig);
+
    eleventyConfig.addWatchTarget("./styles/");
 
    eleventyConfig.addPassthroughCopy({
@@ -160,10 +144,6 @@ module.exports = (eleventyConfig) => {
       return `<img alt="IndieWeb Avatar for ${url}" class="${classes}"loading="lazy" decoding="async" 
       src="${screenshotUrl}" width="50" height="50">`;
    });
-
-   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-   eleventyConfig.addLiquidShortcode("image", imageShortcode);
-   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
    https: return {
       dir: {

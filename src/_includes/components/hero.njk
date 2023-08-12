@@ -61,6 +61,8 @@
       stroke-dasharray: 50px 600px 100px 600px;
       animation: stroke-offset 5.5s infinite linear;
       stroke-width: 3px;
+      overflow: visible;
+
     }
 
     @media (min-width: 600px) {
@@ -73,9 +75,13 @@
       }
     }
 
+    #s-text {
+      width: 50vw;
+    }
+
     #s-text>text {
       font-family: var(--font-secondary);
-      font-variation-settings: "WONK" 0, "opsz" 77, "SOFT" 0, "wght" 500;
+      font-variation-settings: "WONK" 0, "opsz" 72, "SOFT" 0, "wght" 500;
       letter-spacing: -0.03ch;
     }
 
@@ -90,7 +96,7 @@
       <svg viewBox="0 0 1200 600">
         <symbol id="s-text">
           <text text-anchor="start" x="0%" y="38%">Good </text>
-          <text text-anchor="start" x="0%" y="83%">Afternoon</text>
+          <text text-anchor="start" x="-1%" y="83%">Afternoon</text>
         </symbol>
 
         <g class="g-ants">

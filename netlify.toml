@@ -10,7 +10,7 @@
       best-practices = 0.8
       seo = 0.6
 
-
+[[plugins]]
   package = "netlify-plugin-cloudinary"
 
   [plugins.inputs]

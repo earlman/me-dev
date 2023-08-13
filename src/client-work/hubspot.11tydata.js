@@ -4,11 +4,11 @@ module.exports = function (data) {
       tech: [
          {
             name: "VueRouter",
-            link: "https://router.vuejs.org",
+            url: "https://router.vuejs.org/",
          },
          {
             name: "VueRouter-2",
-            link: "https://router.vuejs.org",
+            url: "https://router.vuejs.org/",
          },
       ],
       tasks: [

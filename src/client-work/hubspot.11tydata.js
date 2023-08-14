@@ -3,12 +3,12 @@ module.exports = function (data) {
       permalink: "work/hubspot/",
       tech: [
          {
-            name: "VueRouter",
-            url: "https://v2.vuejs.org/v2/guide/",
+            name: "R-Markdown",
+            url: "https://rmarkdown.rstudio.com/",
          },
          {
-            name: "VueRouter-2",
-            url: "https://v2.vuejs.org/v2/guide/",
+            name: "Puppeteer",
+            url: "https://pptr.dev/",
          },
       ],
       tasks: [

@@ -1,0 +1,67 @@
+backend:
+  # Use netlify identity as backend
+  branch: master
+  ### enable below lines for github integration ###
+  name: github
+  repo: earlman/me-dev
+media_folder: "site/static/img"
+public_folder: "/static/img"
+  
+# Please run "npx netlify-cms-proxy-server" for local backend
+# Requires Netlify Config at "Site Configuration -> Build & Deploy -> Deploy Notifications"
+local_backend: true
+publish_mode: editorial_workflow
+collections:
+  - name: "content" # Used in routes, e.g., /admin/collections/resume
+    label: "Content" # Used in the UI
+    # folder: "_resume" # The path to the folder where the documents are stored
+    # create: true # Allow users to create new documents in this collection
+    files: # The fields for each document, usually in front matter
+      - name: "home"
+        label: "Home"
+        file: "site/_data/indexContent.md"
+        fields: 
+          - widget: "markdown"
+            label: "content"
+            name: "body"
+      - name: "cv"
+        label: "CV"
+        file: "site/_data/cv.yaml"
+        fields:
+          - label: "Institutions"
+            widget: "list"
+            name: "Education"
+            fields:
+              - {label: "Degree", name: "Degree", widget: "string"}
+              - {label: "Institution", name: "Institution", widget: "string"}
+              - {label: "Location", name: "Location", widget: "string"}
+              - {label: "Duration (ex. Dec 2018 – Aug 2022)", name: "Duration", widget: "string", default: ""}
+              - {label: "GPA", name: "GPA", widget: "string", required: false}
+              - {label: "Details", name: "Details", widget: "list", required: false}
+          - label: "Work Experiences"
+            name: "WorkExperience"
+            widget: "list"
+            fields:
+              - {label: "Position", name: "Position", widget: "string"}
+              - {label: "Institution", name: "Institution", widget: "string"}
+              - {label: "Location", name: "Location", widget: "string"}
+              - {label: "Duration", name: "Duration", widget: "string"}
+              - {label: "Responsibilities", name: "Responsibilities", widget: "list"}
+          - label: "Leadership Experiences"
+            name: "LeadershipExperience"
+            widget: "list"
+            fields:
+              - {label: "Position", name: "Position", widget: "string"}
+              - {label: "Institution", name: "Institution", widget: "string"}
+              - {label: "Location", name: "Location", widget: "string", required: false}
+              - {label: "Duration", name: "Duration", widget: "string"}
+              - {label: "Responsibilities", name: "Responsibilities", widget: "list"}
+          - label: "Skills"
+            name: "Skills"
+            widget: "list"
+      - name: "theme"
+        label: "Theme"
+        file: "site/_data/theme.yaml"
+        fields: 
+          - {label: Sidebar Color", name: "sidebarColor", widget: "color", allowInput: true, hint: "Accepts color in any HTML-friendly format, including [color names (link)](https://www.w3schools.com/tags/ref_colornames.asp)"}
+ 

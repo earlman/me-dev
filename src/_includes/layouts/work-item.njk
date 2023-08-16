@@ -271,10 +271,12 @@ layout: layouts/_base.njk
             {{item}}
          </li>
          {% endfor %}
+         {% if features %}
          <li class="caption">
             <i>This is how the work is described in my resume. Some of it is redundant with the <b>Feautures</b>
                list, but included for completion.</i></em>
          </li>
+         {% endif %}
       </ul>
    </div>
 

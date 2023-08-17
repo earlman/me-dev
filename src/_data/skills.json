@@ -82,6 +82,11 @@
       "link": "https://github.com/"
     },
     {
+      "name": "Netlify",
+      "level": 3,
+      "link": "https://www.netlify.com/"
+    },
+    {
       "name": "Google Firebase",
       "level": 2,
       "link": "https://firebase.google.com/"

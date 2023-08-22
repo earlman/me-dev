@@ -15,6 +15,7 @@ const screenshotHtmlShortcode = require("./shortcodes/screenshotHtml.js");
 const avatarShortcode = require("./shortcodes/avatar.js");
 const readingTimeShortcode = require("./shortcodes/readingTime.js");
 const shiFilter = require("./filters/summary-headline-intro");
+const dateFilter = require("./filters/summary-headline-intro");
 
 module.exports = (eleventyConfig) => {
    // Shortcodes
@@ -25,6 +26,7 @@ module.exports = (eleventyConfig) => {
 
    // Filters
    shiFilter(eleventyConfig);
+   dateFilter(eleventyConfig);
 
    // Plugins
    eleventyConfig.addPlugin(Collections);

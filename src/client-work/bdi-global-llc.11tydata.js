@@ -10,8 +10,8 @@ module.exports = function (data) {
          repo: "bdi-global-llc",
       },
       password: "NETHER-rustle-flea",
-      dateCompleted: "Mar 2022",
-      dateStarted: "Aug 2019",
+      dateCompleted: "March 2022",
+      dateStarted: "August 2019",
       sort: 2,
       tags: ["featured"],
       overview:

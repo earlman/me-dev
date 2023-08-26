@@ -2,6 +2,8 @@ module.exports = function (data) {
    return {
       title: "Moonrise Labs",
       permalink: "work/moonrise/",
+      dateStarted: "April 2022",
+      dateCompleted: "December 2022",
       tech: [
          {
             name: "VueRouter",

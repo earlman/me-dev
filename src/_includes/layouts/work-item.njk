@@ -208,6 +208,11 @@ layout: layouts/_base.njk
       font-size: var(--d-lg);
       white-space: nowrap;
    }
+
+   .date {
+      color: var(--color-t2);
+      weight: 500;
+   }
 </style>
 
 <section class="work">
@@ -225,6 +230,9 @@ layout: layouts/_base.njk
    </hgroup>
 
    <div class="overview">
+      <p class="date">
+         {{dateCompleted}} - {{dateStarted}}
+      </p>
       {{overview}}
       <div class="demo">
          <a href="{{url}}">

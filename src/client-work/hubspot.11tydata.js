@@ -23,7 +23,7 @@ module.exports = function (data) {
       sort: 1,
       layout: "layouts/work-item.njk",
       tags: ["featured"],
-      dateCompleted: "Jun 2023",
-      dateStarted: "Apr 2023",
+      dateCompleted: "June 2023",
+      dateStarted: "April 2023",
    };
 };

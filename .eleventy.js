@@ -50,7 +50,6 @@ module.exports = (eleventyConfig) => {
 
    // Recognize Sass as a "template languages"
    eleventyConfig.addTemplateFormats("sass");
-
    // Compile Sass
    eleventyConfig.addExtension("sass", {
       outputFileExtension: "css",

@@ -66,10 +66,10 @@ layout: layouts/_base.njk
          grid-template-columns: 1fr 1fr;
       }
 
-      hgroup,
-      .overview,
       .break,
-      .markdown-content {
+      .markdown-content,
+      .overview,
+      hgroup {
          grid-column: 1/-1;
       }
    }
@@ -189,7 +189,7 @@ layout: layouts/_base.njk
       list-style: none;
       padding: 0;
       border-top: 1px solid var(--color-outline);
-      margin-top: var(--space-sm)
+      margin-top: var(--space-sm);
    }
 
    .features ul li,
@@ -225,7 +225,8 @@ layout: layouts/_base.njk
 
       <div class="tagline">
          <p>{{tagline}}</p>
-         <p><span id="reading-time">{% readingTime content %}</span></p>
+         <p>
+            <span id="reading-time">{% readingTime content %}</span></p>
       </div>
    </hgroup>
 
@@ -235,7 +236,7 @@ layout: layouts/_base.njk
       </p>
       {{overview}}
       <div class="demo">
-         <a href="{{url}}">
+         <a href="{{url}}" target="_blank">
             Demo
          </a>
       </div>
@@ -248,70 +249,71 @@ layout: layouts/_base.njk
 
       <ul class="tech-links">
          {% for item in tech %}
-         <li>
-            <a href="{{ item.url }}" target="_blank">
-               {% techAvatar item.url %}
-               {{ item.name }}
-            </a>
-         </li>
+            <li>
+               <a href="{{ item.url }}" target="_blank">
+                  {% techAvatar item.url %}
+                  {{ item.name }}
+               </a>
+            </li>
          {% endfor %}
       </ul>
    </div>
 
    {% if features %}
-   <div class="features">
-      <h2>Features</h2>
-      <ul>
-         {% for item in features %}
-         <li>
-            {{item}}
-         </li>
-         {% endfor %}
-      </ul>
-   </div>
+      <div class="features">
+         <h2>Features</h2>
+         <ul>
+            {% for item in features %}
+               <li>
+                  {{item}}
+               </li>
+            {% endfor %}
+         </ul>
+      </div>
    {% endif %}
 
    <div class="tasks">
       <h2>Tasks</h2>
       <ul>
          {% for item in tasks %}
-         <li>
-            {{item}}
-         </li>
+            <li>
+               {{item}}
+            </li>
          {% endfor %}
          {% if features %}
-         <li class="caption">
-            <i>This is how the work is described in my resume. Some of it is redundant with the <b>Feautures</b>
-               list, but included for completion.</i></em>
+            <li class="caption">
+               <i>This is how the work is described in my resume. Some of it is redundant with the <b>Feautures</b>
+               list, but included for completion.</i>
+            </em>
          </li>
-         {% endif %}
-      </ul>
-   </div>
+      {% endif %}
+   </ul>
+</div>
 
-   {% if content %}
+{% if content %}
    <hr class="break">
-   {% endif %}
+{% endif %}
 
-   <!-- <div class="back">
+<!-- <div class="back">
       <a href="/work">⬅ Back to portfolio</a>
    </div> -->
 
-   <!-- <div>
+<!-- <div>
       {%- for item in tech -%}
       {{item.name}}
       {{item.link}}
       {%- endfor -%}
    </div> -->
 
-   <div class="markdown-content content">
-      <!-- <div class="links">
+<div class="markdown-content content">
+   <!-- <div class="links">
          <a href="{{ url | url }}" target="_blank">{% indieAvatar url %}Website</a>
          {%- if (urlGithub) and (not urlGithubPrivate) -%}
          <a href="{{ urlGithub | url }}" target="_blank">{% indieAvatar "https://github.com/" %}Github{{ urlGithub | log
             }}</a>
          {%- endif -%}
       </div> -->
-      {{ content | safe }}
-   </div>
-   <!-- {{githubData}} -->
+   {{ content | safe }}
+</div>
+<!-- {{githubData}} -->
 </section>

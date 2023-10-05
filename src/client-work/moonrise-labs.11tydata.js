@@ -4,6 +4,7 @@ module.exports = function (data) {
       permalink: "work/moonrise/",
       dateStarted: "April 2022",
       dateCompleted: "December 2022",
+      url: "https://www.moonriselabs.com/",
       tech: [
          {
             name: "VueRouter",

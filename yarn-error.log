@@ -28,7 +28,7 @@ Trace:
 
 npm manifest: 
   {
-     "name": "dev.earlman.me",
+     "name": "earljman.dev",
      "version": "0.0.0",
      "description": "Earl Man's professional portfolio",
      "scripts": {

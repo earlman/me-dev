@@ -14,7 +14,7 @@ jobs:
       id: lighthouseCheck # Required for "Verify Lighthouse Check Results"
       with:
         outputDirectory: ${{ github.workspace }}/tmp/artifacts
-        urls: 'https://dev.earlman.me/portfolio/moonrise/'
+        urls: 'https://earljman.dev/portfolio/moonrise/'
         gitHubAccessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
         prCommentEnabled: true
         prCommentSaveOld: true

@@ -1,135 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-   <meta charset="UTF-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>{{ title }} | Earl Justin - Portfolio</title>
-   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
-   <link href="{{ '/assets/fonts/alegreya-sans/latin.css'}}" rel="stylesheet">
-   <link href="{{ '/assets/fonts/fraunces/full.css'}}" rel="stylesheet">
-   <link rel="stylesheet" href="{{ '/styles/index.css' }}" />
-   <style>{{ page.url | getVueComponentCssForPage }}</style>
+   <head>
+      <meta charset="UTF-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>{{ title }} | Earl Justin - Portfolio</title>
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+      <link href="{{ '/assets/fonts/alegreya-sans/latin.css'}}" rel="stylesheet">
+      <link href="{{ '/assets/fonts/fraunces/full.css'}}" rel="stylesheet">
+      <link rel="stylesheet" href="{{ '/styles/index.css' }}"/>
+      <style>
+         {{page.url | getVueComponentCssForPage}}
+      </style>
 
-   <!-- HTML Meta Tags -->
-   <title>Web Dev Portfolio | Earl Justin</title>
-   <meta name="description" content="✌🏼">
+      <!-- HTML Meta Tags -->
+      <title>Web Dev Portfolio | Earl Justin</title>
+      <meta name="description" content="✌🏼">
 
-   <!-- Facebook Meta Tags -->
-   <meta property="og:url" content="https://dev.earlman.me/">
-   <meta property="og:type" content="website">
-   <meta property="og:title" content="Web Dev Portfolio | Earl Justin">
-   <meta property="og:description" content="✌🏼">
-   <meta property="og:image"
+      <!-- Facebook Meta Tags -->
+      <meta property="og:url" content="https://earljman.dev/">
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Web Dev Portfolio | Earl Justin">
+      <meta property="og:description" content="✌🏼">
+      <meta property="og:image"
       content="https://res.cloudinary.com/foundations-dev/image/upload/c_fill,h_630,w_1200/v1690414587/Frame_14.png">
 
-   <!-- Twitter Meta Tags -->
-   <meta name="twitter:card" content="summary_large_image">
-   <meta property="twitter:domain" content="dev.earlman.me">
-   <meta property="twitter:url" content="HTTPS://dev.earlman.me">
-   <meta name="twitter:title" content="Web Dev Portfolio | Earl Justin">
-   <meta name="twitter:description" content="✌🏼">
-   <meta name="twitter:image"
+      <!-- Twitter Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta property="twitter:domain" content="earljman.dev">
+      <meta property="twitter:url" content="HTTPS://earljman.dev">
+      <meta name="twitter:title" content="Web Dev Portfolio | Earl Justin">
+      <meta name="twitter:description" content="✌🏼">
+      <meta name="twitter:image"
       content="https://res.cloudinary.com/foundations-dev/image/upload/c_fill,h_630,w_1200/v1690414587/Frame_14.png">
 
-   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+      <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
-   <!-- Generated at https://realfavicongenerator.net/ -->
-   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-   <link rel="manifest" href="/site.webmanifest">
-   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D4CBC4">
-   <meta name="msapplication-TileColor" content="#D4CBC4">
-   <meta name="theme-color" content="#D4CBC4">
+      <!-- Generated at https://realfavicongenerator.net/ -->
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D4CBC4">
+      <meta name="msapplication-TileColor" content="#D4CBC4">
+      <meta name="theme-color" content="#D4CBC4">
 
-</head>
+   </head>
 
-{%- include "components/header.njk"-%}
-{%- include "components/skillstable.webc"-%}
-{%- include "components/ticker-message.webc"-%}
+   {%- include "components/header.njk"-%}
+   {%- include "components/skillstable.webc"-%}
+   {%- include "components/ticker-message.webc"-%}
 
+   <body>
 
-<body>
+      <main>
+         <div class="" style="overflow-x: clip">{{ content | safe }}</div>
+      </main>
+      <script>
 
+         // Horizontal Scroll
 
-   <main>
-      <div class="" style="overflow-x: clip">{{ content | safe }}</div>
-   </main>
-   <script>
+         // Variables for our scroll animation
+         let isHovered = false;
+         let isShiftScroll = false;
+         let isMouseDown = false;
+         let scrollSpeed = 5; // Speed of the scroll - higher is faster
+         let scrollAnimation; // Variable to keep track of the animation
 
-      // Horizontal Scroll
+         // Select our scroll container
+         const scrollContainer = document.querySelector('.image_group.scroll');
 
-      // Variables for our scroll animation
-      let isHovered = false;
-      let isShiftScroll = false;
-      let isMouseDown = false;
-      let scrollSpeed = 5; // Speed of the scroll - higher is faster
-      let scrollAnimation; // Variable to keep track of the animation
-
-      // Select our scroll container
-      const scrollContainer = document.querySelector('.image_group.scroll');
-
-      scrollContainer.addEventListener('mouseover', function () {
-         isHovered = true;
-         scrollContent();
-      });
-
-      scrollContainer.addEventListener('mouseout', function () {
-         isHovered = false;
-      });
-
-      window.addEventListener('wheel', function (event) {
-         if (event.shiftKey) {
-            isShiftScroll = true;
-            stopScrollAnimation();
-         } else {
-            isShiftScroll = false;
+         scrollContainer.addEventListener('mouseover', function () {
+            isHovered = true;
             scrollContent();
-         }
-      });
+         });
 
-      scrollContainer.addEventListener('mousedown', function () {
-         isMouseDown = true;
-         stopScrollAnimation();
-      });
+         scrollContainer.addEventListener('mouseout', function () {
+            isHovered = false;
+         });
 
-      scrollContainer.addEventListener('mouseup', function () {
-         isMouseDown = false;
-         if (isHovered && !isShiftScroll) {
-            scrollContent();
-         }
-      });
+         window.addEventListener('wheel', function (event) {
+            if (event.shiftKey) {
+               isShiftScroll = true;
+               stopScrollAnimation();
+            } else {
+               isShiftScroll = false;
+               scrollContent();
+            }
+         });
 
-      // Function to stop the scrolling animation
-      function stopScrollAnimation() {
-         if (scrollAnimation) {
-            scrollAnimation.kill();
-            scrollAnimation = null;
-         }
-      }
-
-      // Function to scroll the content
-      function scrollContent() {
-         if (isHovered && !isShiftScroll && !isMouseDown) {
-            // Use GSAP to animate the scrollLeft property
+         scrollContainer.addEventListener('mousedown', function () {
+            isMouseDown = true;
             stopScrollAnimation();
-            scrollAnimation = gsap.to(scrollContainer, {
-               duration: scrollSpeed,
-               scrollLeft: `+=100`,
-               ease: 'none',
-               onComplete: scrollContent
-            });
+         });
+
+         scrollContainer.addEventListener('mouseup', function () {
+            isMouseDown = false;
+            if (isHovered && !isShiftScroll) {
+               scrollContent();
+            }
+         });
+
+         // Function to stop the scrolling animation
+         function stopScrollAnimation() {
+            if (scrollAnimation) {
+               scrollAnimation.kill();
+               scrollAnimation = null;
+            }
          }
-      }
 
-   </script>
+         // Function to scroll the content
+         function scrollContent() {
+            if (isHovered && !isShiftScroll && !isMouseDown) {
+               // Use GSAP to animate the scrollLeft property
+               stopScrollAnimation();
+               scrollAnimation = gsap.to(scrollContainer, {
+                  duration: scrollSpeed,
+                  scrollLeft: `+=100`,
+                  ease: 'none',
+                  onComplete: scrollContent
+               });
+            }
+         }
+      </script>
 
+   </body>
 
-</body>
-
-{%- include "components/footer.njk" -%}
+   {%- include "components/footer.njk" -%}
 
 </html>
